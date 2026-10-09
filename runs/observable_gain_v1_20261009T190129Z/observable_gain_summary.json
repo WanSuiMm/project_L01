@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "NO_HELDOUT_SUPPORT",
+  "input_file": "cases.jsonl",
+  "target": "log10(max(future_cumulative_kl, 1e-10)); future cumulative KL excludes t0 and sums 32 positions",
+  "support": {
+    "calibration_rows": 48,
+    "heldout_rows": 96,
+    "calibration_prompts": 8,
+    "heldout_prompts": 16,
+    "minimum_calibration_prompts": 4,
+    "minimum_heldout_prompts": 8
+  },
+  "fit": {
+    "feature_transform": "log10(max(KL, 1e-10))",
+    "standardization": "calibration rows only",
+    "ridge_alpha": 1.0,
+    "intercept_penalized": false
+  },
+  "primary": {
+    "baseline": "proxy_current",
+    "candidate": "candidate_recent",
+    "independent_unit": "prompt_id",
+    "mean_log_mse_reduction": -0.00019140439395021517,
+    "mean_percent_improvement": -0.18397860497311308,
+    "bootstrap_95ci": [
+      -0.0004202860899394004,
+      4.4571581928452925e-05
+    ],
+    "bootstrap_draws": 2000,
+    "bootstrap_seed": 20261010
+  },
+  "models": {
+    "proxy_current": {
+      "heldout_log_mse_prompt_macro": 0.10403622420019291,
+      "heldout_spearman_case_level": 0.23936161830374858,
+      "heldout_case_count": 96,
+      "heldout_prompt_count": 16
+    },
+    "candidate_recent": {
+      "heldout_log_mse_prompt_macro": 0.10422762859414311,
+      "heldout_spearman_case_level": 0.24259359739555073,
+      "heldout_case_count": 96,
+      "heldout_prompt_count": 16
+    },
+    "actual_current_oracle": {
+      "heldout_log_mse_prompt_macro": 0.0949199812735742,
+      "heldout_spearman_case_level": 0.20128865979381444,
+      "heldout_case_count": 96,
+      "heldout_prompt_count": 16
+    }
+  },
+  "limitations": [
+    "No full-sequence TV certificate.",
+    "No systems speed or memory benchmark.",
+    "Direct residual proxy is BPKV-style, not a paper replication.",
+    "Recent-window heuristic is not a Gramian bound."
+  ]
+}

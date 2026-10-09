@@ -1,0 +1,7 @@
+# Reference inference environment; install a CUDA build suitable for your device.
+torch==2.11.0
+transformers==5.8.1
+# Offline analysis / input preparation
+numpy>=1.26,<3
+scipy>=1.11,<2
+pyarrow>=19,<25

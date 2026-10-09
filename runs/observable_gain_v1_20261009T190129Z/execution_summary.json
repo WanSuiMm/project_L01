@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "run_id": "observable_gain_v1_20261009T190129Z",
+  "execution_status": "COMPLETE",
+  "scientific_verdict": "NO_HELDOUT_SUPPORT",
+  "worker_exit_code": 0,
+  "analysis_exit_code": 0,
+  "completed_cases": 144,
+  "expected_cases": 144,
+  "start_utc": "2026-10-09T19:11:54.638520+00:00",
+  "finish_utc": "2026-10-09T19:14:31.770892+00:00",
+  "runtime_seconds": 157.132372,
+  "model_id": "Qwen/Qwen2.5-7B-Instruct",
+  "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "device": "NVIDIA GeForce RTX 5090",
+  "dtype": "bfloat16",
+  "attention_implementation": "eager",
+  "software": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.8.1",
+    "cuda": "12.8"
+  },
+  "python_version": "3.12.13",
+  "peak_gpu_memory_allocated_bytes": 15587826688,
+  "peak_gpu_memory_reserved_bytes": 16026435584,
+  "source_sha256": {
+    "analyze_observable_gain.py": "1839eebfd0b19ed4dd6bf55866a1ba7d52df08865671d2595e248a4ae09445e8",
+    "observable_gain.py": "49586a23f387e25fa22105a5ec4f7d5da498e3d4f70fb5c64acc263ae32cab03",
+    "prepare_wikitext_prefixes.py": "b8dbecbfe7567479bc100cd106e84cafba85356caf6b430c3b1f537c68534ee2",
+    "remote_job.py": "c8fcb968f08c637f826c4f89c0737e187e1ff72677e964795ec607914edc66d5"
+  },
+  "config_sha256": "4018496c072ec660555be0fbaa1d8c1fe3530d5faed7eb9ceb22f4b000fe2a00",
+  "prompts_sha256": "85f919b59fb70c8a573c6e67c9c3da8a98dc47c1fc7091c48b5ef0f603ee04c5",
+  "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+  "dataset_source_sha256": "204929b7ff9d6184953f867dedb860e40aa69c078fc1e54b3baaa8fb28511c4c",
+  "evidence_sha256": {
+    "cases.jsonl": "9c1907bc72ae04d7d4d8a06550391d4a24bed91d427a08c8740036188529dce5",
+    "summary.json": "3f4ae338f9cdbbda431581682732919eb6abd91d72910471a123c6ae6bea7438",
+    "observable_gain_summary.json": "9a3bea23858e00d3e12982c500b5a7ddd63ec053a15c889d140007acbc76ce18",
+    "RESULTS.md": "b01531724448f70b7412be07dc94caaf00826634ff875bd912ef2854abaa2fbc"
+  },
+  "claim_boundary": "mechanism pilot; no uniform certificate, memory saving, or inference speedup"
+}

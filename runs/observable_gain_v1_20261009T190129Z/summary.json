@@ -1,0 +1,27 @@
+{
+  "state": "COMPLETE",
+  "completed_cases": 144,
+  "expected_cases": 144,
+  "counts_by_split": {
+    "calibration": 48,
+    "heldout": 96
+  },
+  "counts_by_candidate": {
+    "layer5:random": 24,
+    "layer5:low_current_attention": 24,
+    "layer14:random": 24,
+    "layer14:low_current_attention": 24,
+    "layer22:random": 24,
+    "layer22:low_current_attention": 24
+  },
+  "means_across_cases": {
+    "actual_current_kl": 0.008475666716966165,
+    "future_cumulative_kl": 0.2037140389611346,
+    "proxy_current_kl": 9.595398537996945e-05,
+    "proxy_recent_mean_kl": 0.30073325121979244,
+    "proxy_recent_max_kl": 1.20258523611063
+  },
+  "smoke_checks": [],
+  "peak_gpu_memory_allocated_bytes": 15587826688,
+  "peak_gpu_memory_reserved_bytes": 16026435584
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "historical_drafts_not_current_claims",
+  "files": [
+    {
+      "file": "L01_Adaptive_Attention_Round2_2026-10-09.md",
+      "sha256": "8cb660fd20913330b530480797f3bfc9b9bafb0e7be3ae5536d5e92ac06170df",
+      "copied_without_changes": true
+    },
+    {
+      "file": "L01_Round3_BaseCompress_Adaptive_2026-10-10.md",
+      "sha256": "31952c125a8d9153044a6153e0eaebf58ef8068d074ca2c69f2527310195c787",
+      "copied_without_changes": true
+    },
+    {
+      "file": "L01_Round4_Full_Audit_and_SelfGenerated_KV_2026-10-10.md",
+      "sha256": "022daaf0f02c79184827e130c134db5a60ce21ed1c27c5d88e69d17a0571ef7b",
+      "copied_without_changes": true
+    }
+  ]
+}

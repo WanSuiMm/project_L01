@@ -1,0 +1,6 @@
+# Preserve frozen evidence and source bytes across platforms; hashes use bytes.
+* -text
+# Frozen files include both CRLF and LF; CRLF is not trailing whitespace.
+* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Historical drafts retain their original Markdown line breaks and whitespace.
+theory/archive/L01_*.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

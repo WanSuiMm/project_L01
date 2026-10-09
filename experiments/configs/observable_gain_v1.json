@@ -1,0 +1,23 @@
+{
+  "protocol_id": "observable_gain_v1",
+  "model_id": "Qwen/Qwen2.5-7B-Instruct",
+  "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "seed": 20261010,
+  "calibration_prompts": 8,
+  "heldout_prompts": 16,
+  "max_prefix_tokens": 384,
+  "recent_window": 4,
+  "horizon": 32,
+  "layer_fractions": [0.2, 0.5, 0.8],
+  "eviction_fraction": 0.2,
+  "mask_types": ["random", "low_current_attention"],
+  "protect_first_tokens": 4,
+  "protect_recent_tokens": 16,
+  "temperature": 1.0,
+  "ridge": 1.0,
+  "bootstrap_samples": 2000,
+  "primary_min_relative_mse_reduction": 0.1,
+  "expected_cases": 144,
+  "max_wall_seconds": 5400,
+  "interpretation": "mechanism_pilot_not_uniform_certificate_or_systems_benchmark"
+}
