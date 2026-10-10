@@ -1,3 +1,108 @@
+# L01 results: Round 6 completed toy study
+
+**Execution: COMPLETE. Scientific interpretation: analytic consistency and
+qualified histogram evidence; recall training is unreliable and the global
+certificate is uninformative.** This is not a general trained-Transformer
+validation or evidence of publication readiness.
+
+The formal run is `round6_toy_v1_20261010T061030Z`. The completed endpoint is
+the [20261010T073818Z snapshot](runs/round6_toy_v1_20261010T061030Z/snapshots/20261010T073818Z/scientific_summary.json),
+not the earlier launch-time analysis in the run's top-level `analysis/`.
+Experiment 2 completed in 3,779.20 seconds (about 63 minutes); final analysis
+finished on 2026-10-10 at 07:16:53 UTC.
+
+## Canonical Round 6 endpoints
+
+| Component | Completed evidence | Interpretation |
+|---|---|---|
+| Exact analytic construction | 160 configurations; 40 short-horizon sequence enumerations; all 12 recorded gates pass | Supports the implemented epsilon-squared and nT/(n+T) scales |
+| Trained evaluation | 20/20 models; 22,080/22,080 prompt rows; 276/276 complete groups | All five training seeds per task/depth retained; no missing groups |
+| Histogram training | 10/10 pass; Bayes NLL gap 0.000181–0.000473 versus threshold 0.03 | Competent models for this simple synthetic task |
+| Associative recall training | 3/10 pass: 1/5 at depth 2, 2/5 at depth 4; threshold answer top-1 0.90 | Seven failures prevent a robust learned-recall interpretation |
+| Global sufficient bound | No tighter than the model-specific universal bounded-logit cap in 840/840 applicable group-seed cases | No useful uniform-generation certificate; Pinsker reaches 1 in all 840 cases |
+
+The primary statistical unit is the **training seed**, with five seeds per
+task/depth. KL is the sum of conditional Q-to-P KL on Q-sampled histories,
+averaged over eight paths per prefix, 16 prefixes per seed, then seeds. It
+estimates sequence KL for the fixed empirical prompt set. Error bars are
+two-sided 95% Student-t intervals across the five seeds. The rows and paths
+are not independent training replicates. Failed-quality seeds are included
+in every primary aggregate; no outcome-dependent retuning was performed.
+
+## What the curves show
+
+For the exact construction, `KL / (epsilon^2 * n*T/(n+T))` ranges from
+**0.110134 to 0.124873** across all 160 configurations. The finite sums display
+short-horizon growth and long-horizon saturation. This validates the named
+construction and its arithmetic, not typical trained-model behavior or a
+minimax cache-space lower bound.
+
+The trained histogram results show slowing accumulation over the measured
+horizons. Representative five-seed mean sequence KL below uses prefix n=64,
+summary m=16, rho=1; both summaries preserve mass.
+
+| Histogram depth / method | T=8 | T=32 | T=128 |
+|---|---:|---:|---:|
+| 2 layers / uniform weighted subset | 0.05956 | 0.18347 | 0.39229 |
+| 4 layers / uniform weighted subset | 0.06108 | 0.19372 | 0.42458 |
+| 2 layers / positive cluster | 0.00001274 | 0.00003532 | 0.00006847 |
+| 4 layers / positive cluster | 0.00000500 | 0.00001494 | 0.00003239 |
+
+For n=64, the coordinate nT/(n+T) is 7.11, 21.33 and 42.67 at these horizons.
+These finite curves are consistent with slowing accumulation; T<=128 does
+not establish the eventual plateau. The very small cluster-summary errors
+are descriptive evidence for this task and compressor, not a general bound.
+
+The rho-mixture precision diagnostic is also informative on histogram. Across
+depths and horizons, mean KL at rho=0.25 is **0.0595–0.0618** times its rho=1
+value, and at rho=0.5 is **0.2412–0.2480** times it, close to rho squared.
+These mixtures store **n+m=80** prefix records per layer rather than m=16;
+rho is intervention amplitude, not a certified all-query epsilon. Recall
+ratios are less consistent and most recall models failed the training gate.
+
+The global audit records log C_model from **139.22 to 1869.95** and log coarse
+uniform epsilon from **12.70 to 261.61**. The theorem may be valid while these
+global sufficient constants have no useful explanatory force in this setting.
+Observed-query numerator/denominator errors remain sampled diagnostics;
+substituting them into the theorem would not certify its assumptions. No
+constant was fitted to observed KL.
+
+## Evidence and reproduction route
+
+1. Read the [completed derived report](runs/round6_toy_v1_20261010T061030Z/snapshots/20261010T073818Z/analysis/RESULTS.md)
+   and [three figures](runs/round6_toy_v1_20261010T061030Z/snapshots/20261010T073818Z/analysis/multilayer_autoregressive_fidelity.png).
+   Figure 3 retains both 25% and 50% budget curves for each method and labels
+   failed task-quality coverage. The figure's t intervals can extend below zero;
+   KL estimates themselves are nonnegative up to numerical tolerance.
+2. Use [scientific_summary.json](runs/round6_toy_v1_20261010T061030Z/snapshots/20261010T073818Z/scientific_summary.json)
+   for all model quality records and planned/observed coverage;
+   [analysis/aggregates.json](runs/round6_toy_v1_20261010T061030Z/snapshots/20261010T073818Z/analysis/aggregates.json)
+   contains seed-level curves, uncertainty and bound status. Do not open the
+   large aggregates or compressed per-prompt endpoints first.
+3. [Snapshot provenance](runs/round6_toy_v1_20261010T061030Z/snapshots/20261010T073818Z/provenance.json)
+   binds frozen source/configuration and allowlisted endpoint files. The
+   [frozen protocol](experiments/PROTOCOL_ROUND6_TOY_V1.md) defines tasks,
+   compression, gates and sampling. [README.md](README.md) gives reproduction.
+
+Offline verification `python -B scripts/verify_round6_release.py` passes:
+12 frozen source hashes, three endpoint-file hashes, eight derived-analysis
+hashes, complete coverage and group aggregation, 2,880 full-cache identity
+rows, and the recomputed 160-row analytic grid. The verifier checks recorded
+norm-audit fields but does not recalculate norms from private checkpoints.
+
+Actual Q cache tensor bytes include suffix K/V and explicit weights, but exclude
+allocator residency and Python overhead. Dense replay/oracle storage is not Q's
+compression cost. No practical speedup, end-to-end memory saving, fixed-memory
+streaming or full-sequence TV endpoint is established. The suffix grows with T.
+The unweighted subset is an out-of-theorem mass-changing control.
+
+The next empirical gap is a reliably learned recall baseline under a new frozen
+protocol, preserving these failures. A useful model-dependent propagation
+certificate is a separate theoretical gap. Neither is resolved by the current
+run. Historical Experiment 0 remains unchanged below.
+
+---
+
 # Experiment 0 result
 
 **Execution: COMPLETE, 144/144 cases. Scientific endpoint:

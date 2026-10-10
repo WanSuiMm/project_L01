@@ -1,0 +1,9 @@
+{
+  "protocol_id": "round6_toy_v1",
+  "n_values": [8, 32, 128, 512],
+  "T_values": [2, 8, 32, 128, 512, 2048, 8192, 32768],
+  "epsilon_values": [0.025, 0.05, 0.1, 0.2, 0.4],
+  "binary_enumeration": true,
+  "enumeration_max_T": 8,
+  "numerical_tolerance": 1e-10
+}

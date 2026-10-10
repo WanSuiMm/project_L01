@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "run_id": "round6_toy_v1_20261010T061030Z",
+  "captured_utc": "2026-10-10T07:42:23.005174+00:00",
+  "snapshot_status": "COMPLETE",
+  "source_sha256": {
+    "PROTOCOL_ROUND6_TOY_V1.md": "dceee995a427dc675faf1a6308e9c4b92a44df0ebe7a4d385df20be9f21b61e9",
+    "THEOREM_AND_PROOF.md": "1011ac2638e4d91c575ef9a6eb602670cbc3c23aa8f8168d4b45d30eab0d68d2",
+    "analyze_round6.py": "fd6a78479598f48abbe2418ff9ca897fe365d4998d9f9d2f81fe8f7bf1a219c0",
+    "round6_bounds.py": "61f5e4533a23c1314b33fba654369d95a09fcc42173ca08a4af90593b083cecf",
+    "round6_dispatch.py": "50d6d64a948c3abeb0468003013ce2c50c7b2dbbda8e2004aa2c5ef0a57c7b8f",
+    "round6_scaling.py": "0abde06066fc65d0c660e244950133bfff2ed726b1e9e608f17a16852541f899",
+    "round6_scaling_v1.json": "31497b17d2a9fde3074bc68697f545a030368ed8db47c78cba4148b064357580",
+    "round6_transformer.py": "6f854305669cc54f1f0f64ac58c554d8693e387577ef32cd01a7ac41438f640c",
+    "round6_transformer_v1.json": "8824b6633ef73637cb449780a332c431ccca3cac39b7fbba1fc9a81ade8d0809",
+    "test_round6_analysis.py": "f50bd0e6927c692a6e6ee7507b82241d5818acff4f262fc4a340b8183614e0d6",
+    "test_round6_scaling.py": "d488276d12d3eb84da444191bea68b6e6fae4d6fcc612fbad0a0a7752023ecbb",
+    "test_round6_transformer.py": "dc09e6b481951077779d3dc25a7aed50a9909d6fd0378817d8c9314d230fda48"
+  },
+  "config_sha256": {
+    "effective_config_file_sha256": "00fd68a9015c306c4d89f50a4e4e215a14605141939f5ae102b001f0c8c35a70",
+    "effective_config_declared_sha256": "9c0c618e3a61845eb35077cb969c3125f443dcbd6d4bd5c6afa803543ba79fbc",
+    "original_config_sha256": "8824b6633ef73637cb449780a332c431ccca3cac39b7fbba1fc9a81ade8d0809"
+  },
+  "exporter_sha256": "5a3db31ebc2cf55e1b9c1df653a948901e2e0a66fff2b8b865db3c33ac631f79",
+  "evaluation_rows_prefix_sha256": "50699cd917ed9313fac9fcba28201ed8a6daae120c68a01a7e4c838b2fc88576",
+  "evaluation_rows_prefix_bytes": 463806100,
+  "complete_jsonl_row_count": 22080,
+  "truncated_final_line_bytes_discarded": 0,
+  "public_file_sha256": {
+    "scientific_summary.json": "d81d43620e053f684e5c11a87f8cc8199abe766ca046d03f2e6278598bcca653",
+    "effective_config.json": "00fd68a9015c306c4d89f50a4e4e215a14605141939f5ae102b001f0c8c35a70",
+    "per_prompt_endpoints.jsonl.gz": "cdc698d658c41dadebff5af8de2a51ec0fbadc73b27bca2ed36011e34681ae39"
+  }
+}

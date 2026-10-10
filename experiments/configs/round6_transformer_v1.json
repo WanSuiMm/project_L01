@@ -1,0 +1,32 @@
+{
+  "protocol_id": "round6_toy_v1",
+  "tasks": [
+    {"name": "histogram", "alpha": 2.0, "beta": 2.0},
+    {"name": "associative_recall", "key_vocab_size": 64, "value_vocab_size": 64}
+  ],
+  "model": {
+    "d_model": 64, "n_layers_values": [2, 4], "max_context": 257,
+    "ff_multiplier": 4, "attention_heads": 1, "dropout": 0.0
+  },
+  "training": {
+    "seeds": [11, 23, 37, 51, 71], "prefix_lengths": [16, 64, 128],
+    "suffix_length": 128, "batch_size": 32,
+    "steps_by_task": {"histogram": 2000, "associative_recall": 6000},
+    "learning_rate": 0.001, "warmup_steps": 200, "weight_decay": 0.01,
+    "gradient_clip": 1.0, "cosine_floor": 0.05,
+    "validation_batches": 16, "validation_seed": 20261011, "log_every": 0
+  },
+  "evaluation": {
+    "prefix_lengths": [16, 64, 128], "horizons": [8, 32, 128],
+    "prompts": 16, "continuations_per_prompt": 8,
+    "budgets": [0.25, 0.5],
+    "methods": ["full", "uniform_subset", "positive_cluster", "unweighted_subset"],
+    "summary_seeds": [101], "seed": 20261012,
+    "rho_diagnostics": [
+      {"task": "histogram", "n": 64, "method": "uniform_subset", "budget": 0.25, "values": [0.25, 0.5, 1.0]},
+      {"task": "associative_recall", "n": 64, "method": "uniform_subset", "budget": 0.25, "values": [0.25, 0.5, 1.0]}
+    ]
+  },
+  "quality_gates": {"histogram_bayes_nll_gap_max": 0.03, "associative_recall_answer_top1_min": 0.90},
+  "max_wall_seconds": 43200
+}

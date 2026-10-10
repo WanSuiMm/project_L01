@@ -18,3 +18,10 @@ runs/**/PREPARATION.md
 *.pth
 models/
 data_cache/
+_private/
+runs/**/run_metadata.json
+runs/**/model_manifest.json
+runs/**/progress.json
+runs/**/evaluation_progress.json
+runs/**/operational_manifest.json
+runs/**/evaluation_rows.jsonl

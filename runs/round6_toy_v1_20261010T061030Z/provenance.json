@@ -1,0 +1,33 @@
+{
+  "run_id": "round6_toy_v1_20261010T061030Z",
+  "formal": true,
+  "launch_utc": "2026-10-10T06:13:51.343394+00:00",
+  "source_sha256": {
+    "PROTOCOL_ROUND6_TOY_V1.md": "dceee995a427dc675faf1a6308e9c4b92a44df0ebe7a4d385df20be9f21b61e9",
+    "THEOREM_AND_PROOF.md": "1011ac2638e4d91c575ef9a6eb602670cbc3c23aa8f8168d4b45d30eab0d68d2",
+    "analyze_round6.py": "fd6a78479598f48abbe2418ff9ca897fe365d4998d9f9d2f81fe8f7bf1a219c0",
+    "round6_bounds.py": "61f5e4533a23c1314b33fba654369d95a09fcc42173ca08a4af90593b083cecf",
+    "round6_dispatch.py": "50d6d64a948c3abeb0468003013ce2c50c7b2dbbda8e2004aa2c5ef0a57c7b8f",
+    "round6_scaling.py": "0abde06066fc65d0c660e244950133bfff2ed726b1e9e608f17a16852541f899",
+    "round6_scaling_v1.json": "31497b17d2a9fde3074bc68697f545a030368ed8db47c78cba4148b064357580",
+    "round6_transformer.py": "6f854305669cc54f1f0f64ac58c554d8693e387577ef32cd01a7ac41438f640c",
+    "round6_transformer_v1.json": "8824b6633ef73637cb449780a332c431ccca3cac39b7fbba1fc9a81ade8d0809",
+    "test_round6_analysis.py": "f50bd0e6927c692a6e6ee7507b82241d5818acff4f262fc4a340b8183614e0d6",
+    "test_round6_scaling.py": "d488276d12d3eb84da444191bea68b6e6fae4d6fcc612fbad0a0a7752023ecbb",
+    "test_round6_transformer.py": "dc09e6b481951077779d3dc25a7aed50a9909d6fd0378817d8c9314d230fda48"
+  },
+  "analytic_stage": {
+    "exit_code": 0,
+    "finish_utc": "2026-10-10T06:13:51.681559+00:00",
+    "seconds": 0.3148614321835339
+  },
+  "trained_group_status": "DISPATCHED_CUDA_TRAINING_VERIFIED",
+  "verification": "First model training steps 1 and 100 observed; no trained-model endpoint assessed.",
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.11.0+cu128",
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.9"
+  },
+  "scope": "Analytic propagation-scale experiment plus planned trained synthetic-task study; not minimax cache space or practical inference speed."
+}

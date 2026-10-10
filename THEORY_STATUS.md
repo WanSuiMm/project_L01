@@ -1,6 +1,45 @@
 # Theory status and claim boundaries
 
-This document qualifies the archived theory drafts and the Round 5 discussion.
+## Active Round 6 candidate
+
+[THEOREM_AND_PROOF.md](THEOREM_AND_PROOF.md) is a user-provided proof draft
+for one-time prefix-KV compression followed by exact unit-mass suffix append.
+Under positive mass-preserving summaries, uniform prefix numerator/denominator
+error and bounded model constants, it proposes sequence
+`KL(Q || P) <= C_model * epsilon^2 * n*T/(n+T)` with a matching propagation-scale
+construction. This is not a minimax cache-space lower bound, repeated-compression
+guarantee, or fixed-memory streaming result: the suffix cache still grows with T.
+
+Round 6 Experiment 1 completed 160 exact analytic cases and all recorded gates
+passed. This is evidence for the implemented construction and arithmetic,
+not independent proof verification or typical trained-model behavior. See
+[RESULTS.md](RESULTS.md) for the current trained synthetic-task snapshot;
+incomplete evaluation is not a completed scientific endpoint.
+
+The completed trained study retains all 20 models. Histogram passed its
+training gate for 10/10 models; recall passed for 3/10. The conservative
+global certificate is no tighter than the universal bounded-logit cap in
+840/840 applicable group-seed cases. The results support the analytic
+construction and finite histogram trends; they do not establish a useful
+uniform-generation guarantee or refute the conditional theorem.
+
+The draft refers to `verify_round6.py`, `verification_results.json`,
+`scalar_rate_checks.csv`, and `NOVELTY_AUDIT.md`, which are absent from this
+checkout. Historical verification and novelty statements in that draft are
+not independently reproduced by this release. Publication-level novelty remains
+unresolved. New experiment tests have separate names and narrower coverage.
+
+Observed-query moment errors are diagnostics, not the uniform-query epsilon
+required by the theorem. `experiments/round6_bounds.py` computes conservative
+global sufficient constants from the model's weights and normalization maps;
+their magnitude must be reported even if the bound is looser than the universal
+bounded-logit KL cap. No constant is fitted to measured KL. Tensor cache sizes
+do not measure practical end-to-end memory or speed advantages, and no sampled
+sequence-TV endpoint is estimated.
+
+## Earlier rounds and Experiment 0
+
+The remainder qualifies the archived theory drafts and the Round 5 discussion.
 Correct identities are distinguished from new results and useful certificates.
 The real-model pilot adds no uniform theoretical guarantee.
 

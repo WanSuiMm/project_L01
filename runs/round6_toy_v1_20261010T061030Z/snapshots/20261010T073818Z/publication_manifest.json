@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "run_id": "round6_toy_v1_20261010T061030Z",
+  "snapshot_id": "20261010T073818Z",
+  "execution_status": "COMPLETE",
+  "start_utc": "2026-10-10T06:13:51.366394+00:00",
+  "finish_utc": "2026-10-10T07:16:53.910970+00:00",
+  "stages": [
+    {
+      "name": "SCALING",
+      "exit_code": 0,
+      "seconds": 0.3148614321835339,
+      "finish_utc": "2026-10-10T06:13:51.681559+00:00"
+    },
+    {
+      "name": "TRANSFORMER",
+      "exit_code": 0,
+      "seconds": 3779.203759295866,
+      "finish_utc": "2026-10-10T07:16:50.934693+00:00"
+    },
+    {
+      "name": "ANALYSIS",
+      "exit_code": 0,
+      "seconds": 2.975351619068533,
+      "finish_utc": "2026-10-10T07:16:53.910646+00:00"
+    }
+  ],
+  "private_status_sha256": "4959e4e615a0dcc137e40faedbe499c94ef9cd19eca843b8492b33d654d48d9b",
+  "derived_analysis_file_sha256": {
+    "analysis/aggregates.json": "7ad5694499a76a5a24b53528e3e5dc161ab79d75ee2dba58fb95ebc075ec5075",
+    "analysis/kl_horizon_scaling.pdf": "0ed6ccf8cc8ef80a953b82ac39edfd3773f5102bac85b278a20258582501f7ab",
+    "analysis/kl_horizon_scaling.png": "ad5f3cf573bd7492b99d45b503d1aecad839f60efba72ba6dc3cf9db0565c511",
+    "analysis/multilayer_autoregressive_fidelity.pdf": "af5e4c1c209ce36d8c3ba1ee4c0a625abe170e24076054f82df5e66e849dc189",
+    "analysis/multilayer_autoregressive_fidelity.png": "d508d4de6b97d0f2d9e41e3b204304db06e50d7b06e8f1b838e4fb4150573635",
+    "analysis/precision_scaling.pdf": "09648d0d5e4c541af5311ad1d912d6777bf072f3b043d48e3ae18a388e154835",
+    "analysis/precision_scaling.png": "7a1d77a1719eab92362f6e8a28faec29e00bb54627b2210841c7f5a795275e99",
+    "analysis/RESULTS.md": "1eb86617726fe1ed86adb98d5c9ed16004ff037606d7f15114cc7d85753b62c8"
+  },
+  "scope": "Sanitized execution and derived-file provenance. No checkpoint norm recalculation or new experiment was performed during publication."
+}
