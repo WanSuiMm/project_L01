@@ -1,0 +1,21 @@
+{
+  "config_sha256": "ea0c0ee83a911812ff334903850a765fda0eb2b3aa021437b4f06c1dc4e09bdc",
+  "created_utc": "2026-10-10T10:35:03.286515+00:00",
+  "numpy_version": "2.3.5",
+  "outputs": {
+    "hard_equal_weight.csv": "76c0b05ded9ed8ae1a8d28fb1acdeed15cfdb89e9283e552bd6e2d1612f55c0b",
+    "hard_equal_weight_exact_cases.csv": "7660d2f265385545244aeee777dd55f99239e4555b14ab1a7366361d13c400a6",
+    "hard_minimum_gap_witness_exact.csv": "3821e66e0b9135df03f0a6aaf42c866b94bc338096f43a8135a1099cc5bcebff",
+    "identity_controls.csv": "236bd47c6499e595760443f9ee96ba683e943edf5a0ce7a78317c9b5a6902aea",
+    "summary.json": "a31065fc825886230b964a67897f357a99eb5ba64017ae7e0d40aea671338993",
+    "uniform_balanced.csv": "332ec579708f5252755324ddb60d8ddc5ea2781cf1a4d34baebdcfb4139af326",
+    "uniform_balanced_exact_cases.csv": "50824b4ace5c994490b5b216c8f4261c4d777acb1ef8cbcf4816f9b297642dff"
+  },
+  "platform": "Linux-6.11.0-29-generic-x86_64-with-glibc2.40",
+  "protocol_id": "round7_thinning_v1",
+  "python_version": "3.12.13",
+  "runner_file": "experiments/round7_analytic.py",
+  "runner_sha256": "69d701551e3d8e2162afe9fe103e36b00d7de70e22d2e6f1079e9e8e5b08415b",
+  "scope": "CPU analytic DP; no checkpoint loading, training, or GS-Thin call",
+  "status": "ANALYTIC_GATES_PASS"
+}

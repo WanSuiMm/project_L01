@@ -1,0 +1,9 @@
+{
+  "NOVELTY_AUDIT.md": "a3b578fd5e44e06ef983e21507b28988156a998598569ecf92623f02834c2a23",
+  "README.md": "bfd60f94ab9b6025bede7815f76c92c8a496a6e231a4e8c385a4f4595c22540d",
+  "THEOREM_AND_PROOF.md": "26442fc3cc33d276919b1b9707d790bebe81c5cce61689ee13ded0c4a65e1a0f",
+  "equal_weight_lower.csv": "e0d4264eb0dbcf925fb1b7f8641b69bda710a6648ee4248871c29d1e6fe0540f",
+  "uniform_sampling_risk.csv": "5ff3c7809aca65a8ac0305c8925954b8538298bf58cd9e9fc53c5030fad90897",
+  "verification_results.json": "2d2702b807d32587389b933262df785fdd1b9ec6b918d310c168cecd48d0ba5f",
+  "verify_round7.py": "7abfc47793e584fa0af0608b211c2db661e1fa3c03ab03e66a931b862017f4f2"
+}

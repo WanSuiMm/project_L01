@@ -1,17 +1,50 @@
 # L01: causal output-relevant KV error
 
-Round 6 studies how one-time prefix-KV replacement affects output distributions, using an exact analytic construction and trained synthetic decoders. The completed formal trained-decoder run is part of the current published snapshot; [RESULTS.md](RESULTS.md) is authoritative for the available evidence, metrics, counts, quality gates, and scientific interpretation.
+Round 7 studies how retained prefix-KV budget affects autoregressive sequence KL, comparing GS-Thin and mass-preserving uniform subsets on ten existing small histogram decoders. The completed run has 70,560 validated records: GS-Thin has lower mean KL in 96/108 paired cells, while its conservative global small-risk certificate succeeds in 0/17,280 forward rows. [RESULTS.md](RESULTS.md) gives the exceptions, uncertainty and claim boundaries. Earlier Round 6 and Experiment 0 results are preserved below.
 
 A completed finite-task result does not establish a general trained-Transformer theorem, a uniform generation guarantee, minimax cache-space lower bound, sequence-TV certificate, or practical inference or memory savings. Treat task-quality failures as part of the reported seed results; do not silently remove them.
 
 ## Current reading route
 
 1. [RESULTS.md](RESULTS.md): current published snapshot, canonical aggregates, gates, and claim boundaries.
-2. [GPT_CONTEXT.md](GPT_CONTEXT.md): Round 6 scope, source map, evidence route, and reviewer questions.
-3. [Frozen Round 6 protocol](experiments/PROTOCOL_ROUND6_TOY_V1.md), then the [analytic config](experiments/configs/round6_scaling_v1.json) and [trained-decoder config](experiments/configs/round6_transformer_v1.json).
-4. [THEOREM_AND_PROOF.md](THEOREM_AND_PROOF.md) and [THEORY_STATUS.md](THEORY_STATUS.md) for the user-provided proof draft and its qualifications.
+2. [GPT_HANDOFF.md](GPT_HANDOFF.md): changes since the Round 6 review, evidence commit and focused reviewer questions.
+3. [GPT_CONTEXT.md](GPT_CONTEXT.md), [frozen Round 7 protocol](experiments/PROTOCOL_ROUND7_THINNING_V1.md), and [configuration](experiments/configs/round7_thinning_v1.json): estimands, source map and controls.
+4. [THEORY_STATUS.md](THEORY_STATUS.md), then the [archived Round 7 proof draft](theory/archive/round7/THEOREM_AND_PROOF.md): conditional mathematics and restricted lower-bound class.
 
 Current endpoint status and numbers belong in RESULTS.md; this reading guide does not duplicate them.
+
+## Round 7 verification and reproduction
+
+From this repository root, with [requirements.txt](requirements.txt) installed:
+
+```text
+python -B -m unittest discover -s experiments -p test_gs_thin.py -v
+python -B -m unittest discover -s experiments -p test_round7_transformer.py -v
+python -B scripts/verify_round7_release.py
+```
+
+The release verifier checks frozen source and payload hashes, analytic output
+hashes, checkpoint metadata, training-seed means and paired bootstrap intervals.
+Raw trained rows and model weights are excluded; row-level completeness is a
+recorded server validation, not independently reconstructed by this verifier.
+It does not certify GS-Thin's imported theorem or recompute checkpoint norms.
+
+Reproduce into a fresh output directory:
+
+```text
+python -B experiments/round7_analytic.py --config experiments/configs/round7_thinning_v1.json --run-dir runs/NEW_RUN/analytic
+python -u experiments/round7_transformer.py --config experiments/configs/round7_thinning_v1.json --checkpoint-root PATH_TO_ROUND6_MODELS --run-dir runs/NEW_RUN/transformer --device cuda
+python -B experiments/analyze_round7.py --config experiments/configs/round7_thinning_v1.json --run-dir runs/NEW_RUN
+```
+
+`PATH_TO_ROUND6_MODELS` is the original Round 6 `experiment2/models` directory;
+the expected ten checkpoint hashes and quality records are in the
+[completed snapshot](runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/checkpoints.json).
+Weights are not distributed. Round 6 reproduction below can train replacement
+models under the original protocol, but differing checkpoint bytes constitute
+a new realization, not exact replay of this endpoint. The Round 7 evaluation
+performs no training. GPU execution is needed only for new trained-decoder
+measurements, not for reading or verifying the public compact results.
 
 ## Round 6 reproduction
 

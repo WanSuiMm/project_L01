@@ -1,0 +1,712 @@
+[
+  {
+    "model_seed": 11,
+    "n_layers": 2,
+    "checkpoint_sha256": "46fa515dbbc9328433388bb000c4379a8a5b7051551054ffe07d2d97656160b6",
+    "final_validation": {
+      "model_nll": 0.5944740772247314,
+      "target_tokens": 65536.0,
+      "bayes_nll": 0.5941750774475852,
+      "bayes_nll_gap": 0.00029899977714620274
+    },
+    "log_C_star": 175.86877562526615,
+    "global_constants": {
+      "status": "CONSERVATIVE_GLOBAL_NORM_AUDIT",
+      "layers": [
+        {
+          "r": 3.700262817086233,
+          "value_radius": 13.843155664751396,
+          "B": 13.691944915510943,
+          "beta": 1174.2529525119467,
+          "sigma": 1923.2260417982552,
+          "wq": 137.34305791556997,
+          "wk": 123.4667407937755,
+          "wv": 519.0567607310402,
+          "a": 27061605.501881693,
+          "log_b": 44.431179463389256,
+          "log_a_plus_2b": 45.124326643949885,
+          "log_d_per_epsilon": 24.57464231584658
+        },
+        {
+          "r": 3.505609309234875,
+          "value_radius": 13.545918229976149,
+          "B": 12.289296628994215,
+          "beta": 1421.8025876699276,
+          "sigma": 2082.098556930795,
+          "wq": 129.76391100158,
+          "wk": 127.02678984623134,
+          "wv": 506.85486164793974,
+          "a": 25661452.311372176,
+          "log_b": 41.65887430621686,
+          "log_a_plus_2b": 42.35202148678718,
+          "log_d_per_epsilon": 23.229660659535945
+        }
+      ],
+      "output_head_including_final_norm_lipschitz": 323.07729689803597,
+      "sampling_temperature": 1.0,
+      "logit_absolute_bound": 8.312087777147944,
+      "universal_per_token_KL_cap_from_logit_bound": 17.722787842964,
+      "universal_cap_reason": "P(token|history) >= exp(-2*M)/vocab_size when all logits lie in [-M,M], hence KL(Q_t||P_t) <= log(vocab_size)+2*M for any Q_t.",
+      "log_C_model_for_common_uniform_epsilon": 144.02281645189683,
+      "formula": "KL <= C_model * epsilon^2 * n*T/(n+T)",
+      "scope": "Global LayerNorm and spectral-norm sufficient constants; no fitted gain and no empirical-query certificate.",
+      "common_epsilon_certificate": "For a positive mass-n summary inside the original K/V norm bounds, epsilon <= 2*exp(max_layer_B). This certificate is conservative and can be vacuous.",
+      "log_coarse_uniform_epsilon": 14.385092096070888,
+      "assumptions": "Positive weights, sum n, retained or convex-mean prefix K/V, unit-weight self-generated suffix, full softmax, tau=1. Unweighted-subset control is outside this certificate.",
+      "numerical_note": "Spectral norms are evaluated in float64, not interval arithmetic. This is a numerical audit of sufficient analytic constants, not a machine-checked proof."
+    }
+  },
+  {
+    "model_seed": 23,
+    "n_layers": 2,
+    "checkpoint_sha256": "20c605ce25e273eea708ed61f97e96ec8b5b45c4ee8d820c31eddae045c54923",
+    "final_validation": {
+      "model_nll": 0.5937056541442871,
+      "target_tokens": 65536.0,
+      "bayes_nll": 0.5932330140592146,
+      "bayes_nll_gap": 0.00047264008507252875
+    },
+    "log_C_star": 183.6289121380646,
+    "global_constants": {
+      "status": "CONSERVATIVE_GLOBAL_NORM_AUDIT",
+      "layers": [
+        {
+          "r": 3.8367266641188547,
+          "value_radius": 13.072509795491996,
+          "B": 14.720471495160595,
+          "beta": 1173.3038125808705,
+          "sigma": 1793.337405694633,
+          "wq": 142.42171780954888,
+          "wk": 130.00477604778965,
+          "wv": 489.15003452326994,
+          "a": 25621700.306407258,
+          "log_b": 46.445448539674466,
+          "log_a_plus_2b": 47.1385957202345,
+          "log_d_per_epsilon": 25.47596384743947
+        },
+        {
+          "r": 3.634063233229787,
+          "value_radius": 14.019250849280823,
+          "B": 13.206415583112532,
+          "beta": 1479.7725482864428,
+          "sigma": 2286.3482255015033,
+          "wq": 134.38301863950608,
+          "wk": 122.80893184489408,
+          "wv": 525.3387945642727,
+          "a": 31307946.210881446,
+          "log_b": 43.62322665952676,
+          "log_a_plus_2b": 44.31637384008848,
+          "log_d_per_epsilon": 24.27470537178998
+        }
+      ],
+      "output_head_including_final_norm_lipschitz": 318.5436122342478,
+      "sampling_temperature": 1.0,
+      "logit_absolute_bound": 8.223916968870798,
+      "universal_per_token_KL_cap_from_logit_bound": 17.546446226409707,
+      "universal_cap_reason": "P(token|history) >= exp(-2*M)/vocab_size when all logits lie in [-M,M], hence KL(Q_t||P_t) <= log(vocab_size)+2*M for any Q_t.",
+      "log_C_model_for_common_uniform_epsilon": 149.72589980539595,
+      "formula": "KL <= C_model * epsilon^2 * n*T/(n+T)",
+      "scope": "Global LayerNorm and spectral-norm sufficient constants; no fitted gain and no empirical-query certificate.",
+      "common_epsilon_certificate": "For a positive mass-n summary inside the original K/V norm bounds, epsilon <= 2*exp(max_layer_B). This certificate is conservative and can be vacuous.",
+      "log_coarse_uniform_epsilon": 15.41361867572054,
+      "assumptions": "Positive weights, sum n, retained or convex-mean prefix K/V, unit-weight self-generated suffix, full softmax, tau=1. Unweighted-subset control is outside this certificate.",
+      "numerical_note": "Spectral norms are evaluated in float64, not interval arithmetic. This is a numerical audit of sufficient analytic constants, not a machine-checked proof."
+    }
+  },
+  {
+    "model_seed": 37,
+    "n_layers": 2,
+    "checkpoint_sha256": "0fb45bed66b1645e013f7d8db5eb7e04ed9a323f9cbdbde8d96db99b9bd93d8a",
+    "final_validation": {
+      "model_nll": 0.5939361304044724,
+      "target_tokens": 65536.0,
+      "bayes_nll": 0.5935636091044442,
+      "bayes_nll_gap": 0.0003725213000281835
+    },
+    "log_C_star": 174.33714543266703,
+    "global_constants": {
+      "status": "CONSERVATIVE_GLOBAL_NORM_AUDIT",
+      "layers": [
+        {
+          "r": 3.596800344442494,
+          "value_radius": 14.521336032722765,
+          "B": 12.936972717781645,
+          "beta": 1177.1642632997073,
+          "sigma": 1852.3092467389004,
+          "wq": 132.2162659284806,
+          "wk": 126.76777824838342,
+          "wv": 544.2881243434882,
+          "a": 25584166.188565142,
+          "log_b": 42.929581710013,
+          "log_a_plus_2b": 43.62272889057585,
+          "log_d_per_epsilon": 23.829927297925348
+        },
+        {
+          "r": 3.567098873577181,
+          "value_radius": 13.622325777149026,
+          "B": 12.724194373875592,
+          "beta": 1296.4784309268055,
+          "sigma": 1879.9494393566695,
+          "wq": 131.06987839919813,
+          "wk": 125.7971136737573,
+          "wv": 509.9607587930318,
+          "a": 23947985.31166298,
+          "log_b": 42.43953547536395,
+          "log_a_plus_2b": 43.13268265592833,
+          "log_d_per_epsilon": 23.568051763987093
+        }
+      ],
+      "output_head_including_final_norm_lipschitz": 308.3090084086035,
+      "sampling_temperature": 1.0,
+      "logit_absolute_bound": 7.95093722560836,
+      "universal_per_token_KL_cap_from_logit_bound": 17.00048673988483,
+      "universal_cap_reason": "P(token|history) >= exp(-2*M)/vocab_size when all logits lie in [-M,M], hence KL(Q_t||P_t) <= log(vocab_size)+2*M for any Q_t.",
+      "log_C_model_for_common_uniform_epsilon": 144.0011306547563,
+      "formula": "KL <= C_model * epsilon^2 * n*T/(n+T)",
+      "scope": "Global LayerNorm and spectral-norm sufficient constants; no fitted gain and no empirical-query certificate.",
+      "common_epsilon_certificate": "For a positive mass-n summary inside the original K/V norm bounds, epsilon <= 2*exp(max_layer_B). This certificate is conservative and can be vacuous.",
+      "log_coarse_uniform_epsilon": 13.63011989834159,
+      "assumptions": "Positive weights, sum n, retained or convex-mean prefix K/V, unit-weight self-generated suffix, full softmax, tau=1. Unweighted-subset control is outside this certificate.",
+      "numerical_note": "Spectral norms are evaluated in float64, not interval arithmetic. This is a numerical audit of sufficient analytic constants, not a machine-checked proof."
+    }
+  },
+  {
+    "model_seed": 51,
+    "n_layers": 2,
+    "checkpoint_sha256": "0925f96ebfac07cbfbff054b5caf001abb1b5aa9c3d4e7922b382fc89539c14f",
+    "final_validation": {
+      "model_nll": 0.5951966680586338,
+      "target_tokens": 65536.0,
+      "bayes_nll": 0.594814035927761,
+      "bayes_nll_gap": 0.00038263213087275094
+    },
+    "log_C_star": 167.31261212663628,
+    "global_constants": {
+      "status": "CONSERVATIVE_GLOBAL_NORM_AUDIT",
+      "layers": [
+        {
+          "r": 3.4370294538183854,
+          "value_radius": 13.794545887515811,
+          "B": 11.813171466415108,
+          "beta": 1344.69237064881,
+          "sigma": 1975.1997828575486,
+          "wq": 126.92756984809635,
+          "wk": 124.9979116100854,
+          "wv": 514.5437831546352,
+          "a": 23774545.13159135,
+          "log_b": 40.637587898176236,
+          "log_a_plus_2b": 41.33073507876288,
+          "log_d_per_epsilon": 22.71901676357023
+        },
+        {
+          "r": 3.4653553786648645,
+          "value_radius": 13.09766277339615,
+          "B": 12.008687900441506,
+          "beta": 1640.7999256197566,
+          "sigma": 2378.6661568772583,
+          "wq": 127.65969371664397,
+          "wk": 124.36221917823624,
+          "wv": 491.4272266985783,
+          "a": 27566696.26777999,
+          "log_b": 41.16587577787669,
+          "log_a_plus_2b": 41.85902295845489,
+          "log_d_per_epsilon": 23.048564052320692
+        }
+      ],
+      "output_head_including_final_norm_lipschitz": 307.1104283156707,
+      "sampling_temperature": 1.0,
+      "logit_absolute_bound": 7.923950885903963,
+      "universal_per_token_KL_cap_from_logit_bound": 16.946514060476037,
+      "universal_cap_reason": "P(token|history) >= exp(-2*M)/vocab_size when all logits lie in [-M,M], hence KL(Q_t||P_t) <= log(vocab_size)+2*M for any Q_t.",
+      "log_C_model_for_common_uniform_epsilon": 139.22419985145865,
+      "formula": "KL <= C_model * epsilon^2 * n*T/(n+T)",
+      "scope": "Global LayerNorm and spectral-norm sufficient constants; no fitted gain and no empirical-query certificate.",
+      "common_epsilon_certificate": "For a positive mass-n summary inside the original K/V norm bounds, epsilon <= 2*exp(max_layer_B). This certificate is conservative and can be vacuous.",
+      "log_coarse_uniform_epsilon": 12.701835081001452,
+      "assumptions": "Positive weights, sum n, retained or convex-mean prefix K/V, unit-weight self-generated suffix, full softmax, tau=1. Unweighted-subset control is outside this certificate.",
+      "numerical_note": "Spectral norms are evaluated in float64, not interval arithmetic. This is a numerical audit of sufficient analytic constants, not a machine-checked proof."
+    }
+  },
+  {
+    "model_seed": 71,
+    "n_layers": 2,
+    "checkpoint_sha256": "501479fdc2c62296c9522bc6e823809d2dba25fb67b465a648dc7a92f03e3fcc",
+    "final_validation": {
+      "model_nll": 0.5953669026494026,
+      "target_tokens": 65536.0,
+      "bayes_nll": 0.5949187051121276,
+      "bayes_nll_gap": 0.0004481975372749858
+    },
+    "log_C_star": 178.9467489598824,
+    "global_constants": {
+      "status": "CONSERVATIVE_GLOBAL_NORM_AUDIT",
+      "layers": [
+        {
+          "r": 3.5807519445493807,
+          "value_radius": 13.107282171616998,
+          "B": 12.82178448839417,
+          "beta": 1076.1278865185159,
+          "sigma": 1674.532669210886,
+          "wq": 132.13542436479332,
+          "wk": 129.3139943535926,
+          "wv": 491.0781168582739,
+          "a": 20770754.420962464,
+          "log_b": 42.510649403404045,
+          "log_a_plus_2b": 43.20379658396757,
+          "log_d_per_epsilon": 23.51138903754848
+        },
+        {
+          "r": 3.738120409352134,
+          "value_radius": 13.42187772153527,
+          "B": 13.973544194814965,
+          "beta": 1457.255152448277,
+          "sigma": 2247.017295845864,
+          "wq": 137.5434513226353,
+          "wk": 128.74302628081077,
+          "wv": 502.2993644296537,
+          "a": 31014393.97600143,
+          "log_b": 45.1690264721679,
+          "log_a_plus_2b": 45.862173652728224,
+          "log_d_per_epsilon": 24.980936386229494
+        }
+      ],
+      "output_head_including_final_norm_lipschitz": 311.1079041412563,
+      "sampling_temperature": 1.0,
+      "logit_absolute_bound": 8.006020259610986,
+      "universal_per_token_KL_cap_from_logit_bound": 17.110652807890084,
+      "universal_cap_reason": "P(token|history) >= exp(-2*M)/vocab_size when all logits lie in [-M,M], hence KL(Q_t||P_t) <= log(vocab_size)+2*M for any Q_t.",
+      "log_C_model_for_common_uniform_epsilon": 148.84111064074662,
+      "formula": "KL <= C_model * epsilon^2 * n*T/(n+T)",
+      "scope": "Global LayerNorm and spectral-norm sufficient constants; no fitted gain and no empirical-query certificate.",
+      "common_epsilon_certificate": "For a positive mass-n summary inside the original K/V norm bounds, epsilon <= 2*exp(max_layer_B). This certificate is conservative and can be vacuous.",
+      "log_coarse_uniform_epsilon": 14.66669137537491,
+      "assumptions": "Positive weights, sum n, retained or convex-mean prefix K/V, unit-weight self-generated suffix, full softmax, tau=1. Unweighted-subset control is outside this certificate.",
+      "numerical_note": "Spectral norms are evaluated in float64, not interval arithmetic. This is a numerical audit of sufficient analytic constants, not a machine-checked proof."
+    }
+  },
+  {
+    "model_seed": 11,
+    "n_layers": 4,
+    "checkpoint_sha256": "6fc1ec6c81c9cfa1a23119263b47133dc05a2333bdd7ff3004cf36c044beaf79",
+    "final_validation": {
+      "model_nll": 0.5943847857415676,
+      "target_tokens": 65536.0,
+      "bayes_nll": 0.5941750774475852,
+      "bayes_nll_gap": 0.00020970829398236912
+    },
+    "log_C_star": 352.0324692590087,
+    "global_constants": {
+      "status": "CONSERVATIVE_GLOBAL_NORM_AUDIT",
+      "layers": [
+        {
+          "r": 3.6770537344047463,
+          "value_radius": 11.827721224768235,
+          "B": 13.52072416569989,
+          "beta": 718.9000203577397,
+          "sigma": 947.3456953649907,
+          "wq": 136.86386894337986,
+          "wk": 126.70378122901083,
+          "wv": 441.35486726110935,
+          "a": 11278621.789757248,
+          "log_b": 43.24193502596923,
+          "log_a_plus_2b": 43.93508220653011,
+          "log_d_per_epsilon": 23.537981448077627
+        },
+        {
+          "r": 3.527669608310226,
+          "value_radius": 11.16518120131796,
+          "B": 12.444452865395624,
+          "beta": 796.0107547891356,
+          "sigma": 936.4603688263664,
+          "wq": 130.9196143783683,
+          "wk": 123.18198526695475,
+          "wv": 415.99592779701715,
+          "a": 9658586.83795396,
+          "log_b": 40.95323750548751,
+          "log_a_plus_2b": 41.64638468605536,
+          "log_d_per_epsilon": 22.392507363119194
+        },
+        {
+          "r": 3.43921304240956,
+          "value_radius": 11.562868655851275,
+          "B": 11.82818635108002,
+          "beta": 829.9192098883958,
+          "sigma": 1084.1409751000167,
+          "wq": 126.66602474403909,
+          "wk": 121.09284311523331,
+          "wv": 430.8340291902824,
+          "a": 10922789.551805407,
+          "log_b": 39.861424542473685,
+          "log_a_plus_2b": 40.554571723060285,
+          "log_d_per_epsilon": 21.95767574209352
+        },
+        {
+          "r": 4.0032871812867326,
+          "value_radius": 12.034274642744975,
+          "B": 16.026308255854673,
+          "beta": 1007.4278489845008,
+          "sigma": 1281.8137784790993,
+          "wq": 148.75358572480664,
+          "wk": 129.95552816581665,
+          "wv": 450.0184215198011,
+          "a": 18373117.51386551,
+          "log_b": 48.67917047143008,
+          "log_a_plus_2b": 49.37231765199004,
+          "log_d_per_epsilon": 26.363245603517697
+        }
+      ],
+      "output_head_including_final_norm_lipschitz": 345.9753272563107,
+      "sampling_temperature": 1.0,
+      "logit_absolute_bound": 8.908362081267203,
+      "universal_per_token_KL_cap_from_logit_bound": 18.915336451202517,
+      "universal_cap_reason": "P(token|history) >= exp(-2*M)/vocab_size when all logits lie in [-M,M], hence KL(Q_t||P_t) <= log(vocab_size)+2*M for any Q_t.",
+      "log_C_model_for_common_uniform_epsilon": 320.5289515852615,
+      "formula": "KL <= C_model * epsilon^2 * n*T/(n+T)",
+      "scope": "Global LayerNorm and spectral-norm sufficient constants; no fitted gain and no empirical-query certificate.",
+      "common_epsilon_certificate": "For a positive mass-n summary inside the original K/V norm bounds, epsilon <= 2*exp(max_layer_B). This certificate is conservative and can be vacuous.",
+      "log_coarse_uniform_epsilon": 16.719455436414616,
+      "assumptions": "Positive weights, sum n, retained or convex-mean prefix K/V, unit-weight self-generated suffix, full softmax, tau=1. Unweighted-subset control is outside this certificate.",
+      "numerical_note": "Spectral norms are evaluated in float64, not interval arithmetic. This is a numerical audit of sufficient analytic constants, not a machine-checked proof."
+    }
+  },
+  {
+    "model_seed": 23,
+    "n_layers": 4,
+    "checkpoint_sha256": "199c7d1c9c04aef2191b266de63bd2755571f076e7511bc7871d9b43681fd8fb",
+    "final_validation": {
+      "model_nll": 0.5934926941990852,
+      "target_tokens": 65536.0,
+      "bayes_nll": 0.5932330140592146,
+      "bayes_nll_gap": 0.00025968013987065497
+    },
+    "log_C_star": 354.1114028266106,
+    "global_constants": {
+      "status": "CONSERVATIVE_GLOBAL_NORM_AUDIT",
+      "layers": [
+        {
+          "r": 3.981357479745092,
+          "value_radius": 11.119180441539672,
+          "B": 15.851207381522192,
+          "beta": 710.2473797633301,
+          "sigma": 1034.9965640846253,
+          "wq": 148.61951907155614,
+          "wk": 131.55163663619447,
+          "wv": 412.28909352162583,
+          "a": 13619819.608438293,
+          "log_b": 48.04219453581067,
+          "log_a_plus_2b": 48.73534171637063,
+          "log_d_per_epsilon": 25.89517953285707
+        },
+        {
+          "r": 3.514081232252719,
+          "value_radius": 11.23922264942485,
+          "B": 12.348766906870788,
+          "beta": 741.5871379120457,
+          "sigma": 894.499316749209,
+          "wq": 129.9612839872295,
+          "wk": 121.67708911071104,
+          "wv": 418.66800590877784,
+          "a": 9183477.053605145,
+          "log_b": 40.707141114066175,
+          "log_a_plus_2b": 41.40028829463574,
+          "log_d_per_epsilon": 22.257587909313877
+        },
+        {
+          "r": 3.372971020801221,
+          "value_radius": 11.15508006723501,
+          "B": 11.37693350716483,
+          "beta": 810.2794642273125,
+          "sigma": 1005.8924029248944,
+          "wq": 118.89786691344182,
+          "wk": 123.68685494144857,
+          "wv": 415.40266785289464,
+          "a": 9000776.694217052,
+          "log_b": 38.84974966770158,
+          "log_a_plus_2b": 39.542896848321924,
+          "log_d_per_epsilon": 21.395606082879258
+        },
+        {
+          "r": 3.8231110418820964,
+          "value_radius": 11.170387366810747,
+          "B": 14.61617803856081,
+          "beta": 1123.3160748229354,
+          "sigma": 1342.657770463315,
+          "wq": 142.49494494983577,
+          "wk": 132.21190364762646,
+          "wv": 414.84180602553005,
+          "a": 16342172.20312017,
+          "log_b": 45.802724075040615,
+          "log_a_plus_2b": 46.49587125560067,
+          "log_d_per_epsilon": 24.924997850189975
+        }
+      ],
+      "output_head_including_final_norm_lipschitz": 562.4884551858531,
+      "sampling_temperature": 1.0,
+      "logit_absolute_bound": 14.393146618492482,
+      "universal_per_token_KL_cap_from_logit_bound": 29.884905525653075,
+      "universal_cap_reason": "P(token|history) >= exp(-2*M)/vocab_size when all logits lie in [-M,M], hence KL(Q_t||P_t) <= log(vocab_size)+2*M for any Q_t.",
+      "log_C_model_for_common_uniform_epsilon": 317.94691872121876,
+      "formula": "KL <= C_model * epsilon^2 * n*T/(n+T)",
+      "scope": "Global LayerNorm and spectral-norm sufficient constants; no fitted gain and no empirical-query certificate.",
+      "common_epsilon_certificate": "For a positive mass-n summary inside the original K/V norm bounds, epsilon <= 2*exp(max_layer_B). This certificate is conservative and can be vacuous.",
+      "log_coarse_uniform_epsilon": 16.544354562082138,
+      "assumptions": "Positive weights, sum n, retained or convex-mean prefix K/V, unit-weight self-generated suffix, full softmax, tau=1. Unweighted-subset control is outside this certificate.",
+      "numerical_note": "Spectral norms are evaluated in float64, not interval arithmetic. This is a numerical audit of sufficient analytic constants, not a machine-checked proof."
+    }
+  },
+  {
+    "model_seed": 37,
+    "n_layers": 4,
+    "checkpoint_sha256": "6691fa24ef32ad365848f3c62c34588a3747e6fe617b640d062ae12adb1a7697",
+    "final_validation": {
+      "model_nll": 0.5937731936573982,
+      "target_tokens": 65536.0,
+      "bayes_nll": 0.5935636091044442,
+      "bayes_nll_gap": 0.0002095845529540563
+    },
+    "log_C_star": 368.4769685166867,
+    "global_constants": {
+      "status": "CONSERVATIVE_GLOBAL_NORM_AUDIT",
+      "layers": [
+        {
+          "r": 3.8916831163056416,
+          "value_radius": 11.071681528985536,
+          "B": 15.145197477738389,
+          "beta": 750.6890411106475,
+          "sigma": 1016.6081105768233,
+          "wq": 145.34115345401304,
+          "wk": 126.56944358193478,
+          "wv": 414.6694960984515,
+          "a": 12733530.347864509,
+          "log_b": 46.54910598468187,
+          "log_a_plus_2b": 47.242253165241856,
+          "log_d_per_epsilon": 25.166962276241335
+        },
+        {
+          "r": 3.68783380919249,
+          "value_radius": 10.301088210583023,
+          "B": 13.60011820422319,
+          "beta": 741.7711031741643,
+          "sigma": 924.9729120887397,
+          "wq": 137.38512265699399,
+          "wk": 124.94856944641812,
+          "wv": 380.77055349122656,
+          "a": 9655761.459155723,
+          "log_b": 43.22766506275657,
+          "log_a_plus_2b": 43.92081224331733,
+          "log_d_per_epsilon": 23.455279378806154
+        },
+        {
+          "r": 3.5427812065389186,
+          "value_radius": 11.208857587784767,
+          "B": 12.551298677405356,
+          "beta": 801.8916675344695,
+          "sigma": 1016.8261053833705,
+          "wq": 126.22978409969807,
+          "wk": 130.4286546601948,
+          "wv": 417.4785879153498,
+          "a": 10194791.959787961,
+          "log_b": 41.31213964936953,
+          "log_a_plus_2b": 42.00528682993531,
+          "log_d_per_epsilon": 22.585591573361544
+        },
+        {
+          "r": 4.076756431352277,
+          "value_radius": 11.694005968542589,
+          "B": 16.619943000572153,
+          "beta": 1130.8859389333807,
+          "sigma": 1456.477404907851,
+          "wq": 152.1675223289345,
+          "wk": 127.53501602902705,
+          "wv": 436.05930298920237,
+          "a": 21132799.557977747,
+          "log_b": 49.96481010805778,
+          "log_a_plus_2b": 50.65795728861773,
+          "log_d_per_epsilon": 27.055942644278307
+        }
+      ],
+      "output_head_including_final_norm_lipschitz": 331.74966117301483,
+      "sampling_temperature": 1.0,
+      "logit_absolute_bound": 8.538266673566318,
+      "universal_per_token_KL_cap_from_logit_bound": 18.175145635800746,
+      "universal_cap_reason": "P(token|history) >= exp(-2*M)/vocab_size when all logits lie in [-M,M], hence KL(Q_t||P_t) <= log(vocab_size)+2*M for any Q_t.",
+      "log_C_model_for_common_uniform_epsilon": 333.72450421886253,
+      "formula": "KL <= C_model * epsilon^2 * n*T/(n+T)",
+      "scope": "Global LayerNorm and spectral-norm sufficient constants; no fitted gain and no empirical-query certificate.",
+      "common_epsilon_certificate": "For a positive mass-n summary inside the original K/V norm bounds, epsilon <= 2*exp(max_layer_B). This certificate is conservative and can be vacuous.",
+      "log_coarse_uniform_epsilon": 17.313090181132097,
+      "assumptions": "Positive weights, sum n, retained or convex-mean prefix K/V, unit-weight self-generated suffix, full softmax, tau=1. Unweighted-subset control is outside this certificate.",
+      "numerical_note": "Spectral norms are evaluated in float64, not interval arithmetic. This is a numerical audit of sufficient analytic constants, not a machine-checked proof."
+    }
+  },
+  {
+    "model_seed": 51,
+    "n_layers": 4,
+    "checkpoint_sha256": "57fd83c6f920ca92c147935d74ff04338a9bc8c9ab8733cbe10995234446dccb",
+    "final_validation": {
+      "model_nll": 0.5952511318027973,
+      "target_tokens": 65536.0,
+      "bayes_nll": 0.594814035927761,
+      "bayes_nll_gap": 0.0004370958750362641
+    },
+    "log_C_star": 360.9015830234365,
+    "global_constants": {
+      "status": "CONSERVATIVE_GLOBAL_NORM_AUDIT",
+      "layers": [
+        {
+          "r": 3.8390464717387887,
+          "value_radius": 12.671460233143861,
+          "B": 14.738277812170042,
+          "beta": 761.6741636914921,
+          "sigma": 1073.1282191065231,
+          "wq": 142.31934574428865,
+          "wk": 124.07601651712977,
+          "wv": 475.824188236566,
+          "a": 14859966.997697366,
+          "log_b": 45.89216625964447,
+          "log_a_plus_2b": 46.5853134402045,
+          "log_d_per_epsilon": 24.9491104630539
+        },
+        {
+          "r": 3.4302536621537336,
+          "value_radius": 11.334850124729103,
+          "B": 11.766640186719101,
+          "beta": 776.0227410603912,
+          "sigma": 1033.8264471896891,
+          "wq": 126.87356581965636,
+          "wk": 127.108880920305,
+          "wv": 421.84620266426816,
+          "a": 10200555.878934816,
+          "log_b": 39.71480268068184,
+          "log_a_plus_2b": 40.40794986127061,
+          "log_d_per_epsilon": 21.82869162374284
+        },
+        {
+          "r": 3.471538673373571,
+          "value_radius": 11.537987688700563,
+          "B": 12.051580760728333,
+          "beta": 885.8154379958144,
+          "sigma": 1106.3400207322009,
+          "wq": 129.02894029973092,
+          "wk": 121.25845612761904,
+          "wv": 430.0758145209325,
+          "a": 11436456.111688087,
+          "log_b": 40.33661044164954,
+          "log_a_plus_2b": 41.02975762222684,
+          "log_d_per_epsilon": 22.199185377785017
+        },
+        {
+          "r": 4.15460340232305,
+          "value_radius": 12.165271846934981,
+          "B": 17.260729430594264,
+          "beta": 1137.5511939738174,
+          "sigma": 1356.7201927324083,
+          "wq": 155.98955327174423,
+          "wk": 131.79149169181898,
+          "wv": 454.7528101245501,
+          "a": 21393915.80218614,
+          "log_b": 51.26502068539155,
+          "log_a_plus_2b": 51.958167865951495,
+          "log_d_per_epsilon": 27.665287376877643
+        }
+      ],
+      "output_head_including_final_norm_lipschitz": 340.23630688027765,
+      "sampling_temperature": 1.0,
+      "logit_absolute_bound": 8.764538742546849,
+      "universal_per_token_KL_cap_from_logit_bound": 18.62768977376181,
+      "universal_cap_reason": "P(token|history) >= exp(-2*M)/vocab_size when all logits lie in [-M,M], hence KL(Q_t||P_t) <= log(vocab_size)+2*M for any Q_t.",
+      "log_C_model_for_common_uniform_epsilon": 326.962958056749,
+      "formula": "KL <= C_model * epsilon^2 * n*T/(n+T)",
+      "scope": "Global LayerNorm and spectral-norm sufficient constants; no fitted gain and no empirical-query certificate.",
+      "common_epsilon_certificate": "For a positive mass-n summary inside the original K/V norm bounds, epsilon <= 2*exp(max_layer_B). This certificate is conservative and can be vacuous.",
+      "log_coarse_uniform_epsilon": 17.953876611154207,
+      "assumptions": "Positive weights, sum n, retained or convex-mean prefix K/V, unit-weight self-generated suffix, full softmax, tau=1. Unweighted-subset control is outside this certificate.",
+      "numerical_note": "Spectral norms are evaluated in float64, not interval arithmetic. This is a numerical audit of sufficient analytic constants, not a machine-checked proof."
+    }
+  },
+  {
+    "model_seed": 71,
+    "n_layers": 4,
+    "checkpoint_sha256": "442ceb50259b938c96c52ac081fabda641bce9167d00ad1a769583acb6babc49",
+    "final_validation": {
+      "model_nll": 0.595099862664938,
+      "target_tokens": 65536.0,
+      "bayes_nll": 0.5949187051121276,
+      "bayes_nll_gap": 0.0001811575528103404
+    },
+    "log_C_star": 369.0761129998212,
+    "global_constants": {
+      "status": "CONSERVATIVE_GLOBAL_NORM_AUDIT",
+      "layers": [
+        {
+          "r": 4.1733191298759476,
+          "value_radius": 11.968559461801597,
+          "B": 17.416592559788537,
+          "beta": 820.163959868006,
+          "sigma": 1070.5648430313518,
+          "wq": 155.63789306400614,
+          "wk": 138.4549767565819,
+          "wv": 447.2735413708797,
+          "a": 16645743.2881254,
+          "log_b": 51.37564000347735,
+          "log_a_plus_2b": 52.0687871840373,
+          "log_d_per_epsilon": 27.56796458581627
+        },
+        {
+          "r": 3.5514132548998743,
+          "value_radius": 11.288900931976235,
+          "B": 12.612536107078519,
+          "beta": 736.850842998195,
+          "sigma": 951.6110542128283,
+          "wq": 126.45716300533141,
+          "wk": 131.09253995879627,
+          "wv": 420.97419032085503,
+          "a": 9649814.059288325,
+          "log_b": 41.38271301281179,
+          "log_a_plus_2b": 42.07586019337688,
+          "log_d_per_epsilon": 22.587659707065264
+        },
+        {
+          "r": 3.4718454554395493,
+          "value_radius": 11.418724965414926,
+          "B": 12.053710866456251,
+          "beta": 842.2868778699238,
+          "sigma": 1149.2133931777234,
+          "wq": 125.62648441316708,
+          "wk": 127.687298675733,
+          "wv": 424.59005498789566,
+          "a": 11447794.7232027,
+          "log_b": 40.4180100582696,
+          "log_a_plus_2b": 41.11115723884556,
+          "log_d_per_epsilon": 22.22894557713377
+        },
+        {
+          "r": 3.983019639059032,
+          "value_radius": 11.558213175833105,
+          "B": 15.864445445129942,
+          "beta": 927.1190671036006,
+          "sigma": 1078.321342375602,
+          "wq": 139.7250235571618,
+          "wk": 147.95140562772764,
+          "wv": 430.5766328360881,
+          "a": 13873452.75653044,
+          "log_b": 48.26263809995289,
+          "log_a_plus_2b": 48.95578528051284,
+          "log_d_per_epsilon": 25.98814970572849
+        }
+      ],
+      "output_head_including_final_norm_lipschitz": 355.2455181869941,
+      "sampling_temperature": 1.0,
+      "logit_absolute_bound": 9.1366867468922,
+      "universal_per_token_KL_cap_from_logit_bound": 19.371985782452512,
+      "universal_cap_reason": "P(token|history) >= exp(-2*M)/vocab_size when all logits lie in [-M,M], hence KL(Q_t||P_t) <= log(vocab_size)+2*M for any Q_t.",
+      "log_C_model_for_common_uniform_epsilon": 329.7808585378967,
+      "formula": "KL <= C_model * epsilon^2 * n*T/(n+T)",
+      "scope": "Global LayerNorm and spectral-norm sufficient constants; no fitted gain and no empirical-query certificate.",
+      "common_epsilon_certificate": "For a positive mass-n summary inside the original K/V norm bounds, epsilon <= 2*exp(max_layer_B). This certificate is conservative and can be vacuous.",
+      "log_coarse_uniform_epsilon": 18.10973974034848,
+      "assumptions": "Positive weights, sum n, retained or convex-mean prefix K/V, unit-weight self-generated suffix, full softmax, tau=1. Unweighted-subset control is outside this certificate.",
+      "numerical_note": "Spectral norms are evaluated in float64, not interval arithmetic. This is a numerical audit of sufficient analytic constants, not a machine-checked proof."
+    }
+  }
+]

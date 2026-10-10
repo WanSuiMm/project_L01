@@ -1,5 +1,66 @@
 # Review context
 
+## Current Round 7 review context
+
+Start with [RESULTS.md](RESULTS.md), then [GPT_HANDOFF.md](GPT_HANDOFF.md).
+Formal status: `execution=COMPLETE`, `analytic=ANALYTIC_GATES_PASS`,
+`trained=HISTOGRAM_QUALIFIED`, `empirical=GS_USUALLY_LOWER_KL`,
+`certificate=GLOBAL_SMALL_RISK_UNCERTIFIED`, `novelty=UNRESOLVED`.
+Round 6 and Experiment 0 below retain their own estimands and uncertainty methods.
+
+Round 7 freezes one-time prefix compression, positive equal weights n/m,
+uncompressed CONT, and unit-weight self-generated suffix records. GS-Thin and
+uniform subsets retain original records; the lower-bound class excludes
+arbitrary positive weights, synthetic representatives and learned encoders.
+The archived proof is a conditional draft using an imported SG interface.
+The tie-safe float64 implementation and its software tests do not certify
+that imported theorem. Historical novelty and verification files in the archive
+are user-supplied context, not independent certification by this experiment.
+
+The trained endpoints are E_R KL(Q_R||P) and E_R KL(P||Q_R). Each direction
+uses its own sampled histories; both shadows receive the same tokens and append
+their own KV records. Risk is averaged over compression seeds after KL is
+computed, rather than taking KL of a mixture. Five training seeds per depth
+are the independent units, with nested prompt/draw/path averaging and paired
+seed bootstraps. The 108 cell intervals are not multiplicity-adjusted.
+
+| Concept | Exact source symbol |
+|---|---|
+| Recursive GS halving / fixed-radius softmax-KV kernel | `experiments/gs_thin.py:gs_thin_indices`, `softmax_kv_gram` |
+| Equal-mass prefix replacement | `experiments/round7_transformer.py:select_summary` |
+| Both directional KL laws, same-history replay, own suffix append | `experiments/round7_transformer.py:evaluate_batch` |
+| Existing checkpoint quality / norm audit / evaluation grid | `experiments/round7_transformer.py:run` |
+| Exact hard-class DP, uniform hypergeometric control and witness | `experiments/round7_analytic.py:sequence_kl_dp`, `run_analysis` |
+| Raw key / direction coverage and full identity checks | `experiments/analyze_round7.py:_validate_rows` |
+| Seed means and paired bootstrap | `experiments/analyze_round7.py:_aggregate_primary` |
+| Global certificate separate from observed KL | `experiments/analyze_round7.py:_global_certificate_report` |
+| Public hash and seed-level replay checks | `scripts/verify_round7_release.py` |
+
+The canonical compact endpoint is
+`runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/`.
+Its `analysis/RESULTS.md` and figures are the short route; `analysis/aggregates.json`
+retains all seed estimates and paired comparisons. `analytic/` contains all
+analytic CSVs; `checkpoints.json` contains hashes, quality and global constants.
+`publication_manifest.json` binds frozen sources and public payloads with
+sanitized execution timing. Raw trained rows and weights remain private.
+Reported raw completeness is server validation; public verification only
+reconstructs the compact seed-level endpoint and hash bindings.
+
+At short horizons the analytic class minima are exact. Longer hard/uniform
+aggregate rows are explicitly labeled curvature envelopes; the all-horizon
+exact witness is not a minimax endpoint. Do not turn the finite trained curves
+into an m^-2 theorem, a general NLP result, a uniform query guarantee or
+practical inference savings. No global forward small-risk condition is met.
+
+Focused review questions:
+
+1. Does the theorem's imported SG interface apply to this float64 recursive
+   implementation with its explicitly documented simultaneous-boundary rule?
+2. What do the trained horizon trends explain beyond this histogram task,
+   given the n=16,m=2 failures and the vacuous global certificate?
+3. Does the restricted equal-weight class lower bound provide enough value
+   when arbitrary weights/representatives and useful constants remain open?
+
 ## Current Round 6 review context
 
 The completed formal trained-decoder run is part of the current published snapshot. Start with [RESULTS.md](RESULTS.md) for its current metrics, counts, task-quality gates, and claim boundary. Treat a running or partial group as incomplete, and do not infer an endpoint from training progress.

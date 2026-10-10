@@ -1,4 +1,107 @@
-# L01 results: Round 6 completed toy study
+# L01 results: Round 7 completed thinning study
+
+**Execution: COMPLETE. Scientific interpretation: GS-Thin usually improves
+finite histogram fidelity; the horizon coordinate is informative, but the
+global small-risk certificate remains vacuous.** Neither publication-level
+novelty nor a general trained-Transformer scaling law is established.
+
+The canonical Round 7 run is `round7_thinning_v1_20261010T102523Z`; its completed
+endpoint is the [20261010T115125Z snapshot](runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/publication_manifest.json).
+It finished on 2026-10-10 at 11:21:13 UTC in **2,776.51 seconds (46 min 17 s)**.
+No models were trained: all ten qualified Round 6 histogram checkpoints were reused.
+
+## Canonical Round 7 endpoints
+
+| Component | Completed evidence | Interpretation |
+|---|---|---|
+| Trained evaluation | 70,560/70,560 valid records; 252 aggregate groups; no missing, duplicate or unexpected keys in server validation | Complete frozen grid, with separate KL directions |
+| Checkpoint quality | 10/10 pass the frozen Bayes NLL gap gate; depths 2/4, five seeds each | Qualified for the synthetic histogram task |
+| Paired GS-Thin versus uniform subset | GS lower mean KL in 96/108 cells; higher in 12/108 | All 12 exceptions are n=16,m=2; n=64/128 favor GS in all 72 cells |
+| Paired uncertainty | 96 intervals below zero, six crossing zero, six above zero for GS minus uniform | Five training-seed bootstrap, 108 comparisons unadjusted for multiplicity |
+| Exact analytic study | All recorded gates pass; exhaustive feasible summaries through T=128; one exact witness through T=2048 | Restricted equal-weight construction, not an arbitrary-compressor lower bound |
+| GS forward small-risk certificate | **0/17,280** Q-to-P rows meet V<1/4; log V is **161.01–370.34** | No useful global certificate; this is not an observed-KL violation |
+
+The trained grid uses n=16/64/128, T=8/32/128 and m/n=1/8,1/4,1/2, with eight
+held-out prefixes, eight compression seeds and 16 sampled paths per direction.
+The primary independent unit is the **training seed**, seeds 11/23/37/51/71.
+Within each seed, paths are averaged, compression draws are averaged inside
+each prompt, then prompts receive equal weight. Percentile 95% bootstrap
+intervals resample the five training seeds. Grid cells share models and are
+correlated; 96 favorable cells are not 96 independent discoveries.
+
+Each summary defines its own law Q_R. The estimands are E_R KL(Q_R||P) and
+E_R KL(P||Q_R), with paths sampled from the law in the first KL argument.
+The shadow decoder receives the same sampled tokens but appends its own KV.
+These are per-summary risks, not the KL of a compression-seed mixture.
+
+## What Round 7 adds
+
+At T=128 and m/n=1/4, representative Q-to-P sequence KL means are:
+
+| Depth | n | m | GS-Thin | Uniform subset | KL reduction |
+|---|---:|---:|---:|---:|---:|
+| 2 | 64 | 16 | 0.14224 | 0.50947 | 72.1% |
+| 2 | 128 | 32 | 0.06304 | 0.30635 | 79.4% |
+| 4 | 16 | 4 | 0.19387 | 0.37702 | 48.6% |
+| 4 | 64 | 16 | 0.07074 | 0.20999 | 66.3% |
+| 4 | 128 | 32 | 0.02779 | 0.15085 | 81.6% |
+
+The failure case is material. At depth 4, n=16,m=2,T=128, Q-to-P KL is
+**0.832 versus 0.603**, with paired GS-minus-uniform difference **+0.229**
+(95% interval **[+0.187,+0.269]**). At depth 4 all six n=16,m=2 intervals
+favor uniform; at depth 2 all six corresponding intervals cross zero.
+The gain is not universal, especially at the smallest retained budget.
+
+The horizon coordinate h=nT/(n+T) explains the finite curves well. Across the
+36 fixed depth/n/m/direction GS curves, the median max-to-min variation of
+KL/h over T=8,32,128 is **1.059** (largest **1.205**). At budget fraction 1/4,
+increasing T from 32 to 128 multiplies KL by **1.33–1.47** for n=16,
+**2.03–2.12** for n=64, and **2.53–2.61** for n=128; h predicts 1.33, 2.0,
+and 2.5 respectively. This supports slowing accumulation over the tested
+window, not an asymptotic plateau or a general trained-model theorem.
+
+Both methods' mean KL decreases with budget throughout the grid. Three
+budgets do not establish an m^-2 trained-model law. The m^-1 and m^-2 figure
+guides are visual references. Uniform sampling also has the finite-population
+factor (n-m)/(m(n-1)); its slope need not equal -1 over these budget fractions.
+
+All analytic gates pass. Exact minima over feasible equal-weight summaries
+through T=128, the exact all-horizon minimum-gap witness, and balanced-uniform
+expected risks are separate endpoints. At T=512/2048, the aggregate hard-class
+and balanced-uniform values are curvature envelopes, not exact minimax or
+measured KL. Analytic success checks the named construction and arithmetic;
+it is not independent proof or novelty verification.
+
+The main unresolved issue remains the global sufficient constants. Observed
+GS Q-to-P row KL spans 0.0000114–10.239, but no row meets the audited small-risk
+condition. Empirical MMD and sampled moment errors cannot replace the theorem's
+uniform assumptions. Layer-level MMD and suffix drift are descriptive diagnostics,
+not calibrated predictors or certificates of sequence KL.
+
+## Round 7 evidence and reproduction
+
+1. [Completed generated report](runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/analysis/RESULTS.md),
+   [budget figure](runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/analysis/budget_scaling.png),
+   [horizon figure](runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/analysis/horizon_scaling.png),
+   and [multilayer figure](runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/analysis/multilayer_fidelity.png).
+2. [Seed-level aggregates](runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/analysis/aggregates.json),
+   [analytic summary](runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/analytic/summary.json),
+   and [checkpoint hashes / norm audits](runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/checkpoints.json).
+   Read the Markdown first; the 1.1 MB aggregates are secondary evidence.
+3. [Protocol](experiments/PROTOCOL_ROUND7_THINNING_V1.md),
+   [source map](GPT_CONTEXT.md), [theory qualifications](THEORY_STATUS.md), and
+   [reproduction / verification](README.md). The publication manifest binds
+   19 frozen source/configuration files and 17 compact endpoint files.
+
+Raw trained JSONL, model weights and private operational records are excluded.
+Offline verification reconstructs seed-level means and paired bootstrap
+intervals, not raw-row coverage or norm audits from checkpoint bytes.
+The only compressed records are the old prefix; the exact suffix grows with T.
+No systems speedup, end-to-end memory advantage, arbitrary positive-weight
+lower bound, uniform-generation certificate or publication readiness follows.
+Round 6 and Experiment 0 numerical evidence below is unchanged.
+
+## Previous Round 6 completed toy study
 
 **Execution: COMPLETE. Scientific interpretation: analytic consistency and
 qualified histogram evidence; recall training is unreliable and the global

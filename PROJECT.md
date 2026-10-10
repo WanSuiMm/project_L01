@@ -1,10 +1,36 @@
 # L01: output-relevant causal KV error
 
-Status: **ROUND6_EXECUTION_COMPLETE / ANALYTIC_CONSISTENT /
+Status: **ROUND7_EXECUTION_COMPLETE / GS_EMPIRICAL_ADVANTAGE / GLOBAL_CERTIFICATE_VACUOUS**;
+previous **ROUND6_EXECUTION_COMPLETE / ANALYTIC_CONSISTENT /
 HISTOGRAM_QUALIFIED / RECALL_TRAINING_UNRELIABLE / GLOBAL_BOUND_UNINFORMATIVE**,
 2026-10-10.
 
-The active question is whether one-time, positive mass-preserving prefix-KV
+Round 7 completed on 2026-10-10 at 11:21:13 UTC in 2,776.51 seconds. It evaluates
+float64 GS-Thin against mass-preserving uniform subsets, reusing all ten
+qualified Round 6 histogram checkpoints without training. The question is how
+prefix record budget relates to both directional sequence KL risks after
+one-time compression and each decoder's own suffix-KV updates. The candidate
+worst-case rate is `n*T/(m^2*(n+T))` in the restricted equal-weight subset class;
+it is not a required exponent on trained models. Read the frozen
+[Round 7 protocol](experiments/PROTOCOL_ROUND7_THINNING_V1.md),
+[proof snapshot](theory/archive/round7/THEOREM_AND_PROOF.md), and
+[run status](runs/round7_thinning_v1_20261010T102523Z/RUN_STATUS.md).
+All 70,560 records passed server-side validation; all ten checkpoints passed
+their frozen quality gate. GS-Thin mean KL is lower in 96/108 paired cells;
+all 12 exceptions use n=16,m=2. No GS forward row meets the audited small-risk
+condition (0/17,280). These are finite histogram results, not a general theorem
+or useful uniform certificate. Round 6 and Experiment 0 evidence remain unchanged.
+
+The completed compact endpoint is
+`runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/`.
+Start with [RESULTS.md](RESULTS.md). Reproduction commands are in
+[README.md](README.md); offline publication verification is
+`python -B scripts/verify_round7_release.py`. The public snapshot retains all
+training-seed aggregate values and analytic CSVs, but excludes raw trained
+rows, checkpoints and operational records. Its verifier does not reconstruct
+row-level coverage or recalculate checkpoint norms.
+
+The completed Round 6 question was whether one-time, positive mass-preserving prefix-KV
 compression explains sequence KL through the candidate scale
 `epsilon^2 * n*T/(n+T)` in trained dense causal decoders. Read
 [THEOREM_AND_PROOF.md](THEOREM_AND_PROOF.md), the frozen

@@ -1,0 +1,30 @@
+{
+  "status": "ALL_NUMERICAL_CHECKS_PASSED",
+  "scope": "Proof/implementation sanity checks only; no training, no measured GS-Thin performance, no novelty certification",
+  "analytic": {
+    "scalar_kl_checks": 600,
+    "integer_summary_choices": 653,
+    "minimax_grid_cases": 100,
+    "uniform_sampling_grid_cases": 100,
+    "min_best_risk_over_h_div_m_squared": 0.09766497708612441,
+    "theoretical_min_coefficient": 0.03276865554024697
+  },
+  "abstract_transfer": {
+    "abstract_transfer_instances": 36,
+    "small_risk_forward_instances": 31,
+    "max_kl_chain_absolute_error": 4.440892098500626e-16,
+    "max_mgf_over_proved_cap": 0.7991759608641236
+  },
+  "causal_decoder": {
+    "untrained_two_layer_fixtures": 4,
+    "compression_seeds_per_fixture": 4,
+    "exact_token_paths": 512,
+    "max_recurrence_violation": 5.721958498152797e-17,
+    "max_upper_layer_suffix_value_gap": 0.00395221151488509,
+    "max_kl_chain_absolute_error": 2.5542153289308686e-16
+  },
+  "hardy": {
+    "random_hardy_checks": 100,
+    "max_observed_norm_ratio": 0.3264136574056749
+  }
+}

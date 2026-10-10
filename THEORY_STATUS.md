@@ -1,5 +1,32 @@
 # Theory status and claim boundaries
 
+## Active Round 7 candidate and completed evidence
+
+The [Round 7 proof snapshot](theory/archive/round7/THEOREM_AND_PROOF.md) is a
+user-provided conditional draft. It connects an imported sub-Gaussian summary
+interface to reverse-law risk C*h/m^2, and, under a small-risk condition, to
+forward-law risk, where h=nT/(n+T). Its constructive lower bound concerns only
+equal-weight subsets of original records; it is not a bound for arbitrary
+positive-weight summaries, synthetic representatives or arbitrary encoders.
+
+Round 7 analytic gates pass, and the completed trained histogram study reports
+lower GS-Thin KL in 96/108 cells, including all n=64/128 cells. All 12 exceptions
+use n=16,m=2. Neither this empirical result nor the implementation tests
+independently verify the proof or imported SG theorem. The global forward
+small-risk condition holds in **0/17,280** GS Q-to-P rows, so a useful
+uniform-generation certificate remains absent. [RESULTS.md](RESULTS.md) gives
+the finite horizon evidence, uncertainty and limits.
+
+The archived README, novelty audit and verification results are preserved as
+supplied, including historical statements about publication and checking.
+Their presence does not establish an independently verified novelty conclusion.
+The archive's relative commands assume that directory as the working directory;
+its verification script writes outputs beside itself. Run a copy in a fresh
+directory if reproducing it, so the supplied frozen evidence is preserved.
+The exact long-horizon witness is distinct from the aggregate curvature
+envelopes and short-horizon exact class minima. The suffix grows with generation
+length; this remains one-time prefix compression rather than fixed-memory streaming.
+
 ## Active Round 6 candidate
 
 [THEOREM_AND_PROOF.md](THEOREM_AND_PROOF.md) is a user-provided proof draft

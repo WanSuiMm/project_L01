@@ -1,0 +1,39 @@
+{
+  "protocol_id": "round7_thinning_v1",
+  "max_wall_seconds": 43200,
+  "analytic": {
+    "n_values": [32, 64, 128],
+    "m_rule": "powers_of_two_at_most_n_over_2",
+    "T_values": [8, 32, 128, 512, 2048],
+    "exact_dp_max_T": 128,
+    "numerical_tolerance": 1e-10
+  },
+  "trained": {
+    "checkpoint_run_id": "round6_toy_v1_20261010T061030Z",
+    "checkpoint_task": "histogram",
+    "checkpoint_d_model": 64,
+    "expected_checkpoint_count": 10,
+    "checkpoint_quality_gate": {
+      "metric": "bayes_nll_gap",
+      "maximum": 0.03,
+      "required_for_inclusion": true
+    },
+    "training_seeds": [11, 23, 37, 51, 71],
+    "depths": [2, 4],
+    "prefix_lengths": [16, 64, 128],
+    "horizons": [8, 32, 128],
+    "max_context": 257,
+    "budget_fractions": [0.125, 0.25, 0.5],
+    "methods": ["gs_thin", "uniform_subset"],
+    "prompts_per_length": 8,
+    "prompt_seed": 20261013,
+    "path_seed": 20261014,
+    "compression_seeds": [101, 102, 103, 104, 105, 106, 107, 108],
+    "paths_per_direction": 16,
+    "combos_per_batch": 8,
+    "confidence_level": 0.95,
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20261015,
+    "algorithm_uncertainty_flag": "FLOAT64_QUARTIC_GS_THIN;_IMPORTED_SG_THEOREM_NOT_EMPIRICALLY_CERTIFIED"
+  }
+}

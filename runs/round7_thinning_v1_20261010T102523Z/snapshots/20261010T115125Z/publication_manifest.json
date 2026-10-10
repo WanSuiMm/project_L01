@@ -1,0 +1,69 @@
+{
+  "schema": "l01_round7_publication_v1",
+  "run_id": "round7_thinning_v1_20261010T102523Z",
+  "snapshot_id": "20261010T115125Z",
+  "execution": {
+    "status": "COMPLETE",
+    "start_utc": "2026-10-10T18:34:56.827933+08:00",
+    "finish_utc": "2026-10-10T19:21:13.341978+08:00",
+    "wall_seconds": 2777.0,
+    "stages": [
+      {
+        "stage": "ANALYTIC",
+        "exit_code": 0,
+        "seconds": 6.483038188889623
+      },
+      {
+        "stage": "TRANSFORMER",
+        "exit_code": 0,
+        "seconds": 2763.351246987004
+      },
+      {
+        "stage": "ANALYSIS",
+        "exit_code": 0,
+        "seconds": 6.679714900907129
+      }
+    ]
+  },
+  "source_sha256": {
+    "experiments/analyze_round7.py": "3651026e4b3c9b68f381a56f1fda09ca5dd23b0ff8084f0bade85c0ab4a12931",
+    "experiments/gs_thin.py": "fac92beea1e985153f5db793b7527270de877fa2b15bb58a3832d65c9303b009",
+    "experiments/PROTOCOL_ROUND7_THINNING_V1.md": "890a7a3b5862702aa31a0105e513c144ee7ceecd08a5769163066814222f63bd",
+    "experiments/round6_bounds.py": "61f5e4533a23c1314b33fba654369d95a09fcc42173ca08a4af90593b083cecf",
+    "experiments/round6_transformer.py": "6f854305669cc54f1f0f64ac58c554d8693e387577ef32cd01a7ac41438f640c",
+    "experiments/round7_analytic.py": "69d701551e3d8e2162afe9fe103e36b00d7de70e22d2e6f1079e9e8e5b08415b",
+    "experiments/round7_dispatch.py": "20d8d43d1488f7080a54c0968f38db537f867cc45170e657eef9d80ec18203a1",
+    "experiments/configs/round7_thinning_v1.json": "ea0c0ee83a911812ff334903850a765fda0eb2b3aa021437b4f06c1dc4e09bdc",
+    "experiments/round7_transformer.py": "3be8906ae83e701f67c260e72b58446aefe29fd0d367335125f84ad7dea77689",
+    "experiments/test_gs_thin.py": "5b47a0c61d45a3c97ca10f7464d3d46e6bd9bad993c616c620a4b578b050051b",
+    "experiments/test_round7_transformer.py": "f9321b7667cc53b6901d00c2645b51795bf5366921edcd7c1541bd5dfec740d9",
+    "theory/archive/round7/equal_weight_lower.csv": "e0d4264eb0dbcf925fb1b7f8641b69bda710a6648ee4248871c29d1e6fe0540f",
+    "theory/archive/round7/MANIFEST.json": "53794b2e58ed72faba2e89c20091e8c502a97a062e145a158eab0ab88b61c3fa",
+    "theory/archive/round7/NOVELTY_AUDIT.md": "a3b578fd5e44e06ef983e21507b28988156a998598569ecf92623f02834c2a23",
+    "theory/archive/round7/README.md": "bfd60f94ab9b6025bede7815f76c92c8a496a6e231a4e8c385a4f4595c22540d",
+    "theory/archive/round7/THEOREM_AND_PROOF.md": "26442fc3cc33d276919b1b9707d790bebe81c5cce61689ee13ded0c4a65e1a0f",
+    "theory/archive/round7/uniform_sampling_risk.csv": "5ff3c7809aca65a8ac0305c8925954b8538298bf58cd9e9fc53c5030fad90897",
+    "theory/archive/round7/verification_results.json": "2d2702b807d32587389b933262df785fdd1b9ec6b918d310c168cecd48d0ba5f",
+    "theory/archive/round7/verify_round7.py": "7abfc47793e584fa0af0608b211c2db661e1fa3c03ab03e66a931b862017f4f2"
+  },
+  "payload_sha256": {
+    "analysis/aggregates.json": "ea709618b6e541024cd767556c661aff2c51f2e23da9dd27ace249a7db373fb4",
+    "analysis/budget_scaling.pdf": "9d9bca9d106a1ccb7addaf422592ed59f8f2edad4ee21cd587ce4580ff48951d",
+    "analysis/budget_scaling.png": "fb7911324dce8918acb4755b3c9857a798f10dd41ebc49bb6802e0746c8eecc7",
+    "analysis/horizon_scaling.pdf": "4bc297ef036a63adfdb88d741db1619ac061f288472f7ba46cf8ad9376014f38",
+    "analysis/horizon_scaling.png": "d7fd01a25cb7578274b130f92faff85f6544e2d92e56be29afcabfaa75cf7388",
+    "analysis/multilayer_fidelity.pdf": "7c30c05372fcfecf7ba43ff81a3d47c40c6f80e6ca59c97c94c320fbf794d752",
+    "analysis/multilayer_fidelity.png": "e142b47e514b95231c0e779f94a20bd346db89ec697f5b8c5d2245c71f45e996",
+    "analysis/RESULTS.md": "885dec0967c6d801fe9e0e05d71938911295e4da42dbbd4b687bfc9b0e7845c0",
+    "analytic/hard_equal_weight_exact_cases.csv": "7660d2f265385545244aeee777dd55f99239e4555b14ab1a7366361d13c400a6",
+    "analytic/hard_equal_weight.csv": "76c0b05ded9ed8ae1a8d28fb1acdeed15cfdb89e9283e552bd6e2d1612f55c0b",
+    "analytic/hard_minimum_gap_witness_exact.csv": "3821e66e0b9135df03f0a6aaf42c866b94bc338096f43a8135a1099cc5bcebff",
+    "analytic/identity_controls.csv": "236bd47c6499e595760443f9ee96ba683e943edf5a0ce7a78317c9b5a6902aea",
+    "analytic/provenance.json": "0067dae269c4cc2a41562c675043b025b0cf5215584362237817dad3e0b87e8e",
+    "analytic/summary.json": "a31065fc825886230b964a67897f357a99eb5ba64017ae7e0d40aea671338993",
+    "analytic/uniform_balanced_exact_cases.csv": "50824b4ace5c994490b5b216c8f4261c4d777acb1ef8cbcf4816f9b297642dff",
+    "analytic/uniform_balanced.csv": "332ec579708f5252755324ddb60d8ddc5ea2781cf1a4d34baebdcfb4139af326",
+    "checkpoints.json": "9e8e19a95c3157dfb963f974e486718e0c5af4b82d1f9473faf64bdf7a3a32d3"
+  },
+  "export_scope": "Compact completed analysis, full analytic CSVs, checkpoint hashes and norm audits. Raw trained rows, model weights and operational records are excluded. Row-level validation is recorded server evidence; public verification reconstructs seed-level aggregates only."
+}

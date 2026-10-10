@@ -1,0 +1,126 @@
+{
+  "all_gates_pass": true,
+  "claim_boundary": "One-layer binary histogram law only. Exact dynamic programming and curvature envelopes do not evaluate GS-Thin, do not use trained checkpoints, and do not establish the imported GS-Thin sub-Gaussian guarantee or any trained-model exponent.",
+  "config": {
+    "analytic": {
+      "T_values": [
+        8,
+        32,
+        128,
+        512,
+        2048
+      ],
+      "exact_dp_max_T": 128,
+      "m_rule": "powers_of_two_at_most_n_over_2",
+      "n_values": [
+        32,
+        64,
+        128
+      ],
+      "numerical_tolerance": 1e-10
+    },
+    "max_wall_seconds": 43200,
+    "protocol_id": "round7_thinning_v1",
+    "trained": {
+      "algorithm_uncertainty_flag": "FLOAT64_QUARTIC_GS_THIN;_IMPORTED_SG_THEOREM_NOT_EMPIRICALLY_CERTIFIED",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 20261015,
+      "budget_fractions": [
+        0.125,
+        0.25,
+        0.5
+      ],
+      "checkpoint_d_model": 64,
+      "checkpoint_quality_gate": {
+        "maximum": 0.03,
+        "metric": "bayes_nll_gap",
+        "required_for_inclusion": true
+      },
+      "checkpoint_run_id": "round6_toy_v1_20261010T061030Z",
+      "checkpoint_task": "histogram",
+      "combos_per_batch": 8,
+      "compression_seeds": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "confidence_level": 0.95,
+      "depths": [
+        2,
+        4
+      ],
+      "expected_checkpoint_count": 10,
+      "horizons": [
+        8,
+        32,
+        128
+      ],
+      "max_context": 257,
+      "methods": [
+        "gs_thin",
+        "uniform_subset"
+      ],
+      "path_seed": 20261014,
+      "paths_per_direction": 16,
+      "prefix_lengths": [
+        16,
+        64,
+        128
+      ],
+      "prompt_seed": 20261013,
+      "prompts_per_length": 8,
+      "training_seeds": [
+        11,
+        23,
+        37,
+        51,
+        71
+      ]
+    }
+  },
+  "constants": {
+    "bernoulli_kl_quadratic_upper": 0.125,
+    "hard_lower_h_over_m_squared": 0.03276865554024697,
+    "sigma_prime_at_one": 0.19661193324148185
+  },
+  "gates": {
+    "all_count_dynamic_programs_normalize": true,
+    "all_exact_logits_within_unit_interval": true,
+    "all_reported_numeric_values_are_finite": true,
+    "full_cache_identity_exact_dp_has_zero_kl": true,
+    "full_cache_identity_rows_are_zero": true,
+    "hard_exact_dp_risks_respect_curvature_envelope": true,
+    "hard_exact_dp_risks_respect_theorem_lower_bound": true,
+    "hard_integer_obstruction_is_exactly_one_over_m": true,
+    "minimum_gap_hard_witness_respects_exact_lower_bound": true,
+    "uniform_exact_risks_respect_expected_curvature_bounds": true,
+    "uniform_hypergeometric_second_moment_identity": true
+  },
+  "grid_counts": {
+    "hard_aggregate_rows": 90,
+    "hard_exact_case_rows": 1812,
+    "hard_witness_rows_all_horizons": 90,
+    "identity_control_rows": 90,
+    "uniform_aggregate_rows": 90,
+    "uniform_exact_case_rows": 717
+  },
+  "output_notes": {
+    "hard_equal_weight.csv": "One row per n,m,T; exact minimum and maximum over all feasible retained counts when T is within exact_dp_max_T, otherwise pathwise lower and upper bounds.",
+    "hard_equal_weight_exact_cases.csv": "One row per feasible s,k,T for exact-DP horizons; s ranges over all positive sizes up to m.",
+    "hard_minimum_gap_witness_exact.csv": "Exact-DP risk for one feasible s=m,k=0 minimum-gap witness at every configured horizon. Long-horizon rows are not minimax risks or a trained-model endpoint.",
+    "uniform_balanced.csv": "Exact hypergeometric expected risk when T is within the DP cap; otherwise the exact second-moment curvature envelope."
+  },
+  "primary_unit": "No sampling unit for exact analytic rows.",
+  "protocol_id": "round7_thinning_v1",
+  "status": "ANALYTIC_GATES_PASS",
+  "trained_stage": {
+    "configured_checkpoint_count": 10,
+    "executed_by_this_runner": false,
+    "note": "The trained evaluation is specified in the protocol and config; this analytic-only runner does not load or train checkpoints."
+  }
+}
