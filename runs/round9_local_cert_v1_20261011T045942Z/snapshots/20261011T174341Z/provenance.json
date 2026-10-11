@@ -1,0 +1,19 @@
+{
+  "start_utc": "2026-10-11T17:42:33.944164+00:00",
+  "python": "3.12.13",
+  "torch": "2.11.0+cu128",
+  "numpy": "2.3.5",
+  "device": "cpu",
+  "dtype": "float64",
+  "source_sha256": {
+    "round9_original_models.py": "abf2f49ae0753b21ae25b532c8fa6471aef72c4078883c0ceeefc9e6bf019795",
+    "round9_certify.py": "f51f343e023cc22fb6cd58c0f65952369260e43ec9cb00ee651ce82e5a1cbef5",
+    "round6_transformer.py": "6f854305669cc54f1f0f64ac58c554d8693e387577ef32cd01a7ac41438f640c",
+    "gs_thin.py": "fac92beea1e985153f5db793b7527270de877fa2b15bb58a3832d65c9303b009",
+    "PROTOCOL_ROUND9_LOCAL_CERT_V1.md": "571b430fcd65971b97c012356c2a2e4f55764701e2f91732d6cd96cb9545f961"
+  },
+  "config_sha256": "38c36a4e73a453324a32a694fdec6498e7ed52c8b3afdaad0d030af936272836",
+  "expected_checkpoints_sha256": "de30d28b8cad1af1aa2ad931e36aaad9e1b2dfa6abc46a7b8aed51f5d922e8d5",
+  "training_performed": false,
+  "smoke": false
+}

@@ -1,4 +1,76 @@
-# L01 results: Round 7 completed thinning study
+# L01 results: Round 9 completed local-bound evaluation
+
+**Execution: COMPLETE (330/330). Scientific verdict: the frozen half-cache
+feasibility gate fails for every method; near-full clustering succeeds.**
+The current local bound improves on the former global bound in some cases,
+but it does not certify high fidelity at substantial compression in this study.
+
+The original five qualified width-64, two-layer Round 6 histogram checkpoints
+were reused without training. Their hashes, architecture and quality metadata
+matched the frozen manifest. The CPU run finished on 2026-10-12 at 01:43:41
+Asia/Shanghai in 67.78 seconds (66.94 seconds in the scientific runner).
+The canonical [snapshot](runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z/summary.json)
+contains all seed summaries; [condition_metrics.csv](runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z/condition_metrics.csv)
+retains all 330 conditions. Read the [run status](runs/round9_local_cert_v1_20261011T045942Z/RUN_STATUS.md)
+for provenance, checks and audit limits.
+
+## Round 9 half-cache result
+
+At n=64,m=32,T=4, each method has 15 conditions: five training seeds and
+three fixed prefixes. The primary criterion requires upper KL(Q||P)<=0.1 on
+at least two prefixes in at least four seeds. **Each method has 0/5 passing
+seeds and 0/15 passing prefixes.** Training seed is the independent model unit;
+15 prefixes are not 15 independent models.
+
+| Method | Mean upper KL(Q||P) | Upper min–max | Mean exact KL(Q||P) | Upper <=0.1 | Upper <1 |
+|---|---:|---:|---:|---:|---:|
+| Positive agglomerative means | 8.47630 | 0.91898–36.62308 | 5.43662e-6 | 0/15 | 1/15 |
+| GS-Thin | 37.46756 | 36.52528–38.13886 | 0.00338083 | 0/15 | 0/15 |
+| Uniform mass-preserving subset | 37.46756 | 36.52528–38.13886 | 0.02216680 | 0/15 | 0/15 |
+
+Agglomerative bounds are below the reference universal cap in all 15 cases;
+five give a Pinsker TV upper estimate below one. This is a weak nontrivial
+improvement, not the promised small-KL/high-fidelity certificate. None is
+<=0.02 (the sufficient KL threshold for TV<=0.1). GS and uniform produce the
+same loose bounds here despite different exact KL values. The mean reference
+cap is 37.47213; merely being below this cap is not the primary gate.
+
+## Round 9 controls and interpretation
+
+- Full cache passes the identity control in all 30 cases.
+- At n=64,m=63, agglomerative has mean upper KL 0.00659081, 15/15<=0.1,
+  and 14/15<=0.02. This reduces prefix records by only 1.5625%.
+- At n=64,m=48 (25% fewer prefix records), agglomerative has mean upper KL
+  4.13743 and 0/15<=0.1, although 10/15 are below 1.
+- At n=16,m=8, every method also has 0/15<=0.1.
+
+The tiny observed clustering KL and much larger bound identify a limitation
+of this sufficient certificate, not an observed failure of compression or a
+refutation of a worst-case theorem. Half-cache zero-variance tube intersections
+occur in 2/15 clustering cases and all 15 cases for each subset method. These
+diagnostics are consistent with loose propagation control; they do not alone
+identify the cause of all slack. Clustering uses synthetic positive weighted
+means and lies outside the Round 7 equal-weight original-subset lower-bound class.
+
+This is a finite T=4, three-token full-softmax evaluation: 40 prediction histories
+and 81 leaves per condition. It establishes neither long-generation fidelity
+nor general NLP behavior. The numbers are **float64 analytic-bound evaluations,
+not outward-rounded interval certificates**; no throughput or memory-byte gain
+was measured.
+
+Independent record checks pass: all 330 expected keys are unique and present;
+recorded model/source/config provenance, tree sizes, full-cache controls, both
+sequence inequalities, seed/group arithmetic and primary gates agree. The
+[verification record](runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z/verification.json)
+states the limits: omitted per-history files and weights were not independently
+replayed, and this is not proof or novelty verification. Recheck the public
+snapshot from the repository root:
+
+```text
+python -B scripts/analyze_round9_endpoint.py --input-dir runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z
+```
+
+## Previous Round 7 completed thinning study
 
 **Execution: COMPLETE. Scientific interpretation: GS-Thin usually improves
 finite histogram fidelity; the horizon coordinate is informative, but the

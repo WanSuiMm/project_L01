@@ -1,9 +1,43 @@
 # L01: output-relevant causal KV error
 
-Status: **ROUND7_EXECUTION_COMPLETE / GS_EMPIRICAL_ADVANTAGE / GLOBAL_CERTIFICATE_VACUOUS**;
+Status: **ROUND9_COMPLETE / HALF_CACHE_FEASIBILITY_FAIL / NEAR_FULL_CLUSTER_ONLY**;
+previous **ROUND7_EXECUTION_COMPLETE / GS_EMPIRICAL_ADVANTAGE / GLOBAL_CERTIFICATE_VACUOUS**;
 previous **ROUND6_EXECUTION_COMPLETE / ANALYTIC_CONSISTENT /
 HISTOGRAM_QUALIFIED / RECALL_TRAINING_UNRELIABLE / GLOBAL_BOUND_UNINFORMATIVE**,
-2026-10-10.
+2026-10-12.
+
+Round 9 launched reference-only finite-tree local-bound evaluation on the five
+original qualified two-layer histogram checkpoints. The frozen
+[protocol](experiments/PROTOCOL_ROUND9_LOCAL_CERT_V1.md) specifies 330 conditions:
+three fixed prefixes at n=16 and 64, T=4 over the full three-token tree,
+near-full and 25%/50%/75% old-prefix record reductions, with positive cluster,
+uniform subset and eligible GS-Thin summaries. Eight local software tests pass.
+The formal CPU run completed all 330 conditions on 2026-10-12 at 01:43:41
+Asia/Shanghai in 67.78 seconds. All five checkpoint hashes and recorded quality
+results matched; no training occurred. At n=64,m=32 all methods have 0/5 passing
+models and 0/15 prefixes with upper KL<=0.1. Agglomerative mean upper KL is
+8.4763 versus actual KL 5.4366e-6; its bound improves on the trivial cap but
+does not meet the frozen high-fidelity gate. Only near-full agglomerative
+n=64,m=63 has 15/15 upper KL<=0.1. Read [RESULTS.md](RESULTS.md), then the
+[completed run status](runs/round9_local_cert_v1_20261011T045942Z/RUN_STATUS.md).
+The compact snapshot retains all 330 condition metrics, with independently
+checked coverage, seed/group arithmetic and gates. Earlier failed connections
+and dispatch records remain private. Round 6/7 results are unchanged. These
+are float64 analytic-bound evaluations, not strict interval certificates.
+
+Canonical entry commands (repository root):
+
+```text
+python -B -m unittest discover -s experiments -p 'test_round9*.py' -v
+python -B experiments/round9_original_models.py --config experiments/configs/round9_local_cert_v1.json --checkpoint-root PATH_TO_ROUND6_MODELS --preflight
+python -B experiments/round9_dispatch.py smoke --source-dir experiments --checkpoint-root PATH_TO_ROUND6_MODELS --run-dir PRIVATE_NEW_SMOKE
+python -B experiments/round9_dispatch.py launch --source-dir experiments --checkpoint-root PATH_TO_ROUND6_MODELS --run-dir PRIVATE_NEW_RUN
+python -B scripts/analyze_round9_endpoint.py --input-dir runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z
+```
+
+The dispatcher records a durable CPU process receipt and enforces a one-hour
+limit. It performs no training and never substitutes the separate width-16
+Round 9 attachment fixture for an original checkpoint.
 
 Round 7 completed on 2026-10-10 at 11:21:13 UTC in 2,776.51 seconds. It evaluates
 float64 GS-Thin against mass-preserving uniform subsets, reusing all ten

@@ -1,0 +1,1309 @@
+{
+  "status": "COMPLETE",
+  "numerical_status": "FLOAT64_ANALYTIC_BOUND_EVALUATION_NOT_INTERVAL_CERTIFIED",
+  "row_count": 330,
+  "independent_unit": "training seed",
+  "groups": [
+    {
+      "n": 16,
+      "m": 4,
+      "method": "agglomerative",
+      "prefix_record_reduction": 0.75,
+      "rows": 15,
+      "min_upper": 21.399686144519155,
+      "max_upper": 38.772571797011594,
+      "mean_upper": 32.67461229505554,
+      "mean_actual_QP": 3.087028257463684e-05,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 37.98361391365879,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 34.17060511654949,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 36.33898384076742,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 22.54284798593746,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 32.33701061836455,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "m": 4,
+      "method": "gs_thin",
+      "prefix_record_reduction": 0.75,
+      "rows": 15,
+      "min_upper": 36.551329385017404,
+      "max_upper": 38.772571797011594,
+      "mean_upper": 37.65570869147884,
+      "mean_actual_QP": 0.03667501956756435,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 38.710517748785854,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 37.80598303655517,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 37.414787765463025,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 36.6370068460925,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 37.71024806049767,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "m": 4,
+      "method": "uniform_subset",
+      "prefix_record_reduction": 0.75,
+      "rows": 15,
+      "min_upper": 36.551329385017404,
+      "max_upper": 38.772571797011594,
+      "mean_upper": 37.65570869147884,
+      "mean_actual_QP": 0.06858102565432006,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 38.710517748785854,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 37.80598303655517,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 37.414787765463025,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 36.6370068460925,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 37.71024806049767,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "m": 8,
+      "method": "agglomerative",
+      "prefix_record_reduction": 0.5,
+      "rows": 15,
+      "min_upper": 5.466393034264449,
+      "max_upper": 37.44501117463406,
+      "mean_upper": 25.101904919166618,
+      "mean_actual_QP": 1.635074921705166e-05,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 28.084427626026272,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 29.2308519504745,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 21.744515204156887,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 17.41673169578442,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 29.032998119391014,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "m": 8,
+      "method": "gs_thin",
+      "prefix_record_reduction": 0.5,
+      "rows": 15,
+      "min_upper": 36.551329385017404,
+      "max_upper": 38.772571797011594,
+      "mean_upper": 37.65570869147884,
+      "mean_actual_QP": 0.011353426789262629,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 38.710517748785854,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 37.80598303655517,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 37.414787765463025,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 36.6370068460925,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 37.71024806049767,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "m": 8,
+      "method": "uniform_subset",
+      "prefix_record_reduction": 0.5,
+      "rows": 15,
+      "min_upper": 36.551329385017404,
+      "max_upper": 38.772571797011594,
+      "mean_upper": 37.65570869147884,
+      "mean_actual_QP": 0.013780964031079443,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 38.710517748785854,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 37.80598303655517,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 37.414787765463025,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 36.6370068460925,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 37.71024806049767,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "m": 12,
+      "method": "agglomerative",
+      "prefix_record_reduction": 0.25,
+      "rows": 15,
+      "min_upper": 1.2390918181903632,
+      "max_upper": 21.610428252237018,
+      "mean_upper": 11.415229563339658,
+      "mean_actual_QP": 4.083422239622503e-06,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 14.38149751072046,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 17.00346952787039,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 4.784962226907108,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 3.9593813460815768,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 16.946837205118747,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "m": 12,
+      "method": "uniform_subset",
+      "prefix_record_reduction": 0.25,
+      "rows": 15,
+      "min_upper": 36.551329385017404,
+      "max_upper": 38.772571797011594,
+      "mean_upper": 37.65570869147884,
+      "mean_actual_QP": 0.023621301851167054,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 38.710517748785854,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 37.80598303655517,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 37.414787765463025,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 36.6370068460925,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 37.71024806049767,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "m": 15,
+      "method": "agglomerative",
+      "prefix_record_reduction": 0.0625,
+      "rows": 15,
+      "min_upper": 0.022030506026401185,
+      "max_upper": 1.1526956832906343,
+      "mean_upper": 0.26530650619112434,
+      "mean_actual_QP": 3.3713840197039724e-07,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 0.5609362362874325,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 2,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 0.24852854135074776,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 0.1415687388102271,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 2,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 2
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 0.3041344789393955,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 0.07136453556781891,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "m": 15,
+      "method": "uniform_subset",
+      "prefix_record_reduction": 0.0625,
+      "rows": 15,
+      "min_upper": 36.551329385017404,
+      "max_upper": 38.772571797011594,
+      "mean_upper": 37.65570869147884,
+      "mean_actual_QP": 0.004746440842547871,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 38.710517748785854,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 37.80598303655517,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 37.414787765463025,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 36.6370068460925,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 37.71024806049767,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "m": 16,
+      "method": "full",
+      "prefix_record_reduction": 0.0,
+      "rows": 15,
+      "min_upper": 0.0,
+      "max_upper": 8.055850723784093e-28,
+      "mean_upper": 1.2735466351034738e-28,
+      "mean_actual_QP": 0.0,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 2.6852835745946976e-28,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 1.198996796767253e-28,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 1.3034108405339507e-28,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 1.1800419636214668e-28,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 0.0,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "m": 16,
+      "method": "agglomerative",
+      "prefix_record_reduction": 0.75,
+      "rows": 15,
+      "min_upper": 2.3048166628883164,
+      "max_upper": 34.65117258347734,
+      "mean_upper": 11.884636596625063,
+      "mean_actual_QP": 7.04314822877637e-06,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 29.31602066453125,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 15.268794162087715,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 3.5105615916022153,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 2.497206520348979,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 8.830600044555155,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "m": 16,
+      "method": "gs_thin",
+      "prefix_record_reduction": 0.75,
+      "rows": 15,
+      "min_upper": 36.52528325880745,
+      "max_upper": 38.13886043120073,
+      "mean_upper": 37.467559859172425,
+      "mean_actual_QP": 0.007500113286122231,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 37.977099996600145,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 37.88172066565313,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 37.336264763212206,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 36.65739463798757,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 37.48531923240909,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "m": 16,
+      "method": "uniform_subset",
+      "prefix_record_reduction": 0.75,
+      "rows": 15,
+      "min_upper": 36.52528325880745,
+      "max_upper": 38.13886043120073,
+      "mean_upper": 37.467559859172425,
+      "mean_actual_QP": 0.021981030669172542,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 37.977099996600145,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 37.88172066565313,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 37.336264763212206,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 36.65739463798757,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 37.48531923240909,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "m": 32,
+      "method": "agglomerative",
+      "prefix_record_reduction": 0.5,
+      "rows": 15,
+      "min_upper": 0.9189771134150783,
+      "max_upper": 36.62307604141213,
+      "mean_upper": 8.476302965253248,
+      "mean_actual_QP": 5.436615268107016e-06,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 27.74356842291414,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 7.768702080361304,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 2.078719058785469,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 1.2392320105819297,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 1,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 3.5512932536233883,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "m": 32,
+      "method": "gs_thin",
+      "prefix_record_reduction": 0.5,
+      "rows": 15,
+      "min_upper": 36.52528325880745,
+      "max_upper": 38.13886043120073,
+      "mean_upper": 37.467559859172425,
+      "mean_actual_QP": 0.0033808339074905013,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 37.977099996600145,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 37.88172066565313,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 37.336264763212206,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 36.65739463798757,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 37.48531923240909,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "m": 32,
+      "method": "uniform_subset",
+      "prefix_record_reduction": 0.5,
+      "rows": 15,
+      "min_upper": 36.52528325880745,
+      "max_upper": 38.13886043120073,
+      "mean_upper": 37.467559859172425,
+      "mean_actual_QP": 0.02216680153461975,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 37.977099996600145,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 37.88172066565313,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 37.336264763212206,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 36.65739463798757,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 37.48531923240909,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "m": 48,
+      "method": "agglomerative",
+      "prefix_record_reduction": 0.25,
+      "rows": 15,
+      "min_upper": 0.2944524951654075,
+      "max_upper": 23.92819643432336,
+      "mean_upper": 4.137426489862925,
+      "mean_actual_QP": 3.2272320413263447e-06,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 17.36475769068116,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 0.8808805620891658,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 2,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 0.6109322042961941,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 1.1242847991407934,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 2,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 0.7062771931073136,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "m": 48,
+      "method": "uniform_subset",
+      "prefix_record_reduction": 0.25,
+      "rows": 15,
+      "min_upper": 36.52528325880745,
+      "max_upper": 38.13886043120073,
+      "mean_upper": 37.467559859172425,
+      "mean_actual_QP": 0.002337966711583529,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 37.977099996600145,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 37.88172066565313,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 37.336264763212206,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 36.65739463798757,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 37.48531923240909,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "m": 63,
+      "method": "agglomerative",
+      "prefix_record_reduction": 0.015625,
+      "rows": 15,
+      "min_upper": 0.0008048567832331738,
+      "max_upper": 0.037834222433462406,
+      "mean_upper": 0.006590807781308534,
+      "mean_actual_QP": 1.8521177453754545e-08,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 0.016138508102923336,
+          "passing_prefixes_le_0_02": 2,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 0.004242039393417169,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 0.003979705866236134,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 0.005366905911967544,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 0.0032268796319984898,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "m": 63,
+      "method": "uniform_subset",
+      "prefix_record_reduction": 0.015625,
+      "rows": 15,
+      "min_upper": 2.894250586765196,
+      "max_upper": 37.39564340677068,
+      "mean_upper": 21.568497936898943,
+      "mean_actual_QP": 0.00019665145571363382,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 20.242359215168946,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 14.598787733379483,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 16.935132350062357,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 22.609532060964366,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 33.45667832491957,
+          "passing_prefixes_le_0_02": 0,
+          "passing_prefixes_le_0_1": 0,
+          "passing_prefixes_lt_1": 0,
+          "passing_prefixes_primary": 0
+        }
+      ]
+    },
+    {
+      "n": 64,
+      "m": 64,
+      "method": "full",
+      "prefix_record_reduction": 0.0,
+      "rows": 15,
+      "min_upper": 0.0,
+      "max_upper": 0.0,
+      "mean_upper": 0.0,
+      "mean_actual_QP": 0.0,
+      "seed_results": [
+        {
+          "model_seed": 11,
+          "prefixes": 3,
+          "mean_upper": 0.0,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 23,
+          "prefixes": 3,
+          "mean_upper": 0.0,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 37,
+          "prefixes": 3,
+          "mean_upper": 0.0,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 51,
+          "prefixes": 3,
+          "mean_upper": 0.0,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        },
+        {
+          "model_seed": 71,
+          "prefixes": 3,
+          "mean_upper": 0.0,
+          "passing_prefixes_le_0_02": 3,
+          "passing_prefixes_le_0_1": 3,
+          "passing_prefixes_lt_1": 3,
+          "passing_prefixes_primary": 3
+        }
+      ]
+    }
+  ],
+  "primary_gate": [
+    {
+      "method": "agglomerative",
+      "passing_models": 0,
+      "required_models": 4,
+      "numerical_feasibility_pass": false
+    },
+    {
+      "method": "gs_thin",
+      "passing_models": 0,
+      "required_models": 4,
+      "numerical_feasibility_pass": false
+    },
+    {
+      "method": "uniform_subset",
+      "passing_models": 0,
+      "required_models": 4,
+      "numerical_feasibility_pass": false
+    }
+  ],
+  "strict_interval_certification": false,
+  "training_performed": false,
+  "elapsed_seconds": 66.94288758100083,
+  "finish_utc": "2026-10-11T17:43:40.853974+00:00",
+  "expected_rows": 330
+}

@@ -1,5 +1,61 @@
 # Review context
 
+## Current Round 9 local-bound endpoint
+
+Start with the Round 9 section in [RESULTS.md](RESULTS.md), then the public
+snapshot `runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z/`.
+Its `summary.json` and `RESULTS.md` give the aggregate; `verification.json` is
+the recorded-endpoint audit, and `condition_metrics.csv` contains the compact
+per-condition metrics. `checkpoints.json`, `config.json`, `prefixes.json` and
+`provenance.json` bind the evaluated models, inputs and sources. Use the
+run-level `RUN_STATUS.md` for dispatch and retrieval status. Per-history files
+are omitted from the public snapshot and are not the review entry point.
+
+Formal status: `execution=COMPLETE_330_OF_330`,
+`primary_gate=FAIL_0_OF_5_MODELS_FOR_EACH_METHOD`,
+`training=NOT_PERFORMED`,
+`numerical=FLOAT64_ANALYTIC_BOUND_EVALUATION_NOT_INTERVAL_CERTIFIED`.
+The five original qualified width-64, two-layer Round 6 histogram models were
+evaluated without retraining. The independent unit is the training seed;
+prefixes are secondary variation. The endpoint is a finite-horizon bound
+evaluation, not an outward-rounded enclosure, theorem falsification, novelty
+result, or memory/throughput measurement.
+
+At the primary n=64, m=32 budget, the threshold counts are across 15
+seed-prefix rows per method. The gate requires at least two of three prefixes
+with upper KL(Q||P) <= 0.1 for at least four of five seeds.
+
+| Method | Upper mean (min/max) | Mean exact KL(Q||P) | <=0.02 | <=0.1 | <1 | Below reference cap |
+|---|---:|---:|---:|---:|---:|---:|
+| Agglomerative | 8.4763 (range 0.919 to 36.623) | 5.44e-6 | 0/15 | 0/15 | 1/15 | 15/15 |
+| GS-Thin | 37.4676 (range 36.525 to 38.139) | 0.003381 | 0/15 | 0/15 | 0/15 | 9/15 |
+| Uniform subset | 37.4676 (range 36.525 to 38.139) | 0.02217 | 0/15 | 0/15 | 0/15 | 9/15 |
+
+Being below the reference cap records an improvement over that cap; it does
+not establish a high-fidelity bound. Agglomerative at the near-full m=63
+control has mean upper 0.0065908, with 14/15 <=0.02 and 15/15 <=0.1; this
+retains 63/64 records and does not qualify substantial compression. At the
+25% record-reduction budget m=48, agglomerative has mean upper 4.1374, with
+10/15 <1 and 0/15 <=0.1. No memory or speed benefit was measured, and record
+reduction is not a systems measurement.
+
+| Concept | Exact source symbol |
+|---|---|
+| Frozen checkpoint identity and quality checks | `experiments/round9_original_models.py:load_original` |
+| Reference P tree on the fixed hypothetical histories | `experiments/round9_original_models.py:reference_tree` |
+| Prefix summary construction and mass-preserving weights | `experiments/round9_original_models.py:make_summary` |
+| P-derived analytic bound plus separate finite Q validation | `experiments/round9_original_models.py:evaluate_summary` |
+| Aggregate thresholds and predeclared seed gate | `experiments/round9_original_models.py:aggregate` |
+| Local propagation and conditional KL bound | `experiments/round9_certify.py:bound_all_steps`, `certified_conditional_bound` |
+| Recorded endpoint audit and compact export | `scripts/analyze_round9_endpoint.py:validate`, `load_rows` |
+
+The endpoint verifier checks recorded source/config/checkpoint bindings, row
+coverage, recorded sequence inequalities, full controls and aggregate/gate
+arithmetic. It does not replay weights or omitted per-history inequalities,
+produce an interval enclosure, or verify theory or novelty. The frozen Round 9
+protocol remains the prospective protocol. Do not edit its status sentence;
+use the completed run status and snapshot for the endpoint outcome.
+
 ## Current Round 7 review context
 
 Start with [RESULTS.md](RESULTS.md), then [GPT_HANDOFF.md](GPT_HANDOFF.md).

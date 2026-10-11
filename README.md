@@ -1,10 +1,27 @@
 # L01: causal output-relevant KV error
 
-Round 7 studies how retained prefix-KV budget affects autoregressive sequence KL, comparing GS-Thin and mass-preserving uniform subsets on ten existing small histogram decoders. The completed run has 70,560 validated records: GS-Thin has lower mean KL in 96/108 paired cells, while its conservative global small-risk certificate succeeds in 0/17,280 forward rows. [RESULTS.md](RESULTS.md) gives the exceptions, uncertainty and claim boundaries. Earlier Round 6 and Experiment 0 results are preserved below.
+Round 9 asks whether local analytic bounds certify substantial prefix-KV compression on the original five two-layer histogram models. All 330 conditions completed: at half cache (n=64,m=32), no method passes the frozen KL<=0.1 feasibility gate. Agglomerative actual KL is tiny, but its mean upper bound is 8.4763; near-full n=64,m=63 succeeds. [RESULTS.md](RESULTS.md) distinguishes these negative and positive findings. Earlier Round 7, Round 6 and Experiment 0 results are preserved.
 
 A completed finite-task result does not establish a general trained-Transformer theorem, a uniform generation guarantee, minimax cache-space lower bound, sequence-TV certificate, or practical inference or memory savings. Treat task-quality failures as part of the reported seed results; do not silently remove them.
 
 ## Current reading route
+
+1. [RESULTS.md](RESULTS.md): current Round 9 verdict, half-cache table and near-full control.
+2. [GPT_HANDOFF.md](GPT_HANDOFF.md), then [GPT_CONTEXT.md](GPT_CONTEXT.md): incremental review and exact source symbols.
+3. [Completed run status](runs/round9_local_cert_v1_20261011T045942Z/RUN_STATUS.md), [verification](runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z/verification.json) and [condition metrics](runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z/condition_metrics.csv): coverage, all seed/prefix cases and audit limits.
+4. [Frozen protocol](experiments/PROTOCOL_ROUND9_LOCAL_CERT_V1.md) and [runner](experiments/round9_original_models.py): reference-only bound construction and independent Q-tree measurement.
+
+Verify the compact Round 9 endpoint without model weights:
+
+```text
+python -B scripts/analyze_round9_endpoint.py --input-dir runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z
+```
+
+The snapshot contains float64 analytic-bound evaluations, not strict interval
+certificates. It excludes checkpoints, per-history trees and operational records.
+Current reproduction commands are in [PROJECT.md](PROJECT.md).
+
+The completed Round 7 reading route remains below.
 
 1. [RESULTS.md](RESULTS.md): current published snapshot, canonical aggregates, gates, and claim boundaries.
 2. [GPT_HANDOFF.md](GPT_HANDOFF.md): changes since the Round 6 review, evidence commit and focused reviewer questions.
