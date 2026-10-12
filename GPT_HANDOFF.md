@@ -1,81 +1,74 @@
-# Incremental review: Round 11 temporal-policy mechanism
+# Incremental review: Round 12 trajectories and Round 13 cross-event geometry
 
-Review base: `ef4cfbcb3aac3293f76f777a012df917077ffe32`.
-Evidence head: `045c8b887bf5d4ac030cb14aa480aea619fbc829`.
+Review base: `dcf36d77e1e2b8be091b67ee27c3d893f140b0ba` (published Round 11).
+Evidence head: `b66b5ea0fb68f1537fd75031ee76b64e8f70e4ac`.
 This later commit changes only this handoff; the evidence head stays fixed.
 
 ## Minimal reading order
 
-1. [RESULTS.md](RESULTS.md), Round 11 section: primary means, both screens and scope.
-2. [Run interpretation](runs/round11_streaming_covariance_v1_20261012T042125Z/INTERPRETATION.md), then the
-   [plot correction](runs/round11_streaming_covariance_v1_20261012T042125Z/plot_correction/README.md).
-3. [Frozen protocol](experiments/PROTOCOL_ROUND11_STREAMING_COVARIANCE_V1.md),
-   then [GPT_CONTEXT.md](GPT_CONTEXT.md) for source symbols and estimands.
-4. [Generated per-seed report](runs/round11_streaming_covariance_v1_20261012T042125Z/RESULTS.md),
-   [summary](runs/round11_streaming_covariance_v1_20261012T042125Z/summary.json) and
-   [audit](runs/round11_streaming_covariance_v1_20261012T042125Z/release_verification.json).
-   The larger per-event CSV is secondary; do not open it first.
+1. [RESULTS.md](RESULTS.md), Round 13 then Round 12: canonical means, screens and limits.
+2. [Round 13 interpretation](runs/round13_matched_fisher_review_v1_20261012T071747Z/INTERPRETATION.md), then its [generated report](runs/round13_matched_fisher_v1_20261012T062406Z/REPORT.md) and [summary](runs/round13_matched_fisher_v1_20261012T062406Z/summary.json).
+3. [Round 13 protocol](experiments/PROTOCOL_ROUND13_MATCHED_FISHER_V1.md) and [GPT_CONTEXT.md](GPT_CONTEXT.md): exact interpolation, history law, quantities and source symbols.
+4. [Recorded-evidence verification](runs/round13_matched_fisher_review_v1_20261012T071747Z/verification.json); [Round 12 interpretation](runs/round12_balanced_order_review_v1_20261012T060523Z/INTERPRETATION.md) and [joint record check](runs/round12_balanced_order_review_v1_20261012T060523Z/joint_bias_kl_review.json).
+
+Raw NPZ, event CSV and the large Round 12 summary are secondary evidence.
+Do not open those first. Round 12's frozen interpretation predates Round 13;
+its proposed Fisher follow-up is now completed.
 
 ## Changed evidence and claims
 
-Five original width-64, two-layer histogram checkpoints were reused with no
-training. Four fixed n=64 prefixes per model and 128 sampled token paths per
-policy compare coherent, IID and alternating positive pair-thinning schedules.
-The old prefix and START remain exact; only eligible new suffix pairs are
-halved. Each policy has the same physical record count, not a measured system
-memory or speed budget. All 960 primary, 60 Fisher and 7,560 event rows complete.
+Round 12 compares 32 positive then 32 negative suffix-thinning events against
+alternating events, both antipodal phases, T=129, four prefixes, and the five
+original two-layer histogram models. Each phase has 64 sampled Q paths.
+Actual KL(Q||P) is 1.201930 versus 0.107638 (11.17x). Terminal token-bias
+squared is only 1.04x, while integrated prefix token-bias squared is 11.45x.
+The actual trajectory matters; terminal bias misses the finite risk contrast.
+Local mean-error comparability and KL ordering pass all five models.
 
-At T=128 mean fixed-schedule sequence KL(Q||P) is 2.730185, 0.175011 and
-0.100431 respectively. All five models have this ordering; per-model
-max/min mean local attention squared error is 1.0055--1.0118. Both ordering
-and the predeclared mean-local-distortion comparability screen pass 5/5.
-Schedules balance unconditional sign marginals, not full error laws on
-different generated histories. The estimand is E_R KL(Q_R||P), not mixture KL.
+Round 13 retains T=129 and KL(Q1||P), using the deterministic first 16 saved
+paths per phase without training or new token generation. Every event JVP
+propagates through the full causal unroll and both layers. No fitted scale is
+used. Actual selected-history risk is 1.216538/0.0997674; full cross-event
+Fisher is 1.220090/0.0997077; diagonal-only is 0.178589/0.181480.
+The Block/Alternating ratios are 12.1937, 12.2367 and 0.984066.
 
-On a separate fixed-P-history probe (T=32, two prefixes, 16 paths), full
-cross-event Fisher predicts finite reverse KL(P||Q) at amplitude 0.25 with
-mean relative errors 0.04810% coherent and 0.01206% alternating, versus
-79.66% and 78.50% for diagonal-only event sums. The local screen passes 5/5.
-Prediction and finite KL share P histories: this is an offline explanation.
-It does not directly explain the entire T=128 Q||P risk gap.
+Full mean per-seed relative error is 0.322%/0.171%, versus 85.32%/82.35%
+diagonal-only. Both predeclared screens pass 5/5 seeds for each policy.
+Net off-diagonal contributions are +1.04150 (Block) and -0.0817727 (Alternating).
+This strengthens the finite same-history output-geometry explanation of the
+policy contrast, closing Round 11's short-horizon/opposite-direction gap.
 
-Only the finite policy ordering transfers from the analytical construction.
-No linear/logarithmic/bounded asymptotic rates were tested; alternating KL
-still increases over the measured horizons. No general trained-Transformer
-theorem, new compressor, useful certificate, systems gain or novelty claim follows.
+The quadratic is conditional P-logit Fisher averaged over Q1 histories,
+not sequence Fisher under P or the sequence-KL Taylor coefficient at zero.
+Actual KL and geometry share histories; this is not heldout forecasting or
+unique causal mediation. Amplitude 0.25 is Q1-history replay only, not
+KL(Q0.25||P). Predictions include amplitude squared exactly once.
+The selected actual means differ by +1.22%/-7.31% from the all-path means;
+retain that Monte Carlo sensitivity beside the tiny same-history errors.
+Five training seeds are independent; paths, phases and prompts are not.
 
-## Plot correction and verification
+## Validation and unchanged claims
 
-Publication review found double amplitude scaling in the original Fisher
-figure only. The CSV predictions already include amplitude squared. Current
-analyzer code is fixed; use [the corrected figure](runs/round11_streaming_covariance_v1_20261012T042125Z/plot_correction/fisher_predictions.png).
-Frozen v1 sources, figures and numeric outputs remain intact; a separate
-correction manifest binds the new figure to the original CSV and fixed code.
+All 640 metric rows, 40 traces and 80 Grams completed. Two Round 13 and four
+Round 12 targeted tests pass. The recorded-evidence verifier binds source,
+config, checkpoint metadata and all selected input hashes; checks trace/CSV,
+Gram sum/trace and KL-chain arithmetic; and recomputes seed means/screens.
+It does not replay model weights, verify JVP derivatives or prove a theorem.
+The earlier original-model smoke checks provide separate implementation evidence.
 
-Four targeted core tests and original-model smoke checks pass. The read-only
-audit checks source/payload hashes, complete unique row coverage, seed means,
-relative-error arithmetic and both screens. It does not replay weights, token
-paths, JVPs, proofs or novelty. Original checkpoints are separately held.
-
-```text
-python -B scripts/verify_round11_release.py --input-dir runs/round11_streaming_covariance_v1_20261012T042125Z
-python -B -m unittest discover -s experiments -p test_round11_streaming_core.py -v
-```
-
-## Unchanged evidence
-
-Round 9 half-cache certificate failures, its one-case JVP and failed remainder
-attempt, Round 7, Round 6 and Experiment 0 are unchanged. This is a new
-mechanism protocol, not a rescue or continuation of the certification gate.
+Round 11, Round 9 certificate failures and directional follow-ups, Round 7,
+Round 6 and Experiment 0 remain unchanged. The old prefix and START stay
+exact; only eligible generated suffix pairs are halved. No whole-cache
+half-budget, useful certificate, universal Transformer law, cache-space
+lower bound, novel compressor, novelty verdict or practical speedup follows.
 
 ## Reviewer questions
 
-1. Is E_R KL(Q_R||P) estimated correctly on each Q's own histories, with
-   full-cache P replay, causal insertion and exact positions/mass?
-2. Do event JVPs include upper layers and later self-generated KV, and are
-   full/diagonal Fisher comparisons valid on the fixed P histories?
-3. Does the mean-local-error screen plus the separate reverse-KL probe
-   justify the stated narrow mechanism claim without over-attributing the
-   full T=128 forward-KL gap to covariance?
-4. What additional controlled bridge would distinguish a transferable
-   mechanism contribution from familiar averaging in a histogram task?
+1. Is the conditional Fisher metric and its Q1-history averaging distinguished
+   correctly from P-law sequence Fisher and Q0.25 sequence risk?
+2. Does the full-versus-diagonal comparison support the finite interaction
+   explanation without implying a unique causal mechanism or heldout predictor?
+3. Are deterministic subset sensitivity and the five-model independent unit
+   reported adequately beside the sub-percent same-history approximation errors?
+4. What minimal transfer beyond this histogram setting would materially
+   strengthen the scientific contribution? No such experiment has run here.
