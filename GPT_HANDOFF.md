@@ -1,72 +1,108 @@
-# Incremental review: Round 9 local-bound endpoint
+# Incremental review: Round 9 directional follow-ups
 
-Review base: `7558461177239a910d9196691fd74d174442a07c`.
-Evidence head: `bd5b6903249307cce2cd13671c232e5ba8a23bf3`.
+Review base: `e6281c76f25a5c14968a4752e254b8ca24eea058`.
+Evidence head: `ce763360de90a535d13797b9206d4e0634c70f8c`.
 This later commit changes only this handoff; the evidence head stays fixed.
 
 ## Minimal reading order
 
-1. [RESULTS.md](RESULTS.md), Round 9 section, for the endpoint and
-   claim boundary.
-2. [Run status](runs/round9_local_cert_v1_20261011T045942Z/RUN_STATUS.md)
-   for dispatch and retrieval, followed by the public snapshot at
-   `runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z/`.
-   `summary.json` is the aggregate entry point.
-3. `verification.json` and `condition_metrics.csv` for recorded checks and
-   condition-level values. `checkpoints.json`, `config.json`, `prefixes.json`
-   and `provenance.json` provide the frozen bindings. The snapshot's generated
-   `RESULTS.md` still carries its historical Round 6 title; the top-level
-   Round 9 section is the current project-facing route.
-4. Source map: `experiments/round9_original_models.py:load_original`,
-   `reference_tree`, `make_summary`, `evaluate_summary`, `aggregate`;
-   `experiments/round9_certify.py:bound_all_steps`,
-   `certified_conditional_bound`; and
-   `scripts/analyze_round9_endpoint.py:validate`, `load_rows`.
+1. [RESULTS.md](RESULTS.md), sections "Round 9 follow-up" and "Round 9 next
+   step", for the new measurements and negative verdict. Earlier aggregate
+   evidence is unchanged and need not be reread first.
+2. [Directional diagnostic interpretation](runs/round9_directional_diagnostic_v1_20261011T183000Z/INTERPRETATION.md),
+   followed by [remainder interpretation](runs/round9_directional_remainder_v1_20261012T024528Z/INTERPRETATION.md).
+3. [Analytic method note](theory/ROUND9_DIRECTIONAL_REMAINDER_V1.md), then
+   [GPT_CONTEXT.md](GPT_CONTEXT.md) for exact source symbols and limits.
+4. Each new run's `summary.json`, `checks.json`, `verification.json`,
+   `provenance.json`, `checkpoint.json` and `source/` bind the records.
+   Full `histories.jsonl` vectors/stages are secondary evidence; do not open
+   them before the interpretations and summaries.
 
 ## Changed evidence and claims
 
-Round 9 completes 330/330 finite-horizon local-bound conditions on the five
-original qualified width-64, two-layer Round 6 histogram models. No training
-was performed. At n=64,m=32, agglomerative has mean upper KL(Q||P) 8.4763
-(range 0.919 to 36.623), with 0/15 prefixes <=0.1, 1/15 <1 and 15/15 below the
-reference cap. GS-Thin and uniform subset both have mean upper 37.4676; each
-has 0/15 <=0.1 and 9/15 below the cap. Each method passes the frozen seed gate
-in 0/5 models; the requirement is 4/5, with at least two of three prefixes
-<=0.1 per model.
+Both follow-ups freeze the original seed-11 two-layer, width-64 histogram
+model and first n=64 prefix (`histogram-n64-0000`), positive agglomerative m=32
+summary, T=4, all 40 prediction histories and 81 leaves. Each interpolation
+path generates its own suffix KV at the original absolute positions. There
+is no retraining, new model grid, prefix search or budget/horizon sweep.
+This mechanical choice happens to have the largest original clustering
+upper among 15 cases; it is not a representative-model estimate.
 
-The near-full agglomerative control at m=63 has mean upper 0.0065908 and
-15/15 <=0.1, but retains 63/64 records. At m=48, agglomerative has mean upper
-4.1374, 10/15 <1 and 0/15 <=0.1. These are finite float64 analytic
-evaluations, not strict interval certificates. Falling below the reference
-cap is distinct from meeting the high-fidelity gate. No memory or inference
-speed advantage was measured.
+The diagnostic finds hidden-radius / actual-error median 166.42x versus
+additional centered-head slack median 5.75x. Full-unroll JVP scaled vector
+remainder is median 1.85%, maximum 6.37%, passing the frozen 25% screen.
+Actual Q states and Q history masses enter these oracle diagnostics; they
+cannot be substituted into a reference-only certificate.
 
-Round 6 and Round 7 evidence and claims are unchanged. Keep the conclusion
-narrow to the frozen Round 9 intervention and numerical gate: it does not
-falsify a theorem, establish a novelty claim, or support a general Transformer
-guarantee.
+The next attempt retains signed first-order directions and encloses
+second-derivative norms on theta in [0,1]. Construction uses P and the fixed
+summary; actual Q endpoints are used only for separate recorded validation.
+Full-sequence aggregation uses the P tree with the stated entropy-transfer
+bound or maximum path risk, not a direct P-weighted risk average.
+
+| Quantity | Result |
+|---|---:|
+| Original sequence KL upper | 36.623076 |
+| New upper intersected with original conditional bounds | 30.905579 |
+| Frozen target <=0.1 | FAIL |
+| Actual sequence KL(Q||P), validation only | 3.45822e-6 |
+| Raw directional sequence upper | 3.43908e17 |
+| Improved conditional bounds / finite enclosures | 27/40 / 40/40 |
+| Empty-history conditional upper | 3.327256 |
+
+Large second-order enclosures grow through the second block and final
+LayerNorm. The root already exceeds the target, so rare histories and history
+law transfer are not the sole failure. Exact internal LayerNorm denominator
+contributions were not retained. Accurate endpoint linearization does not
+establish a tight second-derivative supremum enclosure.
+
+## Unchanged claims and research decision
+
+The original 330-condition Round 9 endpoint still has 0/5 passing models and
+0/15 passing prefixes at half cache for each method. Near-full clustering
+m=63 passes but retains 63/64 records. Round 6, Round 7 and Experiment 0
+evidence and claims are unchanged.
+
+No useful half-cache certificate, strict interval certificate, general
+Transformer guarantee, systems saving or publication novelty is established.
+This one-case failure does not prove all directional methods impossible or
+refute the earlier conditional theory. The current recommendation is to stop
+expanding this scalar second-order enclosure into larger sweeps; another
+attempt would require a concretely different remainder mechanism.
 
 ## Verification actually recorded
 
-Eight Round 9 local software tests pass. Four server numerical/software tests
-and the 11-condition original-model smoke passed before the formal run.
-The compact endpoint checker passes on both the retrieved rows and the public
-CSV projection; these checks are separate from the failed scientific gate.
+Eight focused software tests (four per follow-up) pass. Both offline audits
+pass for frozen hashes, all 40 histories, vector/Taylor arithmetic, aggregate
+counts and verdicts. The remainder audit reconstructs all 81 path risks and
+the fixed-lambda entropy-transfer comparison. It does not replay weights,
+prove derivative suprema or perform outward-rounded arithmetic. All reported
+bounds are ordinary float64 analytic evaluations.
 
-`verification.json` reports `RECORDED_ENDPOINT_CHECKS_PASS` for 330 unique
-expected conditions, frozen source/config/checkpoint metadata, 40 histories
-and 81 leaves per condition, recorded sequence inequalities, full-cache
-identities, aggregate arithmetic and the predeclared gate. The export verifier
-does not replay model weights or the omitted per-history inequalities, and it
-does not construct an outward-rounded interval enclosure. The endpoint status
-and numerical gate outcome are separate: execution is complete, while all
-three 50% budget feasibility gates fail.
+Run from the repository root without checkpoint weights:
+
+```text
+python -B scripts/verify_round9_directional_diagnostic.py --input-dir runs/round9_directional_diagnostic_v1_20261011T183000Z
+python -B scripts/verify_round9_directional_remainder.py --input-dir runs/round9_directional_remainder_v1_20261012T024528Z
+```
+
+CPU software tests require the dependencies in `requirements.txt`:
+
+```text
+python -B -m unittest discover -s experiments -p 'test_round9_directional_*.py' -v
+```
+
+Exact scientific replay requires the separately held original checkpoint;
+weights and operational receipts are excluded. Commands in `PROJECT.md`
+require a fresh output directory and do not overwrite this evidence.
 
 ## Concrete reviewer questions
 
-1. Do the large radii and tube fractions at m=32, with the sparse agglomerative
-   final-LayerNorm zero-variance intersections, adequately describe where this
-   finite certificate loses tightness without implying a causal diagnosis?
-2. Is the public claim limited to the failed 50% numerical-feasibility gate and
-   the narrow near-full comparison, without promoting below-cap counts into a
-   high-fidelity result?
+1. Do the attention denominator and quotient remainder inequalities cover
+   zero endpoint prefix weights, mixed query/key/value derivatives and each
+   path's self-generated suffix KV without using actual Q measurements?
+2. Is the sequence aggregation valid for KL(Q||P), including its old-bound
+   conditional intersections, without replacing Q history weights by P?
+3. Does the interpretation distinguish accurate endpoint JVP, failed
+   computable remainder enclosure and untested alternatives, with the
+   conclusion confined to this frozen case and method?
