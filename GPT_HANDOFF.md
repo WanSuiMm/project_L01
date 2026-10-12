@@ -1,84 +1,82 @@
-# Incremental review: Round 14B final run and one-shot control
+# Incremental review: completed 7B temporal-order pilot
 
-Review base: `7f59ab24f481cde4bf4cbd4d2644e303e96c2025` (published Round 14).
-Evidence head: `c962d66335517a33aae22bd5ae9687e0fc9fc8a7`.
+Review base: `01b04cd53590217a8977924b99886445053ec06a` (closed Round 14B delivery).
+Evidence head: `344c1d67883cb08d8e28afd87077b4053ac1bada`.
 This later metadata-only commit updates this handoff; the evidence head stays fixed.
 
 ## Minimal reading order
 
-1. [RESULTS.md](RESULTS.md), Round 14B only: frozen gates, endpoint and one-shot comparison.
-2. [Interpretation](runs/round14b_suffix_write_v1_20261012T102704Z/INTERPRETATION.md), then the [report](runs/round14b_suffix_write_v1_20261012T102704Z/evaluation/REPORT.md) and [summary](runs/round14b_suffix_write_v1_20261012T102704Z/evaluation/summary.json).
-3. [Protocol](experiments/PROTOCOL_ROUND14B_SUFFIX_WRITE_V1.md), [configuration](experiments/configs/round14b_suffix_write_v1.json), and the new Round 14B section of [GPT_CONTEXT.md](GPT_CONTEXT.md).
-4. [Record verification](runs/round14b_suffix_write_v1_20261012T102704Z/release_verification.json) and [terminal closure](runs/round14b_suffix_write_v1_20261012T102704Z/CLOSURE.md).
+1. [RESULTS.md](RESULTS.md), new 7B section only: primary table, comparability and limits.
+2. [Interpretation](runs/real_llm_temporal_v1_20261012T123114Z/INTERPRETATION.md), then the [small summary](runs/real_llm_temporal_v1_20261012T123114Z/evaluation/summary.json) and [record checks](runs/real_llm_temporal_v1_20261012T123114Z/analysis/record_check.json).
+3. [Frozen protocol](experiments/PROTOCOL_REAL_LLM_TEMPORAL_V1.md), [configuration](experiments/real_llm_temporal_v1/config.json), [source identities](runs/real_llm_temporal_v1_20261012T123114Z/FROZEN.json), and the new section of [GPT_CONTEXT.md](GPT_CONTEXT.md).
+4. For implementation review: [runner](experiments/real_llm_temporal_v1/run_qwen_probe.py), [CPU checks](experiments/real_llm_temporal_v1/test_cpu.py), and [release verifier](scripts/verify_real_llm_temporal_v1_release.py).
 
-The 270 NPZs and 1,040 primary JSONL rows are secondary evidence. Earlier
-Round 6–14 records and theory do not need rereading for the empirical update.
-The [novelty audit](NOVELTY_AUDIT_2026-10-12.md) and
-[pre-run protocol review](ROUND14B_PROTOCOL_REVIEW_2026-10-12.md) are separately
-labeled historical research decisions, not completed experiment reports.
+The 8 MB trajectory JSONL is secondary evidence; do not open it first. Earlier
+Round 6--14B records, theory and novelty audit do not need rereading for this
+update. Frozen source package descriptions retain historical pending-result
+language; the completed report supersedes that status. The input ZIP remains
+local, identified by SHA-256 in the source manifest.
 
-## New evidence and narrower claim
+## New decision-relevant evidence
 
-The final suffix-write task uses five new two-layer width-128 models trained
-5,000 steps. The initial prompt has no values; fresh random value pairs are
-written before delayed READs. Same-role value KV is edited after vb's own
-forward pass. Plus/minus selects first/second records independently of token
-IDs. Both balanced antipodes of Block and Alternating are evaluated at theta=1
-and a separate theta=.25 diagnostic. Task, selector and event timing differ
-from Round 14, so this does not causally isolate task identity alone.
+One fixed Qwen2.5-7B-Instruct checkpoint, twelve original synthetic prompts,
+T=130, three policies, both antipodal phases and two Q paths per phase produce
+144/144 completed trajectories. Runtime was 516.50 seconds. No training,
+model download, prompt removal or rescue sweep occurred.
 
-The run completed in 666.17 seconds at 10:39:23 UTC on 2026-10-12, with
-320 continuous rows, 720 one-shot rows, 10 P-quality rows, five cache-deletion
-rows and 270 NPZs. Cache deletion preserves all inputs/queries/truth and
-recomputes future KV. Accuracy drops 54.88–76.95 percentage points; memory
-necessity and material sequence risk pass all seeds.
+Equal-prompt mean sequence KL(Q||P) is Block 181.3447, Alternating 185.2281,
+Random 189.4147 nats. Direct local attention-error squared is
+31.9788/34.8241/35.5113. Block/Alternating aggregate KL ratio is 0.9790, with
+Block larger in 6/12 prompts. Paired mean difference is -3.8834 nats;
+fixed-template bootstrap95 [-27.9022, 17.1016] spans zero.
 
-Only seeds 23 and 71 pass all four prerequisites; 0/5 pass all five gates
-(requires the SAME >=4/5). Verdict: **TASK_OR_INTERVENTION_UNQUALIFIED**.
-No threshold was relaxed and no failed seed was removed or retrained.
-All-five Block/Alternating KL is 49.8354/50.1825, Full Fisher 4.02230/3.86895,
-diagonal 3.88952/3.89441. Full relative errors average 90.26%/90.99% and fail
-the <=25% condition in every seed. Both qualified models underestimate by >99%,
-so training failure alone cannot explain the endpoint. Block exceeds
-Alternating in only 2/5 seeds; no consistent ordering benefit is established.
+Eleven prompts satisfy the prespecified Block/Alternating local max/min <=1.25
+tag. Their mean KL is 182.4765/178.3918 (ratio 1.0229), with per-prompt ratios
+0.7300--1.2889. None has a twofold gap in either direction. The one
+non-comparable prompt remains in the primary aggregate. Thus the earlier
+histogram contrast of 11--12x is not reproduced on this pilot.
 
-The one-shot control applies actual GS/uniform original-record summaries
-once independently per layer to exact n=90 prefix KV, m=45, then appends
-each model's own suffix KV for T=94. Each KL direction uses its appropriate
-sampled law plus the other shadow. GS/uniform KL(Q||P)=11.7477/15.7690,
-KL(P||Q)=6.83986/6.48423, with seed wins 3/5 and 2/5. Full identity is zero.
-This descriptive control does not establish a useful bound, space rate or
-refutation of the conditional Round 7 theorem. Continuous saves 16/184 total
-records; one-shot saves 45/184. Their risks cannot isolate timing at a matched
-total budget. Theta=.25 has 200 records and cannot rescue the physical endpoint.
+Plus/minus chooses earlier/later original generated KV at weight two, with
+original RoPE positions. It does not orient opposite actual error vectors.
+Prompt KV stays exact; each model computes its own future KV. Local error
+undoes only the latest edit, holds that layer's query/accumulated Q cache fixed,
+sums heads/dimensions and averages layers/events. Matching these pooled
+magnitudes does not match vectors, layer sensitivities or history laws.
 
 ## Validation and unchanged boundaries
 
-Eleven focused tests and local/server end-to-end smokes passed before dispatch.
-Saved-record verification checks 14 source hashes, config binding, coverage,
-uniqueness, KL/Fisher trace sums, event-Gram sum/trace, mass/cardinality,
-original subsets, and raw seed-gate arithmetic:
+Four focused CPU tests pass. The read-only release verifier checks ten frozen
+source hashes, complete grid, per-layer/event errors, exact KL chain sums, and
+reproduces the complete summary and frozen bootstrap using temporary copies:
 
 ```text
-python -B scripts/verify_round14b_release.py --input-dir runs/round14b_suffix_write_v1_20261012T102704Z
+python -B scripts/verify_real_llm_temporal_v1_release.py --input-dir runs/real_llm_temporal_v1_20261012T123114Z
 ```
 
-It does not load absent checkpoint bytes, regenerate tokens, replay JVPs or
-verify a theorem. An independent raw-record review found no concrete
-invalidating data/invariant mismatch. Weights, private receipts, machine
-identifiers, transient logs and unrelated archives are excluded.
+This loads no weights and does not regenerate tokens or prove a theorem.
+Before dispatch, tiny native/masked and physical/logical parity on CPU/CUDA
+BF16 and a six-row 7B smoke passed. The new [7B dependency file](experiments/requirements_real_llm_temporal_v1.txt)
+uses Transformers 4.57.1, separate from root dependencies for older experiments.
+Staged public files, links, source bytes and privacy exclusions were checked.
+Weights, private receipts, machine paths and transient logs are excluded.
 
-Round 13's finite histogram diagnostic, Round 14's negative transfer, and
-Round 9's certificate failures are unchanged. Fisher uses conditional P
-geometry on evaluated Q histories, not P-law sequence Fisher, heldout
-forecasting or a finite remainder bound. No useful certificate, general
-compressor advantage, inference speedup, optimal space, global novelty or
-publication readiness is established. This final run is closed without rescue
-sweeps or a new round.
+The primary metric sums exact full categorical conditional KL on Q-generated
+histories and estimates mean schedule-conditional sequence KL; it is not KL
+of a hidden-schedule mixture. Two trajectories emit EOS and continue to the
+fixed horizon. This measures raw model law, not stop-on-EOS completion quality.
+Only two paths per phase and one checkpoint were evaluated. The interval does
+not describe a model/task population, and the null contrast is not equivalence
+or proof that all temporal effects are absent. All policy KL values are large;
+similar risks do not establish fidelity. Logical masks retain allocated KVs;
+no task accuracy, physical memory saving or inference speed was measured.
+
+Round 13's finite histogram result and Round 14--14B's negative transfer remain
+unchanged. No new Fisher result, compression certificate, space lower bound,
+global novelty or publication readiness is claimed. No follow-up was launched.
 
 ## Reviewer questions
 
-1. Are prerequisites and the failed explanation gate separated clearly, especially for qualified seeds 23 and 71?
-2. Do trace sums and Gram identities support the arithmetic without being mistaken for a remainder guarantee?
-3. Does one-shot preserve exact-prefill, independent layer summaries, own-suffix KV and both KL sampling directions?
-4. Are different budgets, new event timing, secondary theta=.25 and unchanged conditional Round 7 status explicit?
+1. Do the summary and records support the 11/12 comparability count and zero twofold contrasts while retaining all prompts?
+2. Are earlier/later retention labels clearly separated from signed error cancellation and the toy intervention?
+3. Is the fixed-horizon Q-law KL estimand, including EOS continuation, distinguished from completion quality and mixture KL?
+4. Does the bounded negative conclusion avoid claiming equivalence, universal failure or systems benefits?
