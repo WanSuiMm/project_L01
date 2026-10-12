@@ -1,0 +1,22 @@
+{
+  "protocol_id": "round11_streaming_covariance_v1",
+  "started_utc": "2026-10-12T04:26:26.478610+00:00",
+  "smoke": false,
+  "source_sha256": {
+    "round11_streaming_covariance.py": "fabca29ca6f75bfc5aae6220e3a14a6f7648489e022f54e7cc1d752a30a1bafc",
+    "round11_streaming_core.py": "12fc3188843b84647f1972c0372976bce0a2e587a864e8efaf4e31316ac5dda9",
+    "round6_transformer.py": "6f854305669cc54f1f0f64ac58c554d8693e387577ef32cd01a7ac41438f640c",
+    "configs/round11_streaming_covariance_v1.json": "252a051d64c14aa519e78f9c1b554b4f0bea542479ba04b7cdbda59177cc0058",
+    "configs/round9_expected_checkpoints.json": "de30d28b8cad1af1aa2ad931e36aaad9e1b2dfa6abc46a7b8aed51f5d922e8d5",
+    "PROTOCOL_ROUND11_STREAMING_COVARIANCE_V1.md": "3ee9162bdaaf94fd3622bac6e2691c0aece70f4f93d4e299bde16192ff0d6e37",
+    "test_round11_streaming_core.py": "ee98dcc7ac78e93425224f18f8a88c0d2904ef9742facf87beac30adb928ad4d",
+    "analyze_round11.py": "28e43c33f2733ea97de7a6af3cd139e3b97be469c848c68034514e0c24b4dc2c",
+    "round11_dispatch.py": "9d08c37fe4f4fb5276be171b041d7ed12b30f261c587d692362c538e5e22d5fb"
+  },
+  "python": "3.12.13",
+  "torch": "2.11.0+cu128",
+  "numpy": "2.3.5",
+  "dtype": "float64",
+  "device": "cpu",
+  "training_performed": false
+}

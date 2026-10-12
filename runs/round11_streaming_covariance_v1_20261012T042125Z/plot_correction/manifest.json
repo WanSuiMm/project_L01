@@ -1,0 +1,12 @@
+{
+  "correction": "Use CSV Fisher predictions directly; they already include amplitude squared",
+  "original_bug": "The frozen v1 figure multiplied predictions by amplitude squared a second time",
+  "unchanged": "All scientific CSV values, summaries, screens and other original artifacts",
+  "fisher_metrics_sha256": "67b4acfc471c1a13ab49628d3cbe0303890f916d62085a584dac9e950c0a1e3f",
+  "analyzer_sha256": "7ca821324adc31e1f030b37853e88f0c2b27584f8e9c385d562f90eb648fb840",
+  "coordinate_check": "x=finite_reverse_kl; y=stored full_fisher_pred or diagonal_fisher_pred",
+  "corrected_figure_sha256": {
+    "fisher_predictions.pdf": "9cd2cc0410eaec52f986d44ed0bf5a1f0759bf710db87239e7b47f1aa11a364c",
+    "fisher_predictions.png": "915276140247b022a1dc345cbb62dd083dfdad7e011e3776a41e21a45cc464ff"
+  }
+}

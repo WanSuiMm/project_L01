@@ -4,3 +4,5 @@
 * whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Historical drafts retain their original Markdown line breaks and whitespace.
 theory/archive/L01_*.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# The frozen streaming core retains its original terminal blank line.
+**/round11_streaming_core.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol

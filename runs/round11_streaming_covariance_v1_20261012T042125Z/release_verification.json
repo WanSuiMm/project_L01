@@ -1,0 +1,67 @@
+{
+  "status": "PASS_RECORDED_EVIDENCE_AUDIT",
+  "primary_rows": 960,
+  "fisher_rows": 60,
+  "event_rows": 7560,
+  "order_pass_seeds": [
+    11,
+    23,
+    37,
+    51,
+    71
+  ],
+  "local_comparability_pass_seeds": [
+    11,
+    23,
+    37,
+    51,
+    71
+  ],
+  "fisher_pass_seeds": [
+    11,
+    23,
+    37,
+    51,
+    71
+  ],
+  "t128_kl_mean_across_model_seeds": {
+    "coherent": 2.730185032825658,
+    "iid": 0.1750105730667822,
+    "alternating": 0.10043092225200567
+  },
+  "payload_sha256": {
+    "analysis/fisher_predictions.pdf": "7c903fcb5beb9a19e9866881224e29c00fa89aa75129a8ec9b1c07f5730d919e",
+    "analysis/fisher_predictions.png": "d54f159e9f56e7f7c2953af4bcce3983defe6de366633d064814db66c31c1798",
+    "analysis/local_distortion_vs_kl.pdf": "c9201b95d8efb5a9cd053d9e4f2abec85bd7fcd2a147856b0fc594b5292179df",
+    "analysis/local_distortion_vs_kl.png": "13c6a9385018069e11de2c6cd6d9bf9f974df313d4e0fb18ca09d01d272e524e",
+    "analysis/sequence_kl_horizon.pdf": "e5ba8b9f800fb55230ed257a08480166fa88e706d3461fa86c256e2eb52b3767",
+    "analysis/sequence_kl_horizon.png": "56ff50a15f3be367f3df51e768b3fd965f3f8862b445a8916e63b5d022330f5a",
+    "checkpoints.json": "baabd94e78665a21ab154be590b4459d94af714f69a45e9e05d98c91a6654a7a",
+    "config.json": "3e0fd29758e64ec2699b3e8e1b2effdeda2fcd450f662e7a99daaa6e1ea97719",
+    "event_metrics.csv": "64990cb65d1fa86c6067387071e33ba1a3de6c32ec70a7a1c7727f4bddbd3524",
+    "execution_summary.json": "3927d0854c7d257170e33ca4041adfea0e06467159e1911622b8f0e68f636939",
+    "fisher_metrics.csv": "67b4acfc471c1a13ab49628d3cbe0303890f916d62085a584dac9e950c0a1e3f",
+    "INTERPRETATION.md": "0a893f65522d90be596c5b7b678837fb5a3cb59b3edcbcf8142743b698822138",
+    "prefixes.json": "fb976c68dccd5f7bfeca89dee9cd3edd7d939b87f376f49ee5180e78d79ca402",
+    "primary_metrics.csv": "207b214d7ea6de15e5dc32d0383da16054a7f36443ff80879e84f45e1bef8526",
+    "provenance.json": "71ff9667552bfff3896bb25c264da7eeaef3e01f51d32e2633349c1e53832204",
+    "RESULTS.md": "deade11a235ca810a863ae0c3b5179788911b091caba43bd82be5f34740e2369",
+    "RUN_STATUS.md": "fa8ae1018b1c447b28bb66f3e594d90c9839930b58d4bcf484bb16ef0195101c",
+    "source/analyze_round11.py": "28e43c33f2733ea97de7a6af3cd139e3b97be469c848c68034514e0c24b4dc2c",
+    "source/configs/round11_streaming_covariance_v1.json": "252a051d64c14aa519e78f9c1b554b4f0bea542479ba04b7cdbda59177cc0058",
+    "source/configs/round9_expected_checkpoints.json": "de30d28b8cad1af1aa2ad931e36aaad9e1b2dfa6abc46a7b8aed51f5d922e8d5",
+    "source/PROTOCOL_ROUND11_STREAMING_COVARIANCE_V1.md": "3ee9162bdaaf94fd3622bac6e2691c0aece70f4f93d4e299bde16192ff0d6e37",
+    "source/round11_dispatch.py": "9d08c37fe4f4fb5276be171b041d7ed12b30f261c587d692362c538e5e22d5fb",
+    "source/round11_streaming_core.py": "12fc3188843b84647f1972c0372976bce0a2e587a864e8efaf4e31316ac5dda9",
+    "source/round11_streaming_covariance.py": "fabca29ca6f75bfc5aae6220e3a14a6f7648489e022f54e7cc1d752a30a1bafc",
+    "source/round6_transformer.py": "6f854305669cc54f1f0f64ac58c554d8693e387577ef32cd01a7ac41438f640c",
+    "source/test_round11_streaming_core.py": "ee98dcc7ac78e93425224f18f8a88c0d2904ef9742facf87beac30adb928ad4d",
+    "summary.json": "7debce55c6f40194f2e486c27b63aaffb6f3b36a7e583d9852cf3a69cfdf02ae"
+  },
+  "limits": [
+    "No checkpoint or omitted token-path replay",
+    "No theorem, novelty or certificate verification",
+    "Fisher and finite reverse KL share reference histories",
+    "Recorded sample means are Monte Carlo estimates"
+  ]
+}

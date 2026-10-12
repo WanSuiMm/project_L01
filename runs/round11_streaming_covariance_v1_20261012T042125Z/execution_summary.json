@@ -1,0 +1,10 @@
+{
+  "execution": "COMPLETE",
+  "smoke": false,
+  "elapsed_seconds": 115.46147488499992,
+  "completed_utc": "2026-10-12T04:28:21.906714+00:00",
+  "primary_rows": 960,
+  "expected_primary_rows": 960,
+  "fisher_rows": 60,
+  "expected_fisher_rows": 60
+}

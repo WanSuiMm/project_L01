@@ -1,6 +1,47 @@
 # L01: causal output-relevant KV error
 
-Round 9 asks whether local analytic bounds certify substantial prefix-KV compression on the original five two-layer histogram models. All 330 conditions completed: at half cache (n=64,m=32), no method passes the frozen KL<=0.1 feasibility gate. Agglomerative actual KL is tiny, but its mean upper bound is 8.4763; near-full n=64,m=63 succeeds. [RESULTS.md](RESULTS.md) distinguishes these negative and positive findings. Earlier Round 7, Round 6 and Experiment 0 results are preserved.
+## Latest endpoint: Round 11 streaming covariance
+
+The completed Round 11 study tests how temporal correlation between equally budgeted suffix-thinning decisions changes sequence risk in the five original two-layer histogram decoders. It is a finite frozen-checkpoint mechanism result: no training or certification was performed.
+
+Endpoint A is `ROUND10_ORDER_TRANSFER_WITH_LOCAL_COMPARABILITY_SCREEN`: at T=128, mean fixed-schedule KL(Q||P) orders coherent > IID > alternating in all five model seeds. The max/min ratio of mean direct local-attention squared error is 1.00554–1.01176 across seeds, below the 1.25 screen. The paired coherent-minus-alternating difference is 2.62975, with a descriptive 95% training-seed bootstrap interval [2.57981, 2.68374].
+
+Endpoint B is `FINITE_FISHER_EXPLANATION_SUPPORTED` at amplitude 0.25 and T=32. On fixed P histories, the full reference-path Fisher prediction explains finite reverse sequence KL(P||Q) in all five seeds for coherent and alternating schedules: relative errors range from 0.0000359 to 0.000598, while diagonal-only errors range from 0.373 to 1.125. Both endpoints passed their predeclared screens; the run contains 960/960 primary rows and 60/60 Fisher rows.
+
+The primary metric averages fixed-schedule Q-to-P sequence KLs; it is not KL of a mixture over hidden schedules. Endpoint B uses the opposite direction, P-to-Q, on fixed P histories. Only eligible generated suffix pairs are thinned; the old prefix and START remain intact, so the result does not show that the full cache is halved. No byte, memory, or speed measurement was made.
+
+Use the [corrected Fisher figure](runs/round11_streaming_covariance_v1_20261012T042125Z/plot_correction/fisher_predictions.png): the frozen original plot applied amplitude squared twice. Numerical CSV results and screens are unchanged; the original plot is retained with a [correction record](runs/round11_streaming_covariance_v1_20261012T042125Z/plot_correction/README.md).
+
+### Round 11 reading route
+
+1. [RESULTS.md](RESULTS.md), then the [run interpretation](runs/round11_streaming_covariance_v1_20261012T042125Z/INTERPRETATION.md): canonical endpoint tables, screens, and caveats.
+2. [GPT_HANDOFF.md](GPT_HANDOFF.md), then [GPT_CONTEXT.md](GPT_CONTEXT.md): incremental review, formal status, estimands, source map, and review boundaries.
+3. [Frozen protocol](experiments/PROTOCOL_ROUND11_STREAMING_COVARIANCE_V1.md) and [configuration](experiments/configs/round11_streaming_covariance_v1.json).
+4. [Run summary](runs/round11_streaming_covariance_v1_20261012T042125Z/summary.json) and [run configuration](runs/round11_streaming_covariance_v1_20261012T042125Z/config.json) bind the aggregate and evaluated grid. The large per-event CSV is secondary; begin with RESULTS.md and summary.json.
+
+The public endpoint is checked by the read-only release verifier:
+
+```text
+python -B scripts/verify_round11_release.py --input-dir runs/round11_streaming_covariance_v1_20261012T042125Z
+```
+
+To reproduce, use the original external checkpoints and a fresh run directory:
+
+```text
+python -B experiments/round11_streaming_covariance.py --config experiments/configs/round11_streaming_covariance_v1.json --checkpoint-root PATH_TO_ORIGINAL_MODELS --run-dir runs/NEW_ROUND11_RUN
+```
+
+The runner generates the analysis automatically after scientific completion.
+For a separate analysis of the frozen run, copy `primary_metrics.csv`,
+`fisher_metrics.csv`, `execution_summary.json`, `provenance.json`,
+`checkpoints.json`, `prefixes.json`, `config.json`, and `source/` into a new directory, then pass that
+directory as `--run-dir` with the frozen run's `config.json`. The analyzer
+writes its derived summary and figures there; keep this output away from the
+frozen completed run.
+
+## Historical: Round 9 local-bound certificate campaign
+
+Round 9 asked whether local analytic bounds certify substantial prefix-KV compression on the original five two-layer histogram models. All 330 conditions completed: at half cache (n=64,m=32), no method passes the frozen KL<=0.1 feasibility gate. Agglomerative actual KL is tiny, but its mean upper bound is 8.4763; near-full n=64,m=63 succeeds. [RESULTS.md](RESULTS.md) distinguishes these negative and positive findings. Earlier Round 7, Round 6 and Experiment 0 results are preserved.
 
 Two subsequent frozen one-case CPU follow-ups find an accurate first-order
 JVP, but a scalar second-order remainder enclosure still gives sequence KL
@@ -9,9 +50,9 @@ remains unmet; this does not establish that all directional methods fail.
 
 A completed finite-task result does not establish a general trained-Transformer theorem, a uniform generation guarantee, minimax cache-space lower bound, sequence-TV certificate, or practical inference or memory savings. Treat task-quality failures as part of the reported seed results; do not silently remove them.
 
-## Current reading route
+## Round 9 historical reading route
 
-1. [RESULTS.md](RESULTS.md): current Round 9 verdict, half-cache table and near-full control.
+1. [RESULTS.md](RESULTS.md): frozen Round 9 verdict, half-cache table and near-full control.
    The new [one-case diagnostic](runs/round9_directional_diagnostic_v1_20261011T183000Z/INTERPRETATION.md)
    separates propagation/readout slack and checks the full-network JVP; it does
    not change the failed half-cache certificate gate.
@@ -35,13 +76,13 @@ Current reproduction commands are in [PROJECT.md](PROJECT.md).
 The completed Round 7 reading route remains below.
 
 1. [RESULTS.md](RESULTS.md): current published snapshot, canonical aggregates, gates, and claim boundaries.
-2. [GPT_CONTEXT.md](GPT_CONTEXT.md): preserved Round 7 context; the current [GPT_HANDOFF.md](GPT_HANDOFF.md) covers the latest Round 9 follow-ups.
+2. [GPT_CONTEXT.md](GPT_CONTEXT.md): preserved Round 7 context; the current [GPT_HANDOFF.md](GPT_HANDOFF.md) covers the Round 11 update.
 3. [GPT_CONTEXT.md](GPT_CONTEXT.md), [frozen Round 7 protocol](experiments/PROTOCOL_ROUND7_THINNING_V1.md), and [configuration](experiments/configs/round7_thinning_v1.json): estimands, source map and controls.
 4. [THEORY_STATUS.md](THEORY_STATUS.md), then the [archived Round 7 proof draft](theory/archive/round7/THEOREM_AND_PROOF.md): conditional mathematics and restricted lower-bound class.
 
 Current endpoint status and numbers belong in RESULTS.md; this reading guide does not duplicate them.
 
-## Round 7 verification and reproduction
+## Historical: Round 7 verification and reproduction
 
 From this repository root, with [requirements.txt](requirements.txt) installed:
 
@@ -74,7 +115,7 @@ a new realization, not exact replay of this endpoint. The Round 7 evaluation
 performs no training. GPU execution is needed only for new trained-decoder
 measurements, not for reading or verifying the public compact results.
 
-## Round 6 reproduction
+## Historical: Round 6 reproduction
 
 Run commands from this standalone repository root. Install the dependencies in [requirements.txt](requirements.txt). The test command checks the frozen analytic, trained-decoder, and analysis code:
 

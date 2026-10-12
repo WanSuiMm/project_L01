@@ -1,6 +1,83 @@
 # Review context
 
-## Latest: directional nonlinear remainder attempt
+## Latest: Round 11 streaming covariance mechanism study
+
+Formal status: `execution=COMPLETE`, `coverage=COMPLETE_960_PRIMARY_60_FISHER`,
+`endpoint_A=ROUND10_ORDER_TRANSFER_WITH_LOCAL_COMPARABILITY_SCREEN`,
+`endpoint_B=FINITE_FISHER_EXPLANATION_SUPPORTED`, `training=NOT_PERFORMED`.
+The finite study used the five original width-64, two-layer histogram models
+and four fixed 64-token prefixes. It does not continue or change the earlier
+Round 9 certification gate.
+
+Endpoint A measures the mean of fixed-schedule sequence KL(Q||P): Q samples its
+own full-softmax continuations and P replays the same tokens with its own full
+cache. This is not KL of a token law mixed over hidden compression schedules.
+At T=128, coherent > IID > alternating in all five model seeds. The direct
+local-attention squared-error max/min ratio is 1.005535–1.011755 per seed, all
+under the frozen 1.25 comparability screen. The paired coherent-minus-
+alternating mean is 2.629754, with a descriptive 95% training-seed bootstrap
+interval [2.579809, 2.683743] over 10,000 fixed resamples.
+
+Endpoint B evaluates finite reverse sequence KL(P||Q) on fixed P histories at
+T=32 and amplitude 0.25. The full reference-path Fisher prediction passes in
+all five seeds for coherent and alternating schedules: full relative error is
+0.00003588–0.00059763, versus 0.372715–1.125217 for the diagonal-only
+prediction. This is a finite local mechanism explanation, not a future-risk
+predictor or a P-only certificate.
+
+The finite KL and quadratic share the same P histories. This short reverse-KL
+diagnostic does not directly explain the entire T=128 Q||P risk gap. The
+local-distortion screen matches means rather than complete vector error laws.
+The motivation from the analytical temporal-covariance construction is to
+compare time arrangements with identical unconditional sign marginals;
+Round 11 tests that ordering, not the construction's asymptotic rates.
+
+Plot correction: the frozen `analysis/fisher_predictions.*` figures applied
+amplitude squared twice. The scientific CSV and screens were correct. Use
+`plot_correction/fisher_predictions.*` and its manifest; current analyzer
+code is fixed, while the frozen source copy and original figures are retained.
+
+| Concept | Exact source symbol |
+|---|---|
+| Physical suffix pair thinning and local diagnostics | `experiments/round11_streaming_core.py:streaming_step` |
+| Smooth interpolation used for event JVPs | `experiments/round11_streaming_core.py:smooth_rollout` |
+| Q-sampled sequence risk, with P replaying Q tokens | `experiments/round11_streaming_covariance.py:actual_risk` |
+| Fixed-P-history Fisher and finite reverse-KL diagnostic | `experiments/round11_streaming_covariance.py:fisher_probe` |
+| Coverage, seed aggregation, screens, and report generation | `experiments/analyze_round11.py:analyze` |
+
+Start with [the frozen run results](runs/round11_streaming_covariance_v1_20261012T042125Z/RESULTS.md),
+then its [summary](runs/round11_streaming_covariance_v1_20261012T042125Z/summary.json)
+and [configuration](runs/round11_streaming_covariance_v1_20261012T042125Z/config.json).
+Read the [protocol](experiments/PROTOCOL_ROUND11_STREAMING_COVARIANCE_V1.md)
+for the intervention and estimands. Raw event CSVs are secondary evidence.
+
+The intervention thins eligible generated suffix pairs only; the old prefix
+and START are retained. The pairwise choice preserves logical mass but changes
+keys and therefore need not preserve the softmax denominator. The experiment
+measured neither byte savings nor inference speed. It establishes no trained-
+Transformer theorem, useful certificate, novel compressor or novelty claim,
+asymptotic rate, or linear, logarithmic, or other horizon-rate bound. The 960
+primary and 60 Fisher rows are complete; completion and screen passage describe
+this finite grid only.
+
+To reproduce into a fresh directory with the original external checkpoints:
+
+```text
+python -B experiments/round11_streaming_covariance.py --config experiments/configs/round11_streaming_covariance_v1.json --checkpoint-root PATH_TO_ORIGINAL_MODELS --run-dir runs/NEW_ROUND11_RUN
+```
+
+The runner automatically generates the analysis after completion.
+For offline reanalysis of the frozen result, copy `primary_metrics.csv`,
+`fisher_metrics.csv`, `execution_summary.json`, `provenance.json`,
+`checkpoints.json`, `prefixes.json`, `config.json`, and `source/` to a fresh directory and use it as the
+analyzer's `--run-dir`; the analyzer writes derived files there. Check the
+frozen endpoint without rewriting generated evidence:
+
+```text
+python -B scripts/verify_round11_release.py --input-dir runs/round11_streaming_covariance_v1_20261012T042125Z
+```
+
+## Historical: Round 9 directional nonlinear remainder attempt
 
 Formal status: `execution=COMPLETE_40_HISTORIES_SAME_ONE_CASE`,
 `remainder_feasibility=FAIL_UPPER_30.905579`,
@@ -21,7 +98,7 @@ uses the full P tree without Q weighting. Derivation:
 recorded arithmetic/hash bindings. No outward rounding, novel theorem,
 multi-case generalization or systems gain is established.
 
-## Round 9 follow-up diagnostic
+## Historical: Round 9 follow-up diagnostic
 
 Read the new section of [RESULTS.md](RESULTS.md), then
 [INTERPRETATION.md](runs/round9_directional_diagnostic_v1_20261011T183000Z/INTERPRETATION.md).
@@ -44,7 +121,7 @@ The protocol is `experiments/PROTOCOL_ROUND9_DIRECTIONAL_DIAGNOSTIC_V1.md`.
 arithmetic/source-copy hashes without model replay. Raw vectors in
 `histories.jsonl` are secondary evidence; do not open them before the aggregate.
 
-## Current Round 9 local-bound endpoint
+## Historical: Round 9 local-bound endpoint (negative certificate gate)
 
 Start with the Round 9 section in [RESULTS.md](RESULTS.md), then the public
 snapshot `runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z/`.
@@ -100,7 +177,7 @@ produce an interval enclosure, or verify theory or novelty. The frozen Round 9
 protocol remains the prospective protocol. Do not edit its status sentence;
 use the completed run status and snapshot for the endpoint outcome.
 
-## Current Round 7 review context
+## Historical: Round 7 review context
 
 Start with [RESULTS.md](RESULTS.md), then [GPT_HANDOFF.md](GPT_HANDOFF.md).
 Formal status: `execution=COMPLETE`, `analytic=ANALYTIC_GATES_PASS`,
@@ -161,7 +238,7 @@ Focused review questions:
 3. Does the restricted equal-weight class lower bound provide enough value
    when arbitrary weights/representatives and useful constants remain open?
 
-## Current Round 6 review context
+## Historical: Round 6 review context
 
 The completed formal trained-decoder run is part of the current published snapshot. Start with [RESULTS.md](RESULTS.md) for its current metrics, counts, task-quality gates, and claim boundary. Treat a running or partial group as incomplete, and do not infer an endpoint from training progress.
 

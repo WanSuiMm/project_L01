@@ -1,4 +1,86 @@
-# L01 results: Round 9 local bounds and directional follow-ups
+# L01 results
+
+## Round 11: trained-model temporal-policy mechanism
+
+**Execution complete; both predeclared descriptive screens pass in 5/5 model
+seeds.** The five original two-layer Round 6 histogram checkpoints were reused
+without training. At identical suffix-pair record budgets, the temporal order
+of thinning signs strongly changes estimated sequence risk. This is a finite
+mechanism result; the earlier Round 9 half-cache certificate remains failed.
+
+The run completed on 2026-10-12 at 04:28:23 UTC in 117.40 seconds including
+analysis (115.46 seconds in the scientific runner). All 960 primary rows,
+60 Fisher rows and 7,560 event rows are present. Start with the
+[run interpretation](runs/round11_streaming_covariance_v1_20261012T042125Z/INTERPRETATION.md),
+then the [generated per-seed report](runs/round11_streaming_covariance_v1_20261012T042125Z/RESULTS.md).
+
+### Actual generated sequence risk
+
+Each model uses four fixed n=64 prefixes and 128 token paths per policy.
+Average schedules and prefixes within each training seed, then average the
+five seeds. The estimand is the mean fixed-schedule sequence KL(Q||P), not
+KL of the law after marginalizing the hidden compression schedule.
+
+| Horizon | Coherent mean KL | IID mean KL | Alternating mean KL |
+|---:|---:|---:|---:|
+| 16 | 0.0235324 | 0.00968247 | 0.00495067 |
+| 32 | 0.141446 | 0.0288152 | 0.0158924 |
+| 64 | 0.694266 | 0.0795661 | 0.0431900 |
+| 128 | 2.730185 | 0.175011 | 0.100431 |
+
+At T=128 all five models have coherent > IID > alternating. The per-model
+max/min ratio of policy mean direct local attention squared errors is
+1.0055--1.0118, passing the predeclared <=1.25 screen. The paired
+coherent-minus-alternating difference is 2.62975, with descriptive 95%
+training-seed bootstrap interval [2.57981,2.68374]. Prompts, paths and
+schedules are not additional independent models. The local screen compares
+means, not full error laws or vectors. All three policies retain the old
+prefix exactly and halve eligible newly generated suffix pairs; this is not
+whole-cache half compression or a byte/throughput measurement.
+
+### Fixed-reference cross-event Fisher diagnostic
+
+On two prefixes per model, 16 P histories, T=32 and amplitude 0.25, the full
+event-JVP Fisher quadratic predicts finite reverse KL(P||Q) much better than
+its diagonal-only counterpart. These are averages of per-prefix relative
+errors, followed by equal training-seed averaging.
+
+| Policy | Full Fisher mean relative error | Diagonal-only mean relative error |
+|---|---:|---:|
+| Coherent | 0.04810% | 79.6573% |
+| Alternating | 0.01206% | 78.4968% |
+
+Both policies pass the predeclared error screen in every seed. The finite
+KL and quadratic use the same P histories: this is an offline local
+explanation, not heldout risk prediction. Primary Q||P uses T=128 and Q
+histories; the diagnostic P||Q uses T=32 and P histories. Although their
+local quadratic metrics agree at zero perturbation, this experiment does
+not show that Fisher explains the complete long-horizon primary risk gap.
+
+The original generated Fisher figure applied amplitude squared twice;
+CSV metrics and gates were correct. Use the separately saved
+[corrected Fisher figure](runs/round11_streaming_covariance_v1_20261012T042125Z/plot_correction/fisher_predictions.png)
+and [correction record](runs/round11_streaming_covariance_v1_20261012T042125Z/plot_correction/README.md).
+The frozen original figures and source copies remain available for audit.
+
+The temporal-policy ordering transfers to these trained models. The
+linear/logarithmic/bounded asymptotic rates of the analytical construction
+were not tested: in particular alternating KL still increases across this
+horizon grid. No general Transformer theorem, useful certificate, new
+compressor, practical speedup or publication novelty is established.
+
+The [frozen protocol](experiments/PROTOCOL_ROUND11_STREAMING_COVARIANCE_V1.md),
+[summary](runs/round11_streaming_covariance_v1_20261012T042125Z/summary.json)
+and [recorded-evidence audit](runs/round11_streaming_covariance_v1_20261012T042125Z/release_verification.json)
+bind the result. The audit recomputes recorded CSV aggregates and gates,
+coverage, identities and source hashes; it does not replay checkpoints or
+verify the mathematics. Read the summary before the secondary event CSV.
+
+```text
+python -B scripts/verify_round11_release.py --input-dir runs/round11_streaming_covariance_v1_20261012T042125Z
+```
+
+## Historical Round 9: local bounds and directional follow-ups
 
 **Execution: COMPLETE (330/330). Scientific verdict: the frozen half-cache
 feasibility gate fails for every method; near-full clustering succeeds.**

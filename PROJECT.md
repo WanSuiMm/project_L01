@@ -1,12 +1,55 @@
 # L01: output-relevant causal KV error
 
-Status: **ROUND9_REMAINDER_FEASIBILITY_FAIL / FIRST_ORDER_DIAGNOSTIC_STILL_PASS / HALF_CACHE_UNCERTIFIED**;
+Status: **ROUND11_COMPLETE / TEMPORAL_ORDER_SCREEN_PASS_5_OF_5 / LOCAL_FISHER_SCREEN_PASS_5_OF_5**;
+previous **ROUND9_REMAINDER_FEASIBILITY_FAIL / FIRST_ORDER_DIAGNOSTIC_STILL_PASS / HALF_CACHE_UNCERTIFIED**;
 previous **ROUND9_DIAGNOSTIC_COMPLETE / ONE_CASE_FIRST_ORDER_SCREEN_PASS / HALF_CACHE_STILL_UNCERTIFIED**;
 previous **ROUND9_COMPLETE / HALF_CACHE_FEASIBILITY_FAIL / NEAR_FULL_CLUSTER_ONLY**;
 previous **ROUND7_EXECUTION_COMPLETE / GS_EMPIRICAL_ADVANTAGE / GLOBAL_CERTIFICATE_VACUOUS**;
 previous **ROUND6_EXECUTION_COMPLETE / ANALYTIC_CONSISTENT /
 HISTOGRAM_QUALIFIED / RECALL_TRAINING_UNRELIABLE / GLOBAL_BOUND_UNINFORMATIVE**,
 2026-10-12.
+
+Round 11 completed on 2026-10-12 at 04:28:23 UTC in 117.40 seconds including
+analysis, CPU two threads. Its frozen
+[mechanism protocol](experiments/PROTOCOL_ROUND11_STREAMING_COVARIANCE_V1.md)
+reuses the five original width-64, two-layer Round 6 histogram checkpoints
+without training. It compares coherent, IID and alternating pair-thinning
+policies over four prefixes at T=16,32,64,128. The old prefix remains exact;
+only eligible newly generated suffix pairs are halved. This is not a
+whole-cache half-budget experiment. A separate fixed-reference full-unroll
+Fisher probe tests whether cross-event terms improve finite reverse-KL
+predictions. Actual Q-to-P sequence risk and this P-to-Q diagnostic are
+reported separately.
+
+Four targeted core tests pass. Original seed-11 smoke runs pass locally and
+on the server, including original-model, physical-endpoint and JVP parity;
+the analysis entry point also runs on both environments. These checks are
+software validation only. All 960 primary rows, 60 Fisher rows and 7,560
+event rows completed and were retrieved. At T=128 mean KL(Q||P) is 2.730185
+for coherent, 0.175011 for IID and 0.100431 for alternating; all five models
+pass the ordering and local-error comparability screens. The T=32 reverse-KL
+Fisher screen passes all five models, but is a distinct local diagnostic,
+not a direct explanation of the whole long-horizon primary gap. See
+[RESULTS.md](RESULTS.md) and the
+[run interpretation](runs/round11_streaming_covariance_v1_20261012T042125Z/INTERPRETATION.md).
+Source/configuration snapshots and retrieved outputs are in that run
+directory; operational receipts remain private. Earlier certification
+failures are unchanged. No ongoing monitor was created.
+
+Publication review found double amplitude scaling in the original Fisher
+plot only. Current analyzer code and separate `plot_correction/` figures fix
+the plot; original scientific metrics and frozen artifacts are unchanged.
+
+Round 11 commands from the repository root (always use a new run directory):
+
+```text
+python -B -m unittest discover -s experiments -p test_round11_streaming_core.py -v
+python -B scripts/verify_round11_release.py --input-dir runs/round11_streaming_covariance_v1_20261012T042125Z
+python -B experiments/round11_streaming_covariance.py --config experiments/configs/round11_streaming_covariance_v1.json --checkpoint-root PATH_TO_ORIGINAL_MODELS --run-dir runs/NEW_ROUND11_RUN
+```
+
+The runner generates the analysis automatically. For reanalysis, copy compact
+inputs and source to a fresh directory as described in README.md.
 
 The next frozen attempt kept exact signed first-order directions and bounded
 second-derivative norms over theta in [0,1]. All 40 histories completed on the
