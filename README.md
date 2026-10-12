@@ -1,6 +1,46 @@
 # L01: causal output-relevant KV error
 
-## Latest endpoint: Round 11 streaming covariance
+## Latest endpoint: Round 13 cross-event explanation at the primary horizon
+
+L01 asks which aspects of KV perturbations explain autoregressive output error.
+Round 12 found that Balanced Block versus Alternating thinning has similar
+terminal token bias but an 11.17x full-sequence KL contrast; the whole prefix
+bias trajectory tracks the contrast. Round 13 now tests exact full-unroll
+Fisher geometry at the same T=129 and KL(Q||P) direction, reusing the five
+original two-layer models and saved histories without training. The selected
+history KL ratio is 12.19x; full Fisher gives 12.24x, while diagonal-only gives
+0.98x. Both frozen screens pass all five seeds for each policy.
+
+This is a finite same-history explanation, not a heldout predictor or
+certificate. The quadratic uses conditional P-logit geometry averaged over
+saved Q histories. Only generated suffix pairs are thinned; whole-cache
+half-budget and inference speed were not measured. Earlier certificate
+failures remain unchanged.
+
+1. [RESULTS.md](RESULTS.md): Round 13 and Round 12 endpoint tables and limits.
+2. [GPT_HANDOFF.md](GPT_HANDOFF.md), then [GPT_CONTEXT.md](GPT_CONTEXT.md): incremental review and exact estimands/source symbols.
+3. [Round 13 interpretation](runs/round13_matched_fisher_review_v1_20261012T071747Z/INTERPRETATION.md), [report](runs/round13_matched_fisher_v1_20261012T062406Z/REPORT.md) and [summary](runs/round13_matched_fisher_v1_20261012T062406Z/summary.json).
+4. [Round 13 protocol](experiments/PROTOCOL_ROUND13_MATCHED_FISHER_V1.md) and [configuration](experiments/configs/round13_matched_fisher_v1.json); [Round 12 interpretation](runs/round12_balanced_order_review_v1_20261012T060523Z/INTERPRETATION.md) supplies the actual bias trajectories.
+
+Read compact summaries before the secondary raw NPZ/CSV files. Check the
+recorded Round 13 endpoint without model weights:
+
+```text
+python -B scripts/verify_round13_release.py --input-dir runs/round13_matched_fisher_v1_20261012T062406Z --input-run runs/round12_balanced_order_v1_20261012T052457Z
+```
+
+Reproduce with the original external checkpoints and a fresh output directory:
+
+```text
+python -B experiments/round13_matched_fisher.py --config experiments/configs/round13_matched_fisher_v1.json --checkpoint-root PATH_TO_ORIGINAL_MODELS --input-run runs/round12_balanced_order_v1_20261012T052457Z --run-dir runs/NEW_ROUND13_RUN
+```
+
+Dependencies are in [requirements.txt](requirements.txt). Exact replay needs the
+original checkpoint bytes; replacement training is a new realization. The
+runner writes analysis automatically; reanalysis must use a fresh copy of
+`config.json` and `metrics.csv`, not the frozen completed directory.
+
+## Historical: Round 11 streaming covariance
 
 The completed Round 11 study tests how temporal correlation between equally budgeted suffix-thinning decisions changes sequence risk in the five original two-layer histogram decoders. It is a finite frozen-checkpoint mechanism result: no training or certification was performed.
 

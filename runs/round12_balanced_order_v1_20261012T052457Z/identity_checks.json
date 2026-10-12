@@ -1,0 +1,324 @@
+{
+  "checks": [
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 8.348877145181177e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 6.972200594645983e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 8.79296635503124e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 9.237055564881302e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 7.993605777301127e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 8.171241461241152e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 9.059419880941277e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 8.704148513061227e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 9.414691248821327e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 9.50350909079134e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 9.43689570931383e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 1.0125233984581428e-13,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 9.059419880941277e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 9.14823772291129e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 8.881784197001252e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 9.947598300641403e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 9.08162434143378e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 7.993605777301127e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 1.4033219031261979e-13,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 9.769962616701378e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 9.85878045867139e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 8.171241461241152e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 1.0302869668521453e-13,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 9.237055564881302e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 9.592326932761353e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 7.09432512735475e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 1.1013412404281553e-13,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 9.592326932761353e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 9.947598300641403e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 8.704148513061227e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 1.1013412404281553e-13,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 9.14823772291129e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 9.592326932761353e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 8.970602038971265e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 1.4055423491754482e-13,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 1.2967404927621828e-13,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 8.526512829121202e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 9.658940314238862e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "balanced_block",
+      "max_layer0_moment_identity_gap": 1.0658141036401503e-13,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "alternating",
+      "max_layer0_moment_identity_gap": 8.970602038971265e-14,
+      "max_histogram_identity_gap": 0.0,
+      "max_precompression_kl": 0.0
+    }
+  ]
+}

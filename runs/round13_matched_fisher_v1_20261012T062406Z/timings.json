@@ -1,0 +1,284 @@
+{
+  "conditions": [
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "balanced_block",
+      "geometry_seconds": 16.12048740099999,
+      "probe_seconds": 16.504194288994768
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "alternating",
+      "geometry_seconds": 15.36973850200593,
+      "probe_seconds": 15.753579112999432
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.491359954998188,
+      "probe_seconds": 15.868881237998721
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "alternating",
+      "geometry_seconds": 15.35466375699616,
+      "probe_seconds": 15.72841938700003
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.671376546000829,
+      "probe_seconds": 16.054335651002475
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "alternating",
+      "geometry_seconds": 15.4185018950011,
+      "probe_seconds": 15.806310409003345
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "balanced_block",
+      "geometry_seconds": 14.85904321399721,
+      "probe_seconds": 15.237923444001353
+    },
+    {
+      "model_seed": 11,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "alternating",
+      "geometry_seconds": 15.51493235599628,
+      "probe_seconds": 15.899402023998846
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.831695829001546,
+      "probe_seconds": 16.2089444000012
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "alternating",
+      "geometry_seconds": 15.946390753000742,
+      "probe_seconds": 16.336632231003023
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.790397356002359,
+      "probe_seconds": 16.175835264999478
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "alternating",
+      "geometry_seconds": 15.068127788996208,
+      "probe_seconds": 15.446272831999522
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "balanced_block",
+      "geometry_seconds": 14.710793108999496,
+      "probe_seconds": 15.105694308003876
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "alternating",
+      "geometry_seconds": 14.523272099999303,
+      "probe_seconds": 14.912896529996942
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "balanced_block",
+      "geometry_seconds": 14.63088263199461,
+      "probe_seconds": 15.004456586000742
+    },
+    {
+      "model_seed": 23,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "alternating",
+      "geometry_seconds": 15.619298839003022,
+      "probe_seconds": 15.999212570000964
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.696870952997415,
+      "probe_seconds": 16.078477691000444
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "alternating",
+      "geometry_seconds": 15.928377682001155,
+      "probe_seconds": 16.312441915004456
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "balanced_block",
+      "geometry_seconds": 14.763017140998272,
+      "probe_seconds": 15.148091438997653
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "alternating",
+      "geometry_seconds": 15.537503601000935,
+      "probe_seconds": 15.922430389997317
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.405406687001232,
+      "probe_seconds": 15.792159919001278
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "alternating",
+      "geometry_seconds": 15.485929973001475,
+      "probe_seconds": 15.885011215003033
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.050276303001738,
+      "probe_seconds": 15.434089406000567
+    },
+    {
+      "model_seed": 37,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "alternating",
+      "geometry_seconds": 15.469785263005178,
+      "probe_seconds": 15.862614696001401
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.754404510000313,
+      "probe_seconds": 16.1398895980019
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "alternating",
+      "geometry_seconds": 14.826817086002848,
+      "probe_seconds": 15.210821445005422
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "balanced_block",
+      "geometry_seconds": 14.93630969899823,
+      "probe_seconds": 15.322288081995794
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "alternating",
+      "geometry_seconds": 15.802743493994058,
+      "probe_seconds": 16.199550796998665
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "balanced_block",
+      "geometry_seconds": 16.060996862004686,
+      "probe_seconds": 16.451177564005775
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "alternating",
+      "geometry_seconds": 15.7936136099961,
+      "probe_seconds": 16.187625826998556
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "balanced_block",
+      "geometry_seconds": 16.048914539998805,
+      "probe_seconds": 16.442049110999506
+    },
+    {
+      "model_seed": 51,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "alternating",
+      "geometry_seconds": 15.578996025004017,
+      "probe_seconds": 15.970591037003032
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.142123217003245,
+      "probe_seconds": 15.55010732899973
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0000",
+      "policy": "alternating",
+      "geometry_seconds": 15.23398461099714,
+      "probe_seconds": 15.624364735995186
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.283003235999786,
+      "probe_seconds": 15.675752909002767
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0001",
+      "policy": "alternating",
+      "geometry_seconds": 15.345703262995812,
+      "probe_seconds": 15.732117412997468
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.238233683005092,
+      "probe_seconds": 15.628670279002108
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0002",
+      "policy": "alternating",
+      "geometry_seconds": 15.140050979003718,
+      "probe_seconds": 15.53152422200219
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "balanced_block",
+      "geometry_seconds": 15.044926544003829,
+      "probe_seconds": 15.431482664003852
+    },
+    {
+      "model_seed": 71,
+      "prompt_id": "histogram-n64-0003",
+      "policy": "alternating",
+      "geometry_seconds": 15.553014012002677,
+      "probe_seconds": 15.947184149998066
+    }
+  ]
+}

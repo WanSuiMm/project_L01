@@ -1,6 +1,8 @@
 # L01: output-relevant causal KV error
 
-Status: **ROUND11_COMPLETE / TEMPORAL_ORDER_SCREEN_PASS_5_OF_5 / LOCAL_FISHER_SCREEN_PASS_5_OF_5**;
+Status: **ROUND13_COMPLETE / MATCHED_HORIZON_FISHER_SCREEN_PASS_5_OF_5 / CROSS_EVENT_EXPLANATION_SUPPORTED**;
+previous **ROUND12_COMPLETE / BALANCED_ORDER_SCREEN_PASS_5_OF_5 / PREFIX_BIAS_TRAJECTORY_SUPPORTED**;
+previous **ROUND11_COMPLETE / TEMPORAL_ORDER_SCREEN_PASS_5_OF_5 / LOCAL_FISHER_SCREEN_PASS_5_OF_5**;
 previous **ROUND9_REMAINDER_FEASIBILITY_FAIL / FIRST_ORDER_DIAGNOSTIC_STILL_PASS / HALF_CACHE_UNCERTIFIED**;
 previous **ROUND9_DIAGNOSTIC_COMPLETE / ONE_CASE_FIRST_ORDER_SCREEN_PASS / HALF_CACHE_STILL_UNCERTIFIED**;
 previous **ROUND9_COMPLETE / HALF_CACHE_FEASIBILITY_FAIL / NEAR_FULL_CLUSTER_ONLY**;
@@ -8,6 +10,84 @@ previous **ROUND7_EXECUTION_COMPLETE / GS_EMPIRICAL_ADVANTAGE / GLOBAL_CERTIFICA
 previous **ROUND6_EXECUTION_COMPLETE / ANALYTIC_CONSISTENT /
 HISTOGRAM_QUALIFIED / RECALL_TRAINING_UNRELIABLE / GLOBAL_BOUND_UNINFORMATIVE**,
 2026-10-12.
+
+Round 13 completed on 2026-10-12 at 06:44:26 UTC in 634.65 scientific seconds
+(635.60 supervisor seconds), CPU two threads, float64. Its identity is
+`round13_matched_fisher_v1_20261012T062406Z`; all 640 metric rows, 40 trace files
+and 80 event Grams were retrieved. Terminal receipts remain private.
+
+The frozen [matched-horizon Fisher protocol](experiments/PROTOCOL_ROUND13_MATCHED_FISHER_V1.md)
+reuses the same five two-layer models, four prefixes, T=129, and both antipodal
+phases for Balanced Block and Alternating. It uses the first 16 saved Round 12
+Q-law histories per phase without training or generating new tokens. Exact
+full-unroll event JVPs compare all cross-event Fisher terms against a
+diagonal-only approximation, alongside endpoint conditional KL(Q||P) chain
+sums on those same histories. The Fisher quantity is evaluated at the exact
+model and averaged over saved Q histories; it is not the sequence Fisher
+expectation under P or a heldout prediction. Replay at amplitude 0.25 is a
+conditional diagnostic rather than sequence KL under that amplitude's law.
+
+Two targeted tests, original-model local/server smoke checks, and a full-length
+single-condition timing calibration pass. Calibration took 17.07 seconds per
+condition, so the frozen runtime rule retained 16 histories per phase. Both
+predeclared endpoint screens pass in all five seeds for each policy. Actual
+Block/Alternating KL is 1.216538/0.0997674; full Fisher is 1.220090/0.0997077,
+and diagonal Fisher is 0.178589/0.181480. Their ratios are 12.1937, 12.2367
+and 0.984066. Mean per-seed full relative errors are 0.322% and 0.171%.
+This supports a finite same-history cross-event explanation; it is not a
+P-law sequence-Fisher theorem, heldout predictor or useful certificate.
+Read [RESULTS.md](RESULTS.md), then the
+[interpretation](runs/round13_matched_fisher_review_v1_20261012T071747Z/INTERPRETATION.md).
+
+Round 13 commands from the repository root (use a new run directory):
+
+```text
+python -B -m unittest discover -s experiments -p test_round13_fisher.py -v
+python -B scripts/verify_round13_release.py --input-dir runs/round13_matched_fisher_v1_20261012T062406Z --input-run runs/round12_balanced_order_v1_20261012T052457Z
+python -B experiments/round13_matched_fisher.py --config experiments/configs/round13_matched_fisher_v1.json --checkpoint-root PATH_TO_ORIGINAL_MODELS --input-run runs/round12_balanced_order_v1_20261012T052457Z --run-dir runs/NEW_ROUND13_RUN
+```
+
+Round 12 completed on 2026-10-12 at 05:31:21 UTC in 86.37 scientific seconds
+using CPU two threads and float64. Its identity is
+`round12_balanced_order_v1_20261012T052457Z`; frozen outputs and private terminal
+receipts were retrieved. No ongoing monitor was created. Both predeclared
+descriptive screens pass in all five training seeds.
+
+The frozen [Balanced Block vs Alternating protocol](experiments/PROTOCOL_ROUND12_BALANCED_ORDER_V1.md)
+reuses all five original two-layer models and the same four n=64 Round 11
+prefixes, without training. T=129 gives exactly 64 generated-suffix pair
+thinning events: 32 positive then 32 negative versus alternating signs,
+with both antipodal phases and 64 Q-law paths per phase. Every prediction
+prefix retains conditional and cumulative KL(Q||P), actual token-histogram
+discrepancy, direct cumulative KV perturbations, and actual weighted cache
+moment discrepancy against full P replay of the same Q history. Joint
+path trajectories and layer diagnostics are retained. Sign balance does
+not imply token/KV bias matching; earlier certificate failures are unchanged.
+
+Four targeted software tests pass, including enumerable-tree sequence KL
+versus its conditional chain sum. Original seed-11 smoke runs pass locally
+and on the server; the four fixed prefixes were checked identical to Round 11.
+These checks validate implementation, not scientific hypotheses. Formal
+coverage is 10,320 prefix rows, 10,240 event/layer/phase rows, 5,120 terminal
+path rows and 40 joint trajectory files, all retrieved. Mean full-sequence
+KL(Q||P) is 1.201930 for Block versus 0.107638 for Alternating (11.17x).
+Terminal token-bias squared is only 1.04x, while integrated prefix token-bias
+squared is 11.45x and cache-moment bias energy is 6.70x. This supports the
+actual bias trajectory as an empirical explanation, not sole-cause identification
+or a heldout quantitative risk law. Read the
+[result interpretation](runs/round12_balanced_order_review_v1_20261012T060523Z/INTERPRETATION.md),
+then the [original report](runs/round12_balanced_order_v1_20261012T052457Z/REPORT.md)
+and [joint recorded-evidence check](runs/round12_balanced_order_review_v1_20261012T060523Z/joint_bias_kl_review.json).
+The Round 13 full-unroll Fisher comparison now completes the finite bridge at
+the same horizon and KL direction as the primary risk, as described above.
+
+Round 12 commands from the repository root (use a new run directory):
+
+```text
+python -B -m unittest discover -s experiments -p test_round12_balanced_order.py -v
+python -B experiments/round12_balanced_order.py --config experiments/configs/round12_balanced_order_v1.json --checkpoint-root PATH_TO_ORIGINAL_MODELS --run-dir runs/NEW_ROUND12_RUN
+python -B scripts/inspect_round12_result.py --run-dir runs/round12_balanced_order_v1_20261012T052457Z --output-dir runs/NEW_ROUND12_INSPECTION
+```
 
 Round 11 completed on 2026-10-12 at 04:28:23 UTC in 117.40 seconds including
 analysis, CPU two threads. Its frozen

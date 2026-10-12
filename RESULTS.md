@@ -1,5 +1,112 @@
 # L01 results
 
+## Round 13: same-horizon forward KL and cross-event Fisher
+
+**Execution complete; full-Fisher accuracy and full-versus-diagonal screens
+pass in 5/5 seeds for each policy.** The five original two-layer histogram
+models and four prefixes were reused, with no training or new token generation.
+All 640 metric rows, 40 trace files and 80 event Grams completed at 06:44:26 UTC
+on 2026-10-12 in 634.65 scientific seconds.
+
+The protocol fixes T=129 and KL(Q1||P), closing the horizon/direction mismatch
+of Round 11's shorter reverse-KL probe. Round 13 takes the first 16 saved
+Round 12 paths per phase and computes all 64 event derivatives through the
+complete causal unroll. No coefficient is fitted. Predictions include
+amplitude squared once. Phases and prefixes are averaged within each training
+seed; the five training seeds are the independent scientific units.
+
+| T=129, amplitude 1; equal-seed mean | Balanced Block | Alternating |
+|---|---:|---:|
+| Actual selected-history KL(Q1||P) estimate | 1.216538 | 0.0997674 |
+| Full cross-event Fisher quadratic | 1.220090 | 0.0997077 |
+| Diagonal-only Fisher quadratic | 0.178589 | 0.181480 |
+| Mean per-seed full relative error | 0.322% | 0.171% |
+| Mean per-seed diagonal relative error | 85.32% | 82.35% |
+| Full error <=25% | 5/5 | 5/5 |
+| Full closer than diagonal | 5/5 | 5/5 |
+
+The Block/Alternating ratio is **12.1937 actual, 12.2367 full Fisher,
+0.984066 diagonal-only**. The net off-diagonal contribution is +1.04150 for
+Block and -0.0817727 for Alternating. Thus the interaction terms recover both
+amplification and cancellation in this finite output-geometry diagnostic;
+event-wise squared magnitudes alone miss the policy contrast.
+
+This is a **conditional Fisher quadratic evaluated at P logits and averaged
+over saved Q1 histories**. It is not the sequence Fisher expectation under P,
+the sequence-KL Taylor coefficient at zero, heldout prediction, unique causal
+mediation or a rigorous certificate. Exact categorical conditional KL is
+summed along Q1 histories to estimate sequence KL; it is not exhaustive-tree
+evaluation or KL after mixing hidden schedules. Amplitude 0.25 reuses Q1
+histories and is only a local conditional-replay diagnostic.
+
+The selected actual means differ from the original 64-path-per-phase Round 12
+means (1.201930 and 0.107638) by +1.22% and -7.31%; the original ratio is
+11.17. This subset sensitivity should accompany the very small same-history
+Fisher errors. No path-level or seed-level confidence interval is claimed.
+Only eligible generated suffix pairs are halved, with the old prefix and
+START exact; no whole-cache half-budget or system speed/memory gain was tested.
+Earlier Round 9 certificate failures and all previous results remain unchanged.
+
+Start with the [interpretation](runs/round13_matched_fisher_review_v1_20261012T071747Z/INTERPRETATION.md),
+[generated report](runs/round13_matched_fisher_v1_20261012T062406Z/REPORT.md) and
+[per-seed summary](runs/round13_matched_fisher_v1_20261012T062406Z/summary.json),
+then the [frozen protocol](experiments/PROTOCOL_ROUND13_MATCHED_FISHER_V1.md).
+The [recorded-evidence check](runs/round13_matched_fisher_review_v1_20261012T071747Z/verification.json)
+audits hashes, selected inputs, trace/CSV arithmetic and screens without model
+replay. Raw NPZ and Gram files are secondary evidence; do not open them first.
+
+## Round 12: balanced order, actual prefix bias and sequence KL
+
+**Execution complete; KL ordering and pooled local-comparability screens pass
+in 5/5 original two-layer models.** The run finished at 05:31:21 UTC on
+2026-10-12 in 86.37 scientific seconds without training. All 10,320 prefix
+rows, 10,240 event rows, 5,120 terminal paths and 40 joint trajectory files
+were retrieved and checked against recorded source/model identities.
+
+Balanced Block uses 32 positive events followed by 32 negative events;
+Alternating switches every event. Both antipodal phases, the same four
+n=64 prefixes, common uniforms and 64 Q paths/phase are used. T=129 gives
+64 events and identical physical record budgets. The original prefix and
+START remain exact; this halves generated suffix pairs, not the whole cache.
+
+| Equal-training-seed mean | Balanced Block | Alternating | Ratio |
+|---|---:|---:|---:|
+| Full sequence KL(Q||P), T=129 | 1.201930 | 0.107638 | 11.17 |
+| Terminal normalized token-bias squared | 0.000894550 | 0.000862985 | 1.04 |
+| Terminal normalized cache-moment bias squared | 0.357706 | 0.250979 | 1.43 |
+| Sum of prefix normalized token-bias squared | 1.260970 | 0.110169 | 11.45 |
+| Sum of prefix normalized cache-moment bias squared | 203.154468 | 30.323530 | 6.70 |
+
+Bias is measured against the uncompressed **same Q input history**; squared
+path magnitudes are averaged before phases. Per-seed KL ratios range from
+10.15 to 12.94, versus integrated token-bias ratios 10.79--12.33. Their
+ratio-of-ratios differs from one by at most 5.92%, descriptively. Pooled
+local attention squared-error max/min is 1.00194--1.00462 (per-layer maximum
+1.01705). Sign balance does not exactly match terminal token or KV bias.
+
+At t=65 Block has accumulated KL 0.715011 versus 0.0480366. By t=129 its
+current token bias and conditional KL have mostly returned toward Alternating,
+but previously accumulated nonnegative conditional KL terms remain. This
+supports the **whole real bias trajectory** as an empirical explanation
+of the risk difference; terminal bias alone misses it. Coarse KV moment
+norms track the ordering but do not match the full KL multiplier.
+
+The joint-path inspection also finds strong within-model/prompt/phase
+descriptive correlations. These post hoc checks do not establish bias as
+the sole cause, a universal scalar risk law or heldout prediction. Sequence
+KL is a Monte Carlo expectation over Q histories with exact categorical
+conditional KL, not exhaustive-tree or policy-mixture KL. Training seeds
+remain the independent units. The same-horizon, same-KL-direction
+Fisher/full-unroll strengthening is now complete in Round 13 above; earlier
+certificate failures remain unchanged.
+
+Start with the [interpretation and trajectory figure](runs/round12_balanced_order_review_v1_20261012T060523Z/INTERPRETATION.md),
+then the [original per-seed report](runs/round12_balanced_order_v1_20261012T052457Z/REPORT.md)
+and [joint evidence check](runs/round12_balanced_order_review_v1_20261012T060523Z/joint_bias_kl_review.json).
+The [frozen protocol](experiments/PROTOCOL_ROUND12_BALANCED_ORDER_V1.md)
+defines the scientific comparison. Reproduce the post hoc recorded-evidence
+inspection using `scripts/inspect_round12_result.py` and a fresh output directory.
+
 ## Round 11: trained-model temporal-policy mechanism
 
 **Execution complete; both predeclared descriptive screens pass in 5/5 model

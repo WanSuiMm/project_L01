@@ -1,0 +1,60 @@
+{
+  "source": "runs/round7_thinning_v1_20261010T102523Z/snapshots/20261010T115125Z/checkpoints.json",
+  "models": [
+    {
+      "model_seed": 11,
+      "n_layers": 2,
+      "checkpoint_sha256": "46fa515dbbc9328433388bb000c4379a8a5b7051551054ffe07d2d97656160b6",
+      "final_validation": {
+        "model_nll": 0.5944740772247314,
+        "target_tokens": 65536.0,
+        "bayes_nll": 0.5941750774475852,
+        "bayes_nll_gap": 0.00029899977714620274
+      }
+    },
+    {
+      "model_seed": 23,
+      "n_layers": 2,
+      "checkpoint_sha256": "20c605ce25e273eea708ed61f97e96ec8b5b45c4ee8d820c31eddae045c54923",
+      "final_validation": {
+        "model_nll": 0.5937056541442871,
+        "target_tokens": 65536.0,
+        "bayes_nll": 0.5932330140592146,
+        "bayes_nll_gap": 0.00047264008507252875
+      }
+    },
+    {
+      "model_seed": 37,
+      "n_layers": 2,
+      "checkpoint_sha256": "0fb45bed66b1645e013f7d8db5eb7e04ed9a323f9cbdbde8d96db99b9bd93d8a",
+      "final_validation": {
+        "model_nll": 0.5939361304044724,
+        "target_tokens": 65536.0,
+        "bayes_nll": 0.5935636091044442,
+        "bayes_nll_gap": 0.0003725213000281835
+      }
+    },
+    {
+      "model_seed": 51,
+      "n_layers": 2,
+      "checkpoint_sha256": "0925f96ebfac07cbfbff054b5caf001abb1b5aa9c3d4e7922b382fc89539c14f",
+      "final_validation": {
+        "model_nll": 0.5951966680586338,
+        "target_tokens": 65536.0,
+        "bayes_nll": 0.594814035927761,
+        "bayes_nll_gap": 0.00038263213087275094
+      }
+    },
+    {
+      "model_seed": 71,
+      "n_layers": 2,
+      "checkpoint_sha256": "501479fdc2c62296c9522bc6e823809d2dba25fb67b465a648dc7a92f03e3fcc",
+      "final_validation": {
+        "model_nll": 0.5953669026494026,
+        "target_tokens": 65536.0,
+        "bayes_nll": 0.5949187051121276,
+        "bayes_nll_gap": 0.0004481975372749858
+      }
+    }
+  ]
+}

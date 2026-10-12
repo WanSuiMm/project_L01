@@ -1,6 +1,62 @@
 # Review context
 
-## Latest: Round 11 streaming covariance mechanism study
+## Latest: Round 12 bias trajectories and Round 13 matched-horizon geometry
+
+Formal status: `round12=COMPLETE`, `round13=COMPLETE_640_ROWS_40_TRACES_80_GRAMS`,
+`full_accuracy_screen=PASS_5_OF_5_EACH_POLICY`,
+`full_vs_diagonal=PASS_5_OF_5_EACH_POLICY`, `training=NOT_PERFORMED`,
+`round9_half_cache=STILL_UNCERTIFIED`.
+
+Both studies reuse five original d=64, two-layer histogram models, four n=64
+prefixes and Balanced Block/Alternating schedules with both antipodes. T=129
+contains 64 suffix-pair thinning events. The old prefix and START stay exact;
+only eligible generated pairs lose one physical record. Logical mass is
+preserved, not necessarily the softmax denominator. No byte/speed measurement.
+
+Round 12 samples 64 Q paths per phase, replays full-cache P on the same tokens,
+and retains actual cumulative token/KV bias and conditional/cumulative KL.
+Round 13 selects indices 0..15 within each phase (NPZ rows 0..15 and 64..79),
+with no new generation. All 64 event JVPs propagate through all layers and
+later suffix KV updates on each fixed discrete history. Their signs are
+encoded in endpoint selection; they are not multiplied into the JVP again.
+
+For conditional logits z_t, J_e,t = partial z_t / partial theta_e at zero,
+
+    F_full(y) = 1/2 sum_t Var_{P_t(.|y_<t)}[sum_e J_e,t(y)]
+    F_diag(y) = 1/2 sum_t sum_e Var_{P_t(.|y_<t)}[J_e,t(y)].
+
+The interpolation reaches physical Q1 at theta=1; at zero it is full P. These
+quadratics use conditional P probabilities but are averaged over Q1 histories.
+They are not P-law sequence Fisher or a sequence-KL Taylor coefficient at zero.
+At amplitude 1 the conditional KL chain sum estimates KL(Q1||P); at amplitude
+0.25 replay still uses Q1 histories and is not KL(Q0.25||P). Predictions include
+amplitude squared exactly once. No fitted scale or heldout prediction is used.
+
+Round 13 equal-seed means: actual 1.216538/0.0997674; full 1.220090/0.0997077;
+diagonal 0.178589/0.181480 (Block/Alternating). Ratios are 12.1937/12.2367/0.984066.
+Mean per-seed relative errors are 0.322%/0.171% full and 85.32%/82.35% diagonal.
+Original Round 12 all-path actual means remain 1.201930/0.107638 (11.17x);
+selected-path Monte Carlo sensitivity is retained, with no confidence interval
+claimed. Five model seeds are independent; paths, phases and prompts are not.
+
+| Concept | Exact source symbol |
+|---|---|
+| Balanced schedules, Q-law paths and actual prefix bias | `experiments/round12_balanced_order.py:balanced_schedules`, `paired_rollout` |
+| Saved path selection and endpoint/parity checks | `experiments/round13_matched_fisher.py:select_saved_paths`, `probe` |
+| Exact event JVPs, full/diagonal energies and Grams | `experiments/round13_fisher_core.py:event_geometry`, `event_gram` |
+| Smooth causal unroll | `experiments/round11_streaming_core.py:smooth_rollout` |
+| Equal-seed aggregation and frozen screens | `experiments/analyze_round13.py:analyze` |
+| Read-only recorded-evidence audit | `scripts/verify_round13_release.py:verify` |
+
+Read [RESULTS.md](RESULTS.md), the [Round 13 interpretation](runs/round13_matched_fisher_review_v1_20261012T071747Z/INTERPRETATION.md),
+then [summary](runs/round13_matched_fisher_v1_20261012T062406Z/summary.json) and
+[protocol](experiments/PROTOCOL_ROUND13_MATCHED_FISHER_V1.md). Raw trajectories
+and Grams are secondary. The narrow claim is a same-history output-geometry
+explanation of this finite policy contrast. No unique causal mediator,
+universal risk law, cache-space theorem, certificate, new compressor, novelty
+or practical inference benefit is established. Historical failures stand.
+
+## Historical: Round 11 streaming covariance mechanism study
 
 Formal status: `execution=COMPLETE`, `coverage=COMPLETE_960_PRIMARY_60_FISHER`,
 `endpoint_A=ROUND10_ORDER_TRANSFER_WITH_LOCAL_COMPARABILITY_SCREEN`,

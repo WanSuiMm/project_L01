@@ -1,0 +1,26 @@
+{
+  "started_utc": "2026-10-12T06:33:51.822307+00:00",
+  "smoke": false,
+  "calibration": false,
+  "source_sha256": {
+    "round13_matched_fisher.py": "454e641b9d98be41d3c8f4e5e509899dfd380493d0828f42153c82e6e7f26c78",
+    "round13_fisher_core.py": "2e5186a145cc95a02334c9be3aa200dfa816dbf6f7a712007140dd742d4036ca",
+    "round13_dispatch.py": "a3943da2a368e329ba053d2eeb63031a72ca9c04a394f5d0fb38f503b1363ed5",
+    "analyze_round13.py": "40aa4e3c6932468f56e79cd1a7d0e04f9cd95f1a58585103ecf48a932f6d3aae",
+    "test_round13_fisher.py": "84c006f1fc10c1dfd0f1bff1c165facdef818cea75f23dc763ec2363ac30de78",
+    "PROTOCOL_ROUND13_MATCHED_FISHER_V1.md": "2957165b53d3103e6ea0e3370c245b2ed910ae253b80775e5f9fc97e491c7ee2",
+    "round11_streaming_core.py": "12fc3188843b84647f1972c0372976bce0a2e587a864e8efaf4e31316ac5dda9",
+    "round11_streaming_covariance.py": "fabca29ca6f75bfc5aae6220e3a14a6f7648489e022f54e7cc1d752a30a1bafc",
+    "round6_transformer.py": "6f854305669cc54f1f0f64ac58c554d8693e387577ef32cd01a7ac41438f640c",
+    "configs/round13_matched_fisher_v1.json": "72502aabd837862fe28c3d551dbefd06b085de69504d24cef06180e3b7651dae",
+    "configs/round9_expected_checkpoints.json": "de30d28b8cad1af1aa2ad931e36aaad9e1b2dfa6abc46a7b8aed51f5d922e8d5"
+  },
+  "input_run_id": "round12_balanced_order_v1_20261012T052457Z",
+  "input_config_sha256": "afabc16579940127ef6968dcd29157ee591d56b914fde9164224880e8896bccc",
+  "input_prefixes_sha256": "fb976c68dccd5f7bfeca89dee9cd3edd7d939b87f376f49ee5180e78d79ca402",
+  "python": "3.12.13",
+  "torch": "2.11.0+cu128",
+  "numpy": "2.3.5",
+  "training_performed": false,
+  "new_token_generation": false
+}

@@ -1,0 +1,18 @@
+{
+  "execution": "COMPLETE",
+  "smoke": false,
+  "completed_utc": "2026-10-12T05:31:21.176076+00:00",
+  "elapsed_seconds": 86.3734702859947,
+  "counts": {
+    "prefix_rows": 10320,
+    "event_rows": 10240,
+    "terminal_rows": 5120,
+    "path_files": 40
+  },
+  "expected_counts": {
+    "prefix_rows": 10320,
+    "event_rows": 10240,
+    "terminal_rows": 5120,
+    "path_files": 40
+  }
+}

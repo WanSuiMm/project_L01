@@ -1,0 +1,9 @@
+{
+  "execution": "COMPLETE",
+  "smoke": false,
+  "calibration": false,
+  "completed_utc": "2026-10-12T06:44:26.112054+00:00",
+  "elapsed_seconds": 634.6506180600045,
+  "metrics_rows": 640,
+  "expected_metrics_rows": 640
+}

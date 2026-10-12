@@ -1,0 +1,23 @@
+{
+  "protocol_id": "round12_balanced_order_v1",
+  "started_utc": "2026-10-12T05:29:54.838994+00:00",
+  "smoke": false,
+  "source_sha256": {
+    "round12_balanced_order.py": "a385bff4878a52c0dd32c2a460475a984274d5b225d8f166e1cd223187a8afe5",
+    "round12_dispatch.py": "781cf1f416d1fe043b6caeb48ddda522f2084553eb3de88f9bab9ee3669dcf94",
+    "analyze_round12.py": "c063a6f87cf2953cbcd1be0c1df56e7128f01c4783c6066f4ccdf25fb2569ac4",
+    "PROTOCOL_ROUND12_BALANCED_ORDER_V1.md": "2e302d8862ae64b18a2b4ce6ab322fd3f05b49c05a8791cc7a2b1007c9a86c78",
+    "test_round12_balanced_order.py": "815b576dde3b475616e20c125895c5cacd8d8724f54885ef4302e68c19b251e1",
+    "round11_streaming_core.py": "12fc3188843b84647f1972c0372976bce0a2e587a864e8efaf4e31316ac5dda9",
+    "round11_streaming_covariance.py": "fabca29ca6f75bfc5aae6220e3a14a6f7648489e022f54e7cc1d752a30a1bafc",
+    "round6_transformer.py": "6f854305669cc54f1f0f64ac58c554d8693e387577ef32cd01a7ac41438f640c",
+    "configs/round12_balanced_order_v1.json": "8fdf7d9a5fc2a2249f5ea6baad02dd31b78243ff5a21dff390a330c94ca35c2c",
+    "configs/round9_expected_checkpoints.json": "de30d28b8cad1af1aa2ad931e36aaad9e1b2dfa6abc46a7b8aed51f5d922e8d5"
+  },
+  "python": "3.12.13",
+  "torch": "2.11.0+cu128",
+  "numpy": "2.3.5",
+  "dtype": "float64",
+  "device": "cpu",
+  "training_performed": false
+}
