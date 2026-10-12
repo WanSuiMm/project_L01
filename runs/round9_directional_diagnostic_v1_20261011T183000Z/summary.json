@@ -1,0 +1,236 @@
+{
+  "status": "COMPLETE",
+  "scientific_status": "ORACLE_SLACK_DIAGNOSTIC_NOT_A_CERTIFICATE",
+  "histories": 40,
+  "leaves": 81,
+  "independent_models": 1,
+  "fixed_prefixes": 1,
+  "baseline_round9": {
+    "numerical_status": "FLOAT64_ANALYTIC_BOUND_EVALUATION_NOT_INTERVAL_CERTIFIED",
+    "histories": 40,
+    "leaves": 81,
+    "cert_QP_upper": 36.62307604141257,
+    "cert_PQ_upper": 23.977291193598774,
+    "certificate_raw_max_path": 36.62307604141257,
+    "certificate_DV_bound": 36.64909456498027,
+    "certificate_DV_lambda": 1000,
+    "reference_universal_cap": 38.01570220840052,
+    "below_reference_cap": true,
+    "pinsker_TV_upper_estimate": 1.0,
+    "exact_KL_QP": 3.4582189401817697e-06,
+    "exact_KL_PQ": 3.455282204182041e-06,
+    "bound_over_actual_QP": 10590155.416674573,
+    "largest_hidden_radius": 36.09125993009918,
+    "largest_tube_fraction_including_final_LN": 1.3784670020615077,
+    "zero_variance_intersections_including_final_LN": 3,
+    "largest_reference_forcing": 0.1463243065067661,
+    "evaluation_seconds": 0.17200000000002547
+  },
+  "centered_head_rank": 2,
+  "centered_head_singular_values": [
+    0.9177262969509477,
+    0.5134423539317546,
+    1.0274425550814488e-16
+  ],
+  "statistics": {
+    "round9_final_hidden_radius": {
+      "min": 4.429982208868496,
+      "median": 12.246628438265802,
+      "max": 36.09125993009918
+    },
+    "actual_final_hidden_norm": {
+      "min": 0.03797100450781838,
+      "median": 0.08284307438635193,
+      "max": 0.12329812294897927
+    },
+    "hidden_radius_over_actual": {
+      "min": 114.36548898245596,
+      "median": 166.4212595815978,
+      "max": 295.06552269228104
+    },
+    "LN_bound_over_actual": {
+      "min": 1.0936664518923478,
+      "median": 1.1201129857476466,
+      "max": 1.2203026609778043
+    },
+    "head_norm_bound_over_actual": {
+      "min": 5.092481754367193,
+      "median": 5.747854359714868,
+      "max": 15.951834548680356
+    },
+    "actual_LN_delta_rowspace_fraction": {
+      "min": 0.11005308988201247,
+      "median": 0.23710536450535014,
+      "max": 0.2993767821021815
+    },
+    "round9_logit_norm_bound_over_actual": {
+      "min": 1014.7795554504736,
+      "median": 2527.1329323675673,
+      "max": 7963.973054672715
+    },
+    "true_logit_quadratic_over_actual_KL": {
+      "min": 1.0153026829842482,
+      "median": 1.9925149588653226,
+      "max": 11.383987310719492
+    },
+    "actual_centered_logit_norm": {
+      "min": 0.0007630010767811992,
+      "median": 0.003331346355668013,
+      "max": 0.006511972678356463
+    },
+    "JVP_centered_logit_norm": {
+      "min": 0.0007522198582973686,
+      "median": 0.003311178764902136,
+      "max": 0.006547004518792393
+    },
+    "logit_remainder_norm": {
+      "min": 1.1581716817384553e-05,
+      "median": 4.968291839054177e-05,
+      "max": 0.00014470138392010343
+    },
+    "logit_remainder_scaled": {
+      "min": 0.00990997029656879,
+      "median": 0.01850042684065708,
+      "max": 0.0636924008509501
+    },
+    "logit_JVP_endpoint_cosine": {
+      "min": 0.9979800721453181,
+      "median": 0.9999230401929364,
+      "max": 0.999994184433733
+    },
+    "hidden_remainder_scaled": {
+      "min": 0.006956230857562341,
+      "median": 0.01494383119241446,
+      "max": 0.026513394404038975
+    }
+  },
+  "levels": [
+    {
+      "prediction_index": 0,
+      "nodes": 1,
+      "P_mass": 1.0,
+      "Q_mass": 1.0,
+      "P_weighted_means": {
+        "round9_final_hidden_radius": 11.997729303519257,
+        "actual_final_hidden_norm": 0.09630351505367227,
+        "hidden_radius_over_actual": 124.58246510350774,
+        "LN_bound_over_actual": 1.116708477456996,
+        "head_norm_bound_over_actual": 5.618658434578276,
+        "actual_LN_delta_rowspace_fraction": 0.19118290920123063,
+        "round9_logit_norm_bound_over_actual": 1388.3633875150094,
+        "true_logit_quadratic_over_actual_KL": 11.10600294214505,
+        "actual_centered_logit_norm": 0.004551222870504413,
+        "JVP_centered_logit_norm": 0.004581076078249717,
+        "logit_remainder_norm": 4.539832786177654e-05,
+        "logit_remainder_scaled": 0.00990997029656879,
+        "logit_JVP_endpoint_cosine": 0.9999719467071176,
+        "hidden_remainder_scaled": 0.00951344064362891
+      }
+    },
+    {
+      "prediction_index": 1,
+      "nodes": 3,
+      "P_mass": 1.0,
+      "Q_mass": 1.0,
+      "P_weighted_means": {
+        "round9_final_hidden_radius": 5.951112061122568,
+        "actual_final_hidden_norm": 0.05166256311467319,
+        "hidden_radius_over_actual": 115.48688798889539,
+        "LN_bound_over_actual": 1.1404119635647594,
+        "head_norm_bound_over_actual": 8.898746981287147,
+        "actual_LN_delta_rowspace_fraction": 0.20956776756585052,
+        "round9_logit_norm_bound_over_actual": 1461.5946878764394,
+        "true_logit_quadratic_over_actual_KL": 1.2661805948972513,
+        "actual_centered_logit_norm": 0.0017996810994026346,
+        "JVP_centered_logit_norm": 0.0017793139086763454,
+        "logit_remainder_norm": 2.8465886836018388e-05,
+        "logit_remainder_scaled": 0.015591555103489115,
+        "logit_JVP_endpoint_cosine": 0.9999552040003442,
+        "hidden_remainder_scaled": 0.00875398048950888
+      }
+    },
+    {
+      "prediction_index": 2,
+      "nodes": 9,
+      "P_mass": 1.0,
+      "Q_mass": 1.0,
+      "P_weighted_means": {
+        "round9_final_hidden_radius": 11.306542978137449,
+        "actual_final_hidden_norm": 0.07322784038978936,
+        "hidden_radius_over_actual": 151.9830721847994,
+        "LN_bound_over_actual": 1.2085189221929118,
+        "head_norm_bound_over_actual": 8.25620662218968,
+        "actual_LN_delta_rowspace_fraction": 0.18521606617251624,
+        "round9_logit_norm_bound_over_actual": 2707.2090415783296,
+        "true_logit_quadratic_over_actual_KL": 2.571949491196869,
+        "actual_centered_logit_norm": 0.002097439657834084,
+        "JVP_centered_logit_norm": 0.0020629304842645917,
+        "logit_remainder_norm": 4.332142492619928e-05,
+        "logit_remainder_scaled": 0.02079883228354956,
+        "logit_JVP_endpoint_cosine": 0.9999373818090606,
+        "hidden_remainder_scaled": 0.016227472995328736
+      }
+    },
+    {
+      "prediction_index": 3,
+      "nodes": 27,
+      "P_mass": 1.0,
+      "Q_mass": 1.0,
+      "P_weighted_means": {
+        "round9_final_hidden_radius": 10.627773794854715,
+        "actual_final_hidden_norm": 0.06955645062040106,
+        "hidden_radius_over_actual": 155.45510779135876,
+        "LN_bound_over_actual": 1.1512377603754422,
+        "head_norm_bound_over_actual": 6.971297138170315,
+        "actual_LN_delta_rowspace_fraction": 0.21258721497864477,
+        "round9_logit_norm_bound_over_actual": 2041.9904388857105,
+        "true_logit_quadratic_over_actual_KL": 3.792354428975957,
+        "actual_centered_logit_norm": 0.0028263350887203138,
+        "JVP_centered_logit_norm": 0.002807114660959164,
+        "logit_remainder_norm": 4.114248253579548e-05,
+        "logit_remainder_scaled": 0.016199160189455206,
+        "logit_JVP_endpoint_cosine": 0.9999405796026221,
+        "hidden_remainder_scaled": 0.013312260935235782
+      }
+    }
+  ],
+  "oracle_Q_weighted_sequence_sums": {
+    "exact_conditional_KL_QP": 3.4582189402091403e-06,
+    "round9_conditional_upper_QP": 21.60557529935945,
+    "oracle_actual_hidden_norm_KL_upper": 0.0001562860698571778,
+    "oracle_actual_LN_norm_KL_upper": 0.0001192100645138179,
+    "oracle_actual_logit_KL_upper": 3.4700588946795498e-06,
+    "true_logit_quadratic_KL_bound": 9.713297074959186e-06
+  },
+  "first_order_screen": {
+    "threshold": 0.25,
+    "max_scaled_remainder": 0.0636924008509501,
+    "passes": true,
+    "is_certificate": false
+  },
+  "checks": {
+    "endpoint_max_abs_gap": 3.552713678800501e-15,
+    "JVP_logit_fd_max_abs_gap": 4.936844032535359e-11,
+    "JVP_hidden_fd_max_abs_gap": 8.140783533394647e-11,
+    "hidden_radius_max_positive_violation": 0.0,
+    "original_architecture_max_abs_gap": 1.7763568394002505e-15,
+    "frozen_round9_replay_abs_gaps": {
+      "cert_QP_upper": 4.334310688136611e-13,
+      "cert_PQ_upper": 0.0,
+      "exact_KL_QP": 9.017978624590271e-17,
+      "exact_KL_PQ": 9.063083129031563e-17
+    },
+    "original_source_hashes_match": true,
+    "original_checkpoint_hash_matches": true,
+    "prefix_hash_matches": true,
+    "histories_complete": true,
+    "all_oracle_inequalities_pass": true
+  },
+  "elapsed_seconds": 3.4839999999999236,
+  "finish_utc": "2026-10-11T18:29:59.757674+00:00",
+  "model_seed": 11,
+  "prompt_id": "histogram-n64-0000",
+  "n": 64,
+  "m": 32,
+  "horizon": 4
+}

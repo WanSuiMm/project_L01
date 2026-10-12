@@ -1,0 +1,21 @@
+{
+  "protocol_id": "round9_directional_slack_diagnostic_v1",
+  "selection_rule": "first frozen Round 9 model seed and first n64 prompt; no outcome-based selection",
+  "model_seed": 11,
+  "prompt_id": "histogram-n64-0000",
+  "n": 64,
+  "m": 32,
+  "horizon": 4,
+  "method": "agglomerative",
+  "cont_id": 2,
+  "torch_threads": 2,
+  "finite_difference_step": 0.0001,
+  "endpoint_absolute_tolerance": 1e-09,
+  "jvp_fd_absolute_tolerance": 1e-07,
+  "relative_scale_floor": 1e-10,
+  "jvp_relative_remainder_screen": 0.25,
+  "round9_snapshot": "runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z",
+  "expected_checkpoints_file": "round9_expected_checkpoints.json",
+  "training_performed": false,
+  "status": "ORACLE_SLACK_DIAGNOSTIC_NOT_A_CERTIFICATE"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "histories": 40,
+  "source_copy_hashes_match": true,
+  "vectors_ratios_aggregates_masses_chain_rule_match": true,
+  "wider_ball_readout_inflation_factor": {
+    "min": 137.79531087723151,
+    "median": 264.81436858644406,
+    "max": 463.94862962704275
+  },
+  "verification_script_sha256": "d696d13c36974404a588e77e459cf6a242fddbf9279c78233a53bca580271776",
+  "limits": "Offline arithmetic and source-copy hash check only; no checkpoint execution, derivative replay, proof verification, or certification of a remainder supremum."
+}

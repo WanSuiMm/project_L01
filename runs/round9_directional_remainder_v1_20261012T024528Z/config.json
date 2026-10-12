@@ -1,0 +1,23 @@
+{
+  "protocol_id": "round9_directional_second_derivative_norm_v1",
+  "model_seed": 11,
+  "prompt_id": "histogram-n64-0000",
+  "n": 64,
+  "m": 32,
+  "horizon": 4,
+  "cont_id": 2,
+  "method": "agglomerative",
+  "selection_rule": "same mechanically preselected case as the completed directional diagnostic; no search over cases",
+  "theta_interval": [
+    0.0,
+    1.0
+  ],
+  "torch_threads": 2,
+  "gelu_first_derivative_upper": 1.25,
+  "gelu_second_derivative_upper": 0.8,
+  "target_sequence_KL_upper": 0.1,
+  "diagnostic_snapshot": "runs/round9_directional_diagnostic_v1_20261011T183000Z",
+  "expected_checkpoints_file": "round9_expected_checkpoints.json",
+  "training_performed": false,
+  "numerical_status": "FLOAT64_ANALYTIC_DERIVATIVE_BOUND_EVALUATION_NOT_INTERVAL_CERTIFIED"
+}

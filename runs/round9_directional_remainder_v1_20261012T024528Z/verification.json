@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "histories": 40,
+  "source_and_input_hashes_match": true,
+  "Taylor_risk_arithmetic_tree_aggregation_and_verdict_match": true,
+  "empty_history_conditional_upper": 3.327256242870123,
+  "verifier_sha256": "fde9b26c1b14f9191d9c6d141d1cedc8e7c215d8ad07c6990293970c1950b438",
+  "limits": "Recorded arithmetic/hash audit only; no checkpoint replay, second-derivative supremum proof, or outward-rounded certification."
+}

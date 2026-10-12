@@ -1,0 +1,29 @@
+{
+  "start_utc": "2026-10-11T18:29:57.065339+00:00",
+  "python": "3.12.12",
+  "torch": "2.5.1",
+  "numpy": "1.26.4",
+  "device": "cpu",
+  "dtype": "float64",
+  "training_performed": false,
+  "scientific_status": "ORACLE_SLACK_DIAGNOSTIC_NOT_A_CERTIFICATE",
+  "source_sha256": {
+    "round9_directional_diagnostic.py": "308d916fc2b0da408e9d6cbb3e6813c5068c75782d552415939e6e77870fc45e",
+    "round9_directional_diagnostic_v1.json": "e4fb6370ef3cdd5d52c7b1cd722166336f71190c12376f7ad1da94a4c8e92197",
+    "PROTOCOL_ROUND9_DIRECTIONAL_DIAGNOSTIC_V1.md": "5c5f03f18a42ddee76dc074b5207428ca7a723d3bf6655abd83d6bd03207574d",
+    "test_round9_directional_diagnostic.py": "25cbad20a6115a63debbd73fae0a89db313d4984231040c21b36211d7778092c"
+  },
+  "original_round9_source_sha256": {
+    "round9_original_models.py": "abf2f49ae0753b21ae25b532c8fa6471aef72c4078883c0ceeefc9e6bf019795",
+    "round9_certify.py": "f51f343e023cc22fb6cd58c0f65952369260e43ec9cb00ee651ce82e5a1cbef5",
+    "round6_transformer.py": "6f854305669cc54f1f0f64ac58c554d8693e387577ef32cd01a7ac41438f640c",
+    "gs_thin.py": "fac92beea1e985153f5db793b7527270de877fa2b15bb58a3832d65c9303b009",
+    "PROTOCOL_ROUND9_LOCAL_CERT_V1.md": "571b430fcd65971b97c012356c2a2e4f55764701e2f91732d6cd96cb9545f961"
+  },
+  "input_sha256": {
+    "prefixes.json": "b8c059104cb11a5ea011414533901612f20ec81e6a0557cd030433ea6a4f4bca",
+    "condition_metrics.csv": "85d5cda3a2728eb7ea1c91d63303ab5eb9b72cf57041bb26570d3dc90262bac7",
+    "provenance.json": "b7da84c28209a28b499ae928bc153f9e03ded2660881573d874e048c6262a848"
+  },
+  "expected_checkpoints_sha256": "de30d28b8cad1af1aa2ad931e36aaad9e1b2dfa6abc46a7b8aed51f5d922e8d5"
+}

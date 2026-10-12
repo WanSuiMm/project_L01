@@ -1,0 +1,18 @@
+{
+  "model_seed": 11,
+  "checkpoint_sha256": "46fa515dbbc9328433388bb000c4379a8a5b7051551054ffe07d2d97656160b6",
+  "model": {
+    "vocab_size": 3,
+    "d_model": 64,
+    "n_layers": 2,
+    "max_context": 257,
+    "ff_multiplier": 4
+  },
+  "final_validation": {
+    "model_nll": 0.5944740772247314,
+    "target_tokens": 65536.0,
+    "bayes_nll": 0.5941750774475852,
+    "bayes_nll_gap": 0.00029899977714620274
+  },
+  "steps_completed": 2000
+}

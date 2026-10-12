@@ -1,10 +1,46 @@
 # L01: output-relevant causal KV error
 
-Status: **ROUND9_COMPLETE / HALF_CACHE_FEASIBILITY_FAIL / NEAR_FULL_CLUSTER_ONLY**;
+Status: **ROUND9_REMAINDER_FEASIBILITY_FAIL / FIRST_ORDER_DIAGNOSTIC_STILL_PASS / HALF_CACHE_UNCERTIFIED**;
+previous **ROUND9_DIAGNOSTIC_COMPLETE / ONE_CASE_FIRST_ORDER_SCREEN_PASS / HALF_CACHE_STILL_UNCERTIFIED**;
+previous **ROUND9_COMPLETE / HALF_CACHE_FEASIBILITY_FAIL / NEAR_FULL_CLUSTER_ONLY**;
 previous **ROUND7_EXECUTION_COMPLETE / GS_EMPIRICAL_ADVANTAGE / GLOBAL_CERTIFICATE_VACUOUS**;
 previous **ROUND6_EXECUTION_COMPLETE / ANALYTIC_CONSISTENT /
 HISTOGRAM_QUALIFIED / RECALL_TRAINING_UNRELIABLE / GLOBAL_BOUND_UNINFORMATIVE**,
 2026-10-12.
+
+The next frozen attempt kept exact signed first-order directions and bounded
+second-derivative norms over theta in [0,1]. All 40 histories completed on the
+same case. Sequence upper improves from 36.6231 to 30.9056 after intersection
+with old conditional bounds; target<=0.1 fails. Raw directional upper is
+3.43908e17. Empty-history upper is already 3.32726, so rare histories do not
+alone explain failure. Four software tests and retained-record verification
+pass. Read the [remainder interpretation](runs/round9_directional_remainder_v1_20261012T024528Z/INTERPRETATION.md)
+and [method note](theory/ROUND9_DIRECTIONAL_REMAINDER_V1.md). CPU calculation took
+1.36 seconds without training. These are float64 analytic-bound evaluations,
+not outward-rounded certificates. Commands from the repository root:
+
+```text
+python -B -m unittest discover -s experiments -p test_round9_directional_remainder.py -v
+python -B scripts/verify_round9_directional_remainder.py --input-dir runs/round9_directional_remainder_v1_20261012T024528Z
+python -B experiments/round9_directional_remainder.py --config experiments/configs/round9_directional_remainder_v1.json --checkpoint-root PATH_TO_ORIGINAL_MODELS --run-dir runs/NEW_REMAINDER_RUN
+```
+
+A frozen follow-up used seed 11 and the first n=64 prefix, positive cluster
+m=32, T=4, and all 40 histories. The full-unroll JVP approximates the endpoint
+centered-logit change with median 1.85% and maximum 6.37% scaled vector remainder.
+The hidden radius overestimates actual error by median 166.4x (range 114.4–295.1x),
+versus median 5.75x additional centered-head norm slack. This is one-case oracle
+diagnosis, not a replacement certificate; the Round 9 gate remains failed.
+Read the [diagnostic interpretation](runs/round9_directional_diagnostic_v1_20261011T183000Z/INTERPRETATION.md),
+then its generated report and verification. Four targeted software tests pass;
+the scientific CPU calculation took 3.48 seconds without retraining. Canonical
+diagnostic commands from the repository root are:
+
+```text
+python -B -m unittest discover -s experiments -p test_round9_directional_diagnostic.py -v
+python -B scripts/verify_round9_directional_diagnostic.py --input-dir runs/round9_directional_diagnostic_v1_20261011T183000Z
+python -B experiments/round9_directional_diagnostic.py --config experiments/configs/round9_directional_diagnostic_v1.json --checkpoint-root PATH_TO_ORIGINAL_MODELS --run-dir runs/NEW_DIAGNOSTIC
+```
 
 Round 9 launched reference-only finite-tree local-bound evaluation on the five
 original qualified two-layer histogram checkpoints. The frozen

@@ -1,0 +1,6 @@
+{
+  "P_centered_logit_value_max_gap": 3.552713678800501e-15,
+  "prior_logit_JVP_max_gap": 1.0321604682062002e-16,
+  "prior_hidden_JVP_max_gap": 4.510281037539698e-16,
+  "endpoint_remainder_max_positive_violation": 0.0
+}

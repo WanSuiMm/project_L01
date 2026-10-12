@@ -1,0 +1,18 @@
+{
+  "endpoint_max_abs_gap": 3.552713678800501e-15,
+  "JVP_logit_fd_max_abs_gap": 4.936844032535359e-11,
+  "JVP_hidden_fd_max_abs_gap": 8.140783533394647e-11,
+  "hidden_radius_max_positive_violation": 0.0,
+  "original_architecture_max_abs_gap": 1.7763568394002505e-15,
+  "frozen_round9_replay_abs_gaps": {
+    "cert_QP_upper": 4.334310688136611e-13,
+    "cert_PQ_upper": 0.0,
+    "exact_KL_QP": 9.017978624590271e-17,
+    "exact_KL_PQ": 9.063083129031563e-17
+  },
+  "original_source_hashes_match": true,
+  "original_checkpoint_hash_matches": true,
+  "prefix_hash_matches": true,
+  "histories_complete": true,
+  "all_oracle_inequalities_pass": true
+}

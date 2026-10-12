@@ -1,0 +1,65 @@
+{
+  "status": "COMPLETE",
+  "numerical_status": "FLOAT64_ANALYTIC_DERIVATIVE_BOUND_EVALUATION_NOT_INTERVAL_CERTIFIED",
+  "histories": 40,
+  "leaves": 81,
+  "model_seed": 11,
+  "prompt_id": "histogram-n64-0000",
+  "n": 64,
+  "m": 32,
+  "horizon": 4,
+  "old_sequence_upper": 36.62307604141257,
+  "new_sequence": {
+    "upper": 30.90557925863605,
+    "max_path": 30.90557925863605,
+    "entropy_transfer": 30.908651186909324,
+    "lambda": 1000
+  },
+  "raw_directional_sequence": {
+    "upper": 3.4390844163852365e+17,
+    "max_path": 3.4390844163852365e+17,
+    "entropy_transfer": 3.442526943328565e+17,
+    "lambda": 1000
+  },
+  "actual_sequence_KL_QP": 3.4582189401817697e-06,
+  "unbounded_histories": 0,
+  "improved_histories": 27,
+  "finite_statistics": {
+    "second_derivative_norm_upper": {
+      "min": 0.10481133417208578,
+      "median": 3.373714972765487,
+      "max": 2345748295.5753284,
+      "finite_count": 40
+    },
+    "Taylor_remainder_upper": {
+      "min": 0.05240566708604289,
+      "median": 1.6868574863827435,
+      "max": 1172874147.7876642,
+      "finite_count": 40
+    },
+    "remainder_bound_over_actual": {
+      "min": 4057.0343481950317,
+      "median": 30625.00370908479,
+      "max": 8105479823435.996,
+      "finite_count": 40
+    },
+    "raw_directional_conditional_KL_upper": {
+      "min": 0.0007064402360968136,
+      "median": 0.7149710918084772,
+      "max": 3.4390844163851834e+17,
+      "finite_count": 40
+    }
+  },
+  "training_performed": false,
+  "feasibility_pass": false,
+  "checks": {
+    "P_centered_logit_value_max_gap": 3.552713678800501e-15,
+    "prior_logit_JVP_max_gap": 1.0321604682062002e-16,
+    "prior_hidden_JVP_max_gap": 4.510281037539698e-16,
+    "endpoint_remainder_max_positive_violation": 0.0
+  },
+  "elapsed_seconds": 1.3599999999999,
+  "finish_utc": "2026-10-12T02:45:35.439203+00:00",
+  "strict_interval_certificate": false,
+  "bounds_read_actual_Q": false
+}

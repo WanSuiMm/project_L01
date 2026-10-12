@@ -1,5 +1,49 @@
 # Review context
 
+## Latest: directional nonlinear remainder attempt
+
+Formal status: `execution=COMPLETE_40_HISTORIES_SAME_ONE_CASE`,
+`remainder_feasibility=FAIL_UPPER_30.905579`,
+`first_order_diagnostic=UNCHANGED_PASS`, `half_cache=STILL_UNCERTIFIED`.
+Read the new section of [RESULTS.md](RESULTS.md), then
+[INTERPRETATION.md](runs/round9_directional_remainder_v1_20261012T024528Z/INTERPRETATION.md).
+The signed first derivative is preserved, but scalar second-derivative norm
+enclosures grow through the second block and final LayerNorm. Old upper 36.6231
+becomes 30.9056 after conditional intersections; raw upper is 3.43908e17.
+Empty-history upper is already 3.32726. This is a limitation of this enclosure,
+not evidence that the measured JVP is inaccurate or every directional method fails.
+
+Sources: `experiments/directional_norm_jets.py:Jet`, `layernorm`, `gelu`,
+`attention`, `rollout_bounds`; `experiments/round9_directional_remainder.py:sequence_bound`
+uses the full P tree without Q weighting. Derivation:
+`theory/ROUND9_DIRECTIONAL_REMAINDER_V1.md`; protocol/config are under
+`experiments/`. `scripts/verify_round9_directional_remainder.py:verify` audits
+recorded arithmetic/hash bindings. No outward rounding, novel theorem,
+multi-case generalization or systems gain is established.
+
+## Round 9 follow-up diagnostic
+
+Read the new section of [RESULTS.md](RESULTS.md), then
+[INTERPRETATION.md](runs/round9_directional_diagnostic_v1_20261011T183000Z/INTERPRETATION.md).
+Formal status: `diagnostic=COMPLETE_40_HISTORIES_ONE_MODEL_ONE_PREFIX`,
+`first_order_screen=PASS_MAX_SCALED_REMAINDER_0.0636924`,
+`certificate=HALF_CACHE_STILL_UNCERTIFIED`, `training=NOT_PERFORMED`.
+The frozen choice is the first seed and first n64 prompt, not a new model grid.
+The measured hidden-radius slack (median 166.4x) substantially exceeds the
+additional centered-head norm slack (median 5.75x); final-LN slack at the
+actual norm is only median 1.12x. These ratios are separate diagnostics,
+not a telescoping decomposition. Actual Q states/masses enter the diagnostic
+and cannot be inputs to a P-only certificate. No nonlinear-remainder
+supremum or long-horizon result has been established.
+
+Exact symbols: `experiments/round9_directional_diagnostic.py:path_rollout`
+implements the weighted-measure path, absolute positions and own-suffix KV;
+`analyze_case` measures JVP, endpoint changes and oracle slack substitutions.
+The protocol is `experiments/PROTOCOL_ROUND9_DIRECTIONAL_DIAGNOSTIC_V1.md`.
+`scripts/verify_round9_directional_diagnostic.py:verify` checks retained
+arithmetic/source-copy hashes without model replay. Raw vectors in
+`histories.jsonl` are secondary evidence; do not open them before the aggregate.
+
 ## Current Round 9 local-bound endpoint
 
 Start with the Round 9 section in [RESULTS.md](RESULTS.md), then the public

@@ -1,9 +1,15 @@
-# L01 results: Round 9 completed local-bound evaluation
+# L01 results: Round 9 local bounds and directional follow-ups
 
 **Execution: COMPLETE (330/330). Scientific verdict: the frozen half-cache
 feasibility gate fails for every method; near-full clustering succeeds.**
 The current local bound improves on the former global bound in some cases,
 but it does not certify high fidelity at substantial compression in this study.
+
+A completed one-case [slack/JVP diagnostic](runs/round9_directional_diagnostic_v1_20261011T183000Z/INTERPRETATION.md)
+supports a first-order description. The subsequent
+[analytic remainder attempt](runs/round9_directional_remainder_v1_20261012T024528Z/INTERPRETATION.md)
+fails its small-KL feasibility target: its upper is 30.9056. These follow-ups
+do not change the failed half-cache certificate verdict.
 
 The original five qualified width-64, two-layer Round 6 histogram checkpoints
 were reused without training. Their hashes, architecture and quality metadata
@@ -69,6 +75,81 @@ snapshot from the repository root:
 ```text
 python -B scripts/analyze_round9_endpoint.py --input-dir runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z
 ```
+
+## Round 9 follow-up: frozen one-case slack and JVP diagnostic
+
+Reuse the first original two-layer seed (11), first n=64 prefix, m=32 positive
+agglomerative summary and T=4. All 40 histories are evaluated, with each theta
+decoder generating its own suffix KV. This mechanical selection happens to be
+the largest-upper-bound cluster case in the previous 15-row table. It is a
+descriptive mechanism diagnostic, not an independent-model estimate.
+
+| Diagnostic | Median over histories | Maximum |
+|---|---:|---:|
+| Hidden radius / actual hidden error | 166.42 | 295.07 |
+| Final LN chord bound at actual error / actual LN error | 1.120 | 1.220 |
+| Centered-head norm bound / actual centered logits | 5.748 | 15.952 |
+| Exact-logit quadratic bound / actual conditional KL | 1.993 | 11.384 |
+| JVP vector remainder / max(endpoint,JVP,1e-10) | 1.850% | 6.369% |
+
+The <=25% worst-history first-order screen passes. Endpoint identity,
+forward-JVP/finite-difference checks and replay of the selected Round 9 row pass.
+Actual hidden errors are 0.0380–0.1233 versus radii 4.430–36.091. The result
+locates substantial upstream propagation slack; output direction also matters,
+but the head's rank alone does not explain the entire gap. The stage ratios
+are not an exact product because the old and actual radii induce different
+LayerNorm gains.
+
+The existing P-only sequence bound is 36.623076, exact KL is 3.45822e-6.
+Q-weighting the existing conditional bounds still gives 21.605575. Replacing
+their hidden radii by actual Q hidden-error norms gives 1.56286e-4 with the
+existing scalar readout machinery. This is an oracle substitution using Q
+states and Q history masses, **not a new reference-only certificate**.
+
+Read the [interpretation](runs/round9_directional_diagnostic_v1_20261011T183000Z/INTERPRETATION.md),
+[generated measurements](runs/round9_directional_diagnostic_v1_20261011T183000Z/RESULTS.md),
+then [summary](runs/round9_directional_diagnostic_v1_20261011T183000Z/summary.json).
+The raw per-history vectors are secondary evidence. Four targeted tests pass;
+CPU calculation took 3.48 seconds. The [offline verification](runs/round9_directional_diagnostic_v1_20261011T183000Z/verification.json)
+checks source copies, vectors, ratios, aggregates and tree masses; it does not
+replay the checkpoint or certify a second-derivative supremum. One successful
+JVP diagnostic does not identify a unique cause, establish generalization, or
+change the Round 9 feasibility gate.
+
+## Round 9 next step: analytic directional remainder attempt
+
+The same seed-11, first-prefix n=64,m=32,T=4 case was evaluated with signed
+P-path tangents and analytic second-derivative norm enclosures on theta in
+[0,1]. Construction uses P and the fixed summary, not actual Q endpoint states;
+each path generates its own suffix KV.
+
+| Quantity | Result |
+|---|---:|
+| New sequence upper, intersected with original conditional bounds | 30.905579 |
+| Original sequence upper | 36.623076 |
+| Target<=0.1 | FAIL |
+| Raw directional sequence upper | 3.43908e17 |
+| Improved conditional bounds | 27/40 |
+| Finite second-derivative enclosures | 40/40 |
+| Median / maximum Taylor-remainder norm upper | 1.68686 / 1.17287e9 |
+
+The prior accurate JVP is reproduced to <=4.52e-16. Its small measured remainder
+does not imply a tight computable supremum bound. On history (0,2), the enclosure
+grows through second-block attention and MLP, then final LayerNorm reaches
+2.55604e9. Rare continuation-symbol histories give extreme bounds, but the
+empty-history conditional upper is already 3.32726. This is not solely a
+rare-event or history-law-transfer issue.
+
+Read the [interpretation](runs/round9_directional_remainder_v1_20261012T024528Z/INTERPRETATION.md),
+[generated report](runs/round9_directional_remainder_v1_20261012T024528Z/RESULTS.md),
+then [summary](runs/round9_directional_remainder_v1_20261012T024528Z/summary.json).
+The [method note](theory/ROUND9_DIRECTIONAL_REMAINDER_V1.md) derives the inequalities.
+Four focused tests and the [offline record audit](runs/round9_directional_remainder_v1_20261012T024528Z/verification.json)
+pass; CPU scientific calculation took 1.36 seconds. This is a bounded negative
+result for norm-only second-order enclosures, not impossibility of every
+directional method or a contradiction of earlier theory. It adds neither
+a half-cache certificate nor publication novelty. All numerical bounds remain
+float64 evaluations, not outward-rounded certificates.
 
 ## Previous Round 7 completed thinning study
 

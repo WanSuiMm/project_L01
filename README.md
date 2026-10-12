@@ -2,11 +2,22 @@
 
 Round 9 asks whether local analytic bounds certify substantial prefix-KV compression on the original five two-layer histogram models. All 330 conditions completed: at half cache (n=64,m=32), no method passes the frozen KL<=0.1 feasibility gate. Agglomerative actual KL is tiny, but its mean upper bound is 8.4763; near-full n=64,m=63 succeeds. [RESULTS.md](RESULTS.md) distinguishes these negative and positive findings. Earlier Round 7, Round 6 and Experiment 0 results are preserved.
 
+Two subsequent frozen one-case CPU follow-ups find an accurate first-order
+JVP, but a scalar second-order remainder enclosure still gives sequence KL
+upper 30.9056 after intersection with the original bound. The <=0.1 target
+remains unmet; this does not establish that all directional methods fail.
+
 A completed finite-task result does not establish a general trained-Transformer theorem, a uniform generation guarantee, minimax cache-space lower bound, sequence-TV certificate, or practical inference or memory savings. Treat task-quality failures as part of the reported seed results; do not silently remove them.
 
 ## Current reading route
 
 1. [RESULTS.md](RESULTS.md): current Round 9 verdict, half-cache table and near-full control.
+   The new [one-case diagnostic](runs/round9_directional_diagnostic_v1_20261011T183000Z/INTERPRETATION.md)
+   separates propagation/readout slack and checks the full-network JVP; it does
+   not change the failed half-cache certificate gate.
+   The subsequent [remainder attempt](runs/round9_directional_remainder_v1_20261012T024528Z/INTERPRETATION.md)
+   also fails: preserving the first-order direction does not by itself keep
+   a scalar second-order enclosure small.
 2. [GPT_HANDOFF.md](GPT_HANDOFF.md), then [GPT_CONTEXT.md](GPT_CONTEXT.md): incremental review and exact source symbols.
 3. [Completed run status](runs/round9_local_cert_v1_20261011T045942Z/RUN_STATUS.md), [verification](runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z/verification.json) and [condition metrics](runs/round9_local_cert_v1_20261011T045942Z/snapshots/20261011T174341Z/condition_metrics.csv): coverage, all seed/prefix cases and audit limits.
 4. [Frozen protocol](experiments/PROTOCOL_ROUND9_LOCAL_CERT_V1.md) and [runner](experiments/round9_original_models.py): reference-only bound construction and independent Q-tree measurement.
@@ -24,7 +35,7 @@ Current reproduction commands are in [PROJECT.md](PROJECT.md).
 The completed Round 7 reading route remains below.
 
 1. [RESULTS.md](RESULTS.md): current published snapshot, canonical aggregates, gates, and claim boundaries.
-2. [GPT_HANDOFF.md](GPT_HANDOFF.md): changes since the Round 6 review, evidence commit and focused reviewer questions.
+2. [GPT_CONTEXT.md](GPT_CONTEXT.md): preserved Round 7 context; the current [GPT_HANDOFF.md](GPT_HANDOFF.md) covers the latest Round 9 follow-ups.
 3. [GPT_CONTEXT.md](GPT_CONTEXT.md), [frozen Round 7 protocol](experiments/PROTOCOL_ROUND7_THINNING_V1.md), and [configuration](experiments/configs/round7_thinning_v1.json): estimands, source map and controls.
 4. [THEORY_STATUS.md](THEORY_STATUS.md), then the [archived Round 7 proof draft](theory/archive/round7/THEOREM_AND_PROOF.md): conditional mathematics and restricted lower-bound class.
 
