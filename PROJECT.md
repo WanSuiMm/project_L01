@@ -1,6 +1,7 @@
 # L01: output-relevant causal KV error
 
-Status: **ROUND13_COMPLETE / MATCHED_HORIZON_FISHER_SCREEN_PASS_5_OF_5 / CROSS_EVENT_EXPLANATION_SUPPORTED**;
+Status: **ROUND14_COMPLETE / TASK_UNQUALIFIED / FISHER_TRANSFER_SCREENS_FAIL**;
+previous **ROUND13_COMPLETE / MATCHED_HORIZON_FISHER_SCREEN_PASS_5_OF_5 / CROSS_EVENT_EXPLANATION_SUPPORTED**;
 previous **ROUND12_COMPLETE / BALANCED_ORDER_SCREEN_PASS_5_OF_5 / PREFIX_BIAS_TRAJECTORY_SUPPORTED**;
 previous **ROUND11_COMPLETE / TEMPORAL_ORDER_SCREEN_PASS_5_OF_5 / LOCAL_FISHER_SCREEN_PASS_5_OF_5**;
 previous **ROUND9_REMAINDER_FEASIBILITY_FAIL / FIRST_ORDER_DIAGNOSTIC_STILL_PASS / HALF_CACHE_UNCERTIFIED**;
@@ -10,6 +11,35 @@ previous **ROUND7_EXECUTION_COMPLETE / GS_EMPIRICAL_ADVANTAGE / GLOBAL_CERTIFICA
 previous **ROUND6_EXECUTION_COMPLETE / ANALYTIC_CONSISTENT /
 HISTOGRAM_QUALIFIED / RECALL_TRAINING_UNRELIABLE / GLOBAL_BOUND_UNINFORMATIVE**,
 2026-10-12.
+
+Round 14 completed on 2026-10-12 at 08:50:22 UTC (16:50 China time),
+run `round14_recall_transfer_v1_20261012T083530Z`, in 780.68 pipeline seconds
+(about 13 minutes). Local CPU and server CUDA interface checks passed before
+the formal run. All five seeds completed 5,000 training steps; 160 metric rows,
+10 P-quality rows, 40 Q-quality rows and 30 NPZs were retrieved. Private launch
+and completion receipts remain excluded from publication.
+
+The frozen [associative-recall transfer protocol](experiments/PROTOCOL_ROUND14_RECALL_TRANSFER_V1.md)
+trains five new two-layer, width-128 models on eight-key generative retrieval,
+then automatically evaluates Balanced Block versus Alternating on two heldout
+n=16 tables, T=129, and 16 Q-law paths per antipodal phase. It retains full
+generation KL, full/diagonal event Fisher and a leave-one-seed-out scalar
+histogram-energy baseline. Only 4/5 seeds pass both training and P-generation
+readiness: seed 37 has all-answer top-1 42.49%, first-answer top-1 43.55%, and
+P-generated answer accuracy 36.21%. The frozen all-five qualification fails.
+Full-Fisher relative error <=25% passes only 1/5 seeds for Block and 3/5 for
+Alternating; full beats diagonal in 4/5 and 2/5. Both policy-level screens fail.
+The failed seed is the only Block accuracy pass, so qualification alone does
+not explain away the transfer failure. No seed was removed or retrained.
+Round 13 and earlier numerical claims are unchanged; broader transfer is not
+supported by this realization.
+
+Canonical Round 14 commands are in the protocol. Read [RESULTS.md](RESULTS.md),
+the [interpretation](runs/round14_recall_transfer_review_v1_20261012T085656Z/INTERPRETATION.md),
+then `evaluation/analysis_round14/REPORT.md` and `summary.json` within the run.
+Fisher is a diagnostic on evaluated Q histories, not a heldout predictor or
+a certificate. Check the recorded evidence without model weights using
+`python -B scripts/verify_round14_release.py --input-dir runs/round14_recall_transfer_v1_20261012T083530Z`.
 
 Round 13 completed on 2026-10-12 at 06:44:26 UTC in 634.65 scientific seconds
 (635.60 supervisor seconds), CPU two threads, float64. Its identity is

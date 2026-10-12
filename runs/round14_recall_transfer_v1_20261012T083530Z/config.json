@@ -1,0 +1,89 @@
+{
+  "protocol_id": "round14_recall_transfer_v1",
+  "model_seeds": [
+    11,
+    23,
+    37,
+    51,
+    71
+  ],
+  "model": {
+    "vocab_size": 17,
+    "d_model": 128,
+    "n_layers": 2,
+    "max_context": 147,
+    "ff_multiplier": 4
+  },
+  "training": {
+    "steps": 5000,
+    "batch_size": 64,
+    "suffix_length": 130,
+    "learning_rate": 0.001,
+    "warmup_steps": 200,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "cosine_floor": 0.05,
+    "validation_count": 512,
+    "validation_seed": 20261014,
+    "log_every": 500
+  },
+  "quality": {
+    "answer_top1_min": 0.9,
+    "first_answer_top1_min": 0.9,
+    "p_query_valid_min": 0.95,
+    "p_answer_accuracy_min": 0.8
+  },
+  "n": 16,
+  "horizon": 129,
+  "horizons": [
+    17,
+    33,
+    65,
+    129
+  ],
+  "prompt_count": 2,
+  "prompt_seed": 202610141,
+  "rollout_seed": 202610142,
+  "quality_rollout_seed": 202610143,
+  "phase_paths": 16,
+  "probe_paths_per_phase": 16,
+  "policies": [
+    "balanced_block",
+    "alternating"
+  ],
+  "jvp_chunk_size": 8,
+  "amplitudes": [
+    1.0
+  ],
+  "device": "cpu",
+  "torch_threads": 2,
+  "fisher_relative_error_screen": 0.25,
+  "required_model_seeds": 4,
+  "time_limit_seconds": 7200,
+  "training_device": "cuda:0",
+  "task": {
+    "name": "generative_associative_recall",
+    "key_ids": [
+      0,
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "value_ids": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "cont_id": 2,
+    "keys_per_table": 8
+  }
+}

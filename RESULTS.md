@@ -1,5 +1,52 @@
 # L01 results
 
+## Round 14: associative-recall transfer fails the frozen endpoint
+
+**Execution complete; TASK_UNQUALIFIED; both Fisher transfer screens fail.**
+The new fully generative eight-key retrieval task uses five two-layer width-128
+models, two n=16 heldout tables, T=129, and 16 Q paths per antipodal phase.
+All five seeds completed 5,000 training steps. The pipeline finished at
+08:50:22 UTC on 2026-10-12 in 780.68 seconds; all 160 metric rows, 10 P-quality
+rows, 40 Q-quality rows, and 30 NPZs are retained. It is an associative-recall
+adaptation, not an exact MQAR benchmark reproduction.
+
+Only **4/5 seeds qualify**, below the frozen requirement of all five. Seed 37
+has all-answer/first-answer validation top-1 42.49%/43.55% and unmasked P
+answer accuracy 36.21%. Other seeds have 100% validation top-1 and at least
+99.90% sampled P answer accuracy. No failed seed is removed or replaced.
+
+| T=129; all-five equal-seed mean or count | Balanced Block | Alternating |
+|---|---:|---:|
+| Actual sequence KL(Q1||P) estimate | 0.000668265 | 0.000274418 |
+| Full cross-event Fisher | 0.000567869 | 0.000246408 |
+| Diagonal-only Fisher | 0.000302254 | 0.000301715 |
+| Mean per-seed full relative error | 37.27% | 21.29% |
+| Full error <=25% (needs >=4/5) | 1/5 FAIL | 3/5 FAIL |
+| Full closer than diagonal (needs >=4/5) | 4/5 PASS | 2/5 FAIL |
+| LOSO scalar histogram error <=25%, descriptive | 0/5 | 1/5 |
+
+Block has larger KL in all five seeds. However, the failed seed contributes
+79.4%/71.0% of pooled KL and is the only Block full-Fisher accuracy pass.
+An explicitly exploratory qualified-four sensitivity gives 0/4 Block and
+2/4 Alternating accuracy passes: simply dropping the training failure would
+not rescue the approximation. The formal result remains the all-five result.
+Local-attention mean-error comparability passes only 1/5 seeds, limiting a
+pure temporal-order interpretation. The scalar histogram baseline also fails;
+that does not establish a unique alternative mechanism.
+
+Round 13 remains a successful finite histogram-task diagnostic. This new
+realization does **not** establish its quantitative transfer to associative
+recall, a heldout risk predictor, a useful certificate or practical inference
+benefit. No additional experiment or rescue tuning was launched.
+
+Read the [interpretation](runs/round14_recall_transfer_review_v1_20261012T085656Z/INTERPRETATION.md),
+then the [frozen report](runs/round14_recall_transfer_v1_20261012T083530Z/evaluation/analysis_round14/REPORT.md)
+and [summary](runs/round14_recall_transfer_v1_20261012T083530Z/evaluation/analysis_round14/summary.json).
+The [protocol](experiments/PROTOCOL_ROUND14_RECALL_TRANSFER_V1.md) contains
+reproduction commands; [record verification](runs/round14_recall_transfer_review_v1_20261012T085656Z/release_verification.json)
+checks retained arithmetic and metadata without replaying model weights or JVPs.
+Raw trajectories and the larger prefix/event CSVs are secondary evidence.
+
 ## Round 13: same-horizon forward KL and cross-event Fisher
 
 **Execution complete; full-Fisher accuracy and full-versus-diagonal screens

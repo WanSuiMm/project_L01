@@ -1,0 +1,221 @@
+{
+  "audit_boundaries": [
+    "Checks saved record coverage and arithmetic; compares checkpoint SHA metadata across summaries without loading weights or rehashing checkpoint bytes.",
+    "Checks the stored full-horizon Gram contraction at T=129 and saved Fisher trajectories at all configured horizons; does not rerun JVPs.",
+    "Does not establish a theorem, held-out prediction, or generalization beyond this finite task."
+  ],
+  "audit_status": "PASS",
+  "coverage": {
+    "event_metric_rows": 5120,
+    "metrics_rows": 160,
+    "p_generation_archives": 10,
+    "p_quality_rows": 10,
+    "policy_trace_archives": 20,
+    "prefix_metric_rows": 5160,
+    "q_quality_rows": 40,
+    "terminal_path_rows": 640
+  },
+  "fisher_screens": {
+    "alternating": {
+      "full_better_than_diagonal_seed_count": 2,
+      "full_within_25_percent_seed_count": 3,
+      "required_seed_count": 4,
+      "threshold": 0.25
+    },
+    "balanced_block": {
+      "full_better_than_diagonal_seed_count": 4,
+      "full_within_25_percent_seed_count": 1,
+      "required_seed_count": 4,
+      "threshold": 0.25
+    }
+  },
+  "max_abs_gaps": {
+    "CSV KL/trace": 4.336808689942018e-19,
+    "CSV diagonal Fisher/trace": 2.168404344971009e-19,
+    "CSV full Fisher/trace": 4.336808689942018e-19,
+    "CSV histogram area/trace": 0.0,
+    "P answer accuracy": 0.0,
+    "P answer gate": 0.0,
+    "P query fraction": 0.0,
+    "P query gate": 0.0,
+    "T129 Gram sum/full Fisher": 4.336808689942018e-19,
+    "T129 Gram trace/diagonal Fisher": 2.168404344971009e-19,
+    "summary seed Fisher error": 1.5265566588595902e-16,
+    "summary seed KL": 4.336808689942018e-19,
+    "summary seed diagonal Fisher": 1.3552527156068805e-20,
+    "summary seed full Fisher": 1.0842021724855044e-19,
+    "terminal histogram/prefix": 0.0,
+    "training answer gate": 0.0,
+    "training first-answer gate": 0.0
+  },
+  "per_seed": [
+    {
+      "by_policy": {
+        "alternating": {
+          "actual": 9.404180441157898e-05,
+          "diagonal": 8.339789047293487e-05,
+          "full": 7.416398378025195e-05,
+          "full_better_than_diagonal": false,
+          "full_relative_error": 0.21137217385079812,
+          "full_within_25_percent": true
+        },
+        "balanced_block": {
+          "actual": 0.00013644854483946752,
+          "diagonal": 8.321309203068357e-05,
+          "full": 7.874282200497324e-05,
+          "full_better_than_diagonal": false,
+          "full_relative_error": 0.42291196950751936,
+          "full_within_25_percent": false
+        }
+      },
+      "p_generation": {
+        "answer_accuracy_over_all_answer_positions": 0.999755859375,
+        "passed": true,
+        "query_valid_fraction": 0.9995192307692308
+      },
+      "seed": 11,
+      "training": {
+        "answer_top1": 1.0,
+        "first_answer_top1": 1.0,
+        "passed": true
+      }
+    },
+    {
+      "by_policy": {
+        "alternating": {
+          "actual": 4.295918587728175e-05,
+          "diagonal": 4.31977696588133e-05,
+          "full": 4.171900188474645e-05,
+          "full_better_than_diagonal": false,
+          "full_relative_error": 0.028868889556660435,
+          "full_within_25_percent": true
+        },
+        "balanced_block": {
+          "actual": 6.863776101620334e-05,
+          "diagonal": 4.317795739687983e-05,
+          "full": 5.13572636746378e-05,
+          "full_better_than_diagonal": true,
+          "full_relative_error": 0.25176370973823187,
+          "full_within_25_percent": false
+        }
+      },
+      "p_generation": {
+        "answer_accuracy_over_all_answer_positions": 0.9990234375,
+        "passed": true,
+        "query_valid_fraction": 0.9992788461538461
+      },
+      "seed": 23,
+      "training": {
+        "answer_top1": 1.0,
+        "first_answer_top1": 1.0,
+        "passed": true
+      }
+    },
+    {
+      "by_policy": {
+        "alternating": {
+          "actual": 0.0009739687999571018,
+          "diagonal": 0.0012229466454298072,
+          "full": 0.0009586441147686574,
+          "full_better_than_diagonal": true,
+          "full_relative_error": 0.015734267041325564,
+          "full_within_25_percent": true
+        },
+        "balanced_block": {
+          "actual": 0.002651933457384962,
+          "diagonal": 0.001225591769368593,
+          "full": 0.00250693788758364,
+          "full_better_than_diagonal": true,
+          "full_relative_error": 0.0546754178154606,
+          "full_within_25_percent": true
+        }
+      },
+      "p_generation": {
+        "answer_accuracy_over_all_answer_positions": 0.362060546875,
+        "passed": false,
+        "query_valid_fraction": 0.9788461538461538
+      },
+      "seed": 37,
+      "training": {
+        "answer_top1": 0.4248497596153846,
+        "first_answer_top1": 0.435546875,
+        "passed": false
+      }
+    },
+    {
+      "by_policy": {
+        "alternating": {
+          "actual": 0.00010581065472358109,
+          "diagonal": 6.72940861985126e-05,
+          "full": 5.893757973825104e-05,
+          "full_better_than_diagonal": false,
+          "full_relative_error": 0.44299012332719134,
+          "full_within_25_percent": false
+        },
+        "balanced_block": {
+          "actual": 0.0001941713379825182,
+          "diagonal": 6.735790563190507e-05,
+          "full": 9.891213665454444e-05,
+          "full_better_than_diagonal": true,
+          "full_relative_error": 0.4905935258918091,
+          "full_within_25_percent": false
+        }
+      },
+      "p_generation": {
+        "answer_accuracy_over_all_answer_positions": 1.0,
+        "passed": true,
+        "query_valid_fraction": 1.0
+      },
+      "seed": 51,
+      "training": {
+        "answer_top1": 1.0,
+        "first_answer_top1": 1.0,
+        "passed": true
+      }
+    },
+    {
+      "by_policy": {
+        "alternating": {
+          "actual": 0.00015531005166441797,
+          "diagonal": 9.173862683436296e-05,
+          "full": 9.857517745777044e-05,
+          "full_better_than_diagonal": true,
+          "full_relative_error": 0.36530072328631946,
+          "full_within_25_percent": false
+        },
+        "balanced_block": {
+          "actual": 0.00029013437043609163,
+          "diagonal": 9.192715377780904e-05,
+          "full": 0.00010339277718882057,
+          "full_better_than_diagonal": true,
+          "full_relative_error": 0.6436383009933838,
+          "full_within_25_percent": false
+        }
+      },
+      "p_generation": {
+        "answer_accuracy_over_all_answer_positions": 1.0,
+        "passed": true,
+        "query_valid_fraction": 1.0
+      },
+      "seed": 71,
+      "training": {
+        "answer_top1": 1.0,
+        "first_answer_top1": 1.0,
+        "passed": true
+      }
+    }
+  ],
+  "provenance": {
+    "checkpoint_bytes_rehashed": false,
+    "checkpoint_summary_hash_identity_verified": 5,
+    "config_snapshot_hash_bound": true,
+    "source_files_sha_verified": 13
+  },
+  "readiness": {
+    "p_generation_qualified_seed_count": 4,
+    "training_qualified_seed_count": 4
+  },
+  "run_id": "round14_recall_transfer_v1_20261012T083530Z",
+  "schema_version": "l01_round14_release_verification_v1",
+  "scientific_verdict": "TASK_UNQUALIFIED"
+}

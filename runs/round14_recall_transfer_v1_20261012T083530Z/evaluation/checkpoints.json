@@ -1,0 +1,99 @@
+{
+  "models": [
+    {
+      "model_seed": 11,
+      "checkpoint_sha256": "751949a6be9949abecaa5ef8abca94c4ae72ff49146a10c4242f37bf7d92d0c4",
+      "model": {
+        "vocab_size": 17,
+        "d_model": 128,
+        "n_layers": 2,
+        "max_context": 147,
+        "ff_multiplier": 4
+      },
+      "final_validation": {
+        "nll": 1.0398379986102764,
+        "allanswer_top1": 1.0,
+        "first_answer_top1": 1.0,
+        "target_count": 66560,
+        "answer_count": 33280,
+        "first_answer_count": 512
+      }
+    },
+    {
+      "model_seed": 23,
+      "checkpoint_sha256": "df535e01995637725124f502731c9c9fdd1f6d517250ec2cd8b27ce34d330565",
+      "model": {
+        "vocab_size": 17,
+        "d_model": 128,
+        "n_layers": 2,
+        "max_context": 147,
+        "ff_multiplier": 4
+      },
+      "final_validation": {
+        "nll": 1.0398150077232948,
+        "allanswer_top1": 1.0,
+        "first_answer_top1": 1.0,
+        "target_count": 66560,
+        "answer_count": 33280,
+        "first_answer_count": 512
+      }
+    },
+    {
+      "model_seed": 37,
+      "checkpoint_sha256": "2ed34c7a5357263f0c0139533b6fc5aabf9fa531cfd710b2971a653c0d6c8ba6",
+      "model": {
+        "vocab_size": 17,
+        "d_model": 128,
+        "n_layers": 2,
+        "max_context": 147,
+        "ff_multiplier": 4
+      },
+      "final_validation": {
+        "nll": 1.6837769435002254,
+        "allanswer_top1": 0.4248497596153846,
+        "first_answer_top1": 0.435546875,
+        "target_count": 66560,
+        "answer_count": 33280,
+        "first_answer_count": 512
+      }
+    },
+    {
+      "model_seed": 51,
+      "checkpoint_sha256": "4aa4a558e31d829ce5c780ea7c305cdae8779e79f0d06008600fe3f0480ea949",
+      "model": {
+        "vocab_size": 17,
+        "d_model": 128,
+        "n_layers": 2,
+        "max_context": 147,
+        "ff_multiplier": 4
+      },
+      "final_validation": {
+        "nll": 1.039882601224459,
+        "allanswer_top1": 1.0,
+        "first_answer_top1": 1.0,
+        "target_count": 66560,
+        "answer_count": 33280,
+        "first_answer_count": 512
+      }
+    },
+    {
+      "model_seed": 71,
+      "checkpoint_sha256": "5ef7fe0c4dadd6b56d7a7c1b53efef893c2bf0612472ee2a70424e6a3e66d37f",
+      "model": {
+        "vocab_size": 17,
+        "d_model": 128,
+        "n_layers": 2,
+        "max_context": 147,
+        "ff_multiplier": 4
+      },
+      "final_validation": {
+        "nll": 1.0397800738994891,
+        "allanswer_top1": 1.0,
+        "first_answer_top1": 1.0,
+        "target_count": 66560,
+        "answer_count": 33280,
+        "first_answer_count": 512
+      }
+    }
+  ]
+}

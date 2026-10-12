@@ -1,8 +1,37 @@
 # L01: causal output-relevant KV error
 
-## Latest endpoint: Round 13 cross-event explanation at the primary horizon
+## Latest endpoint: Round 14 associative-recall transfer is not established
 
 L01 asks which aspects of KV perturbations explain autoregressive output error.
+Round 13 accurately explained a finite histogram-model contrast using full
+cross-event Fisher geometry. Round 14 tests one new eight-key generative
+associative-recall task: five newly trained two-layer models, two heldout
+tables, and the same T=129 suffix-thinning comparison. All runs completed,
+but only 4/5 models learned retrieval well enough and both frozen Fisher
+transfer screens fail. The earlier histogram result stands; quantitative
+transfer beyond it is not established. Failed models remain in the evidence.
+
+1. [RESULTS.md](RESULTS.md): Round 14 qualification and negative transfer endpoint, then historical results.
+2. [GPT_HANDOFF.md](GPT_HANDOFF.md), then [GPT_CONTEXT.md](GPT_CONTEXT.md): incremental changes, exact quantities and source map.
+3. [Round 14 interpretation](runs/round14_recall_transfer_review_v1_20261012T085656Z/INTERPRETATION.md), [report](runs/round14_recall_transfer_v1_20261012T083530Z/evaluation/analysis_round14/REPORT.md) and [summary](runs/round14_recall_transfer_v1_20261012T083530Z/evaluation/analysis_round14/summary.json).
+4. [Frozen protocol](experiments/PROTOCOL_ROUND14_RECALL_TRANSFER_V1.md) and [configuration](experiments/configs/round14_recall_transfer_v1.json): task adaptation, training, qualification, estimands and reproduction.
+
+Read summaries before raw NPZ and prefix/event CSV evidence. Check the
+published records without checkpoints:
+
+```text
+python -B scripts/verify_round14_release.py --input-dir runs/round14_recall_transfer_v1_20261012T083530Z
+```
+
+Round 14 can be trained from scratch with the protocol's fixed recipe and
+[requirements.txt](requirements.txt); checkpoints are excluded from GitHub.
+Use fresh training/evaluation directories. Generation KL and Fisher share
+evaluated Q histories; Fisher is not heldout forecasting or a certificate.
+Only eligible generated suffix pairs are thinned; no whole-cache half-budget
+or inference speed claim is made.
+
+## Historical: Round 13 cross-event explanation at the primary horizon
+
 Round 12 found that Balanced Block versus Alternating thinning has similar
 terminal token bias but an 11.17x full-sequence KL contrast; the whole prefix
 bias trajectory tracks the contrast. Round 13 now tests exact full-unroll
