@@ -1,6 +1,57 @@
 # Review context
 
-## Latest: Round 14B final suffix-write run
+## Latest: pretrained 7B temporal-order pilot
+
+Formal status: `real_llm_temporal_v1=COMPLETE`, `coverage=144_OF_144`,
+`model=QWEN2_5_7B_INSTRUCT_ONE_CHECKPOINT`, `local_comparable=11_OF_12_PROMPTS`,
+`comparable_twofold_contrasts_either_direction=0`,
+`scientific_verdict=NO_LARGE_ORDERING_GAP_OBSERVED`.
+This separately authorized pilot preserves Round 14B's closed negative result.
+
+Twelve fixed synthetic prompts, T=130, three policies, both antipodal phases
+and two Q paths per phase give 144 rows. Every policy keeps the source prompt
+exact and uses 64 generated-pair edits. Plus/minus selects earlier/later original
+KV at weight two, retaining original RoPE positions; these labels do not orient
+the actual error vectors. Each stream forms its own subsequent KV. FP32 score
+biases implement the logical weighted cache over allocated BF16 KVs.
+
+KL is the sum of exact full categorical KL(Q_t||P_t) on each Q-generated history,
+then averaged over phases/paths within prompt and equally over prompts. It
+estimates a schedule-conditional mean sequence KL, not hidden-schedule-mixture
+KL. Local error sums squared direct pre-o_proj displacement across heads and
+dimensions, averages layers/events, and undoes only the latest edit with that
+layer's query and accumulated Q cache fixed. Comparable magnitudes do not match
+vectors, sensitivity, layer profiles or history laws.
+
+All-prompt Block/Alternating/Random KL is 181.3447/185.2281/189.4147 nats; local
+error is 31.9788/34.8241/35.5113. Block exceeds Alternating in 6/12 prompts; its
+paired mean difference is -3.8834, bootstrap95 [-27.9022, 17.1016]. Eleven meet
+the prespecified local max/min <=1.25 tag. Their Block/Alternating means are
+182.4765/178.3918; per-prompt ratios span 0.7300--1.2889, with no twofold contrast.
+The non-comparable prompt remains in primary results. Only two paths per phase
+and one checkpoint are available; this is not an equivalence test or a model/task
+population confidence statement. Two paths emit EOS and continue to the frozen
+horizon. No task accuracy, tight fidelity bound, byte saving or speed was measured.
+
+| Concept | Exact source symbol |
+|---|---|
+| Balanced schedules, independent RNG domains | `experiments/real_llm_temporal_v1/run_qwen_probe.py:signs_for`, `stable_seed` |
+| Original-position (2,0) weighted mask | `apply_pair_bias`, `make_four_d_mask` in that runner |
+| Direct local attention displacement | `AttentionLocalProbe` |
+| Q-law rollout, P replay and full-softmax KL | `run_policy`, `kl_full_softmax` |
+| Complete-grid validation and prompt aggregates | `summarize` |
+| Read-only public record and source checks | `scripts/verify_real_llm_temporal_v1_release.py:verify` |
+
+Read [RESULTS.md](RESULTS.md), the
+[interpretation](runs/real_llm_temporal_v1_20261012T123114Z/INTERPRETATION.md),
+[small summary](runs/real_llm_temporal_v1_20261012T123114Z/evaluation/summary.json),
+then the [protocol](experiments/PROTOCOL_REAL_LLM_TEMPORAL_V1.md).
+Frozen source READMEs and the original dispatch have historical pending-result
+language; current status is above. The source archive is kept locally and its
+SHA-256 is published. Weights, machine-specific receipts and transient logs are
+excluded. The large trajectory JSONL is secondary; begin with the small summary.
+
+## Historical: Round 14B final suffix-write run
 
 Formal status: `round14b=COMPLETE`, `closure=FINAL_FIXED_RUN_CLOSED`,
 `coverage=320_CONTINUOUS_720_ONE_SHOT_10_P_QUALITY_5_ABLATION_270_NPZ`,

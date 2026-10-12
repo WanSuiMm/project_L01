@@ -1,12 +1,33 @@
 # L01: output-relevant causal KV error
 
+The user authorized a separate pretrained-model pilot on 2026-10-12 after
+reviewing `L01_RealLLM_Temporal_Order_Pilot.zip`. Its
+[frozen protocol](experiments/PROTOCOL_REAL_LLM_TEMPORAL_V1.md) and
+[configuration](experiments/real_llm_temporal_v1/config.json) test Block,
+Alternating and Balanced Random on the cached Qwen2.5-7B-Instruct checkpoint:
+12 prompts, T=130, 64 pair edits, two phases and two paths per phase (144 rows).
+Status: **REAL_LLM_TEMPORAL_V1_COMPLETE / NO_LARGE_ORDERING_GAP_OBSERVED**.
+All 144 rows completed at 12:49:37 UTC (20:49 China time) on 2026-10-12,
+in 516.50 seconds. Four CPU tests, tiny-Qwen CPU/CUDA-BF16 parity, and a six-row
+7B smoke passed before launch. The completed metrics and private terminal
+record have been retrieved and checked. Mean Block/Alternating KL is
+181.3447/185.2281 (ratio 0.9790); local comparability holds in 11/12 prompts,
+with no twofold gap in either direction among those eleven. The paired-prompt
+interval spans zero. Read [RESULTS.md](RESULTS.md), the
+[interpretation](runs/real_llm_temporal_v1_20261012T123114Z/INTERPRETATION.md),
+and [source freeze](runs/real_llm_temporal_v1_20261012T123114Z/FROZEN.json).
+This bounded pilot does not reproduce the histogram model's large policy
+contrast. Earlier/later selections do not imply opposite error vectors; no
+general absence theorem, task-quality or systems result follows. The original
+ZIP and all prior negative results remain intact. No new run or monitor followed.
+
 The [2026-10-12 novelty audit](NOVELTY_AUDIT_2026-10-12.md) compares the current
 mechanism claim with primary sources and ranks bounded follow-up questions.
 It does not change the frozen results or launch a replacement experiment.
 The [Round 14B protocol review](ROUND14B_PROTOCOL_REVIEW_2026-10-12.md) assesses
 the proposed suffix-write task and identifies conditions to freeze before a run.
 
-Status: **ROUND14B_COMPLETE / TASK_OR_INTERVENTION_UNQUALIFIED / FINAL_RUN_CLOSED**;
+Previous closed-study status: **ROUND14B_COMPLETE / TASK_OR_INTERVENTION_UNQUALIFIED / FINAL_RUN_CLOSED**;
 previous **ROUND14_COMPLETE / TASK_UNQUALIFIED / FISHER_TRANSFER_SCREENS_FAIL**;
 previous **ROUND13_COMPLETE / MATCHED_HORIZON_FISHER_SCREEN_PASS_5_OF_5 / CROSS_EVENT_EXPLANATION_SUPPORTED**;
 previous **ROUND12_COMPLETE / BALANCED_ORDER_SCREEN_PASS_5_OF_5 / PREFIX_BIAS_TRAJECTORY_SUPPORTED**;

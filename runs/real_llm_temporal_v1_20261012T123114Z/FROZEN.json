@@ -1,0 +1,20 @@
+{
+  "protocol_id": "L01_REAL_LLM_TEMPORAL_V1",
+  "created_utc": "2026-10-12T12:39:22.032300+00:00",
+  "source_package_sha256": "aa4cc7abf1a789a912fa6f12c9393fc6b07ca6b3eff3276562d1ceab35557750",
+  "sha256": {
+    "run_qwen_probe.py": "5d3b00fea75a5889308b1464246d01932ddc84c87f9f9d7b5e88440b30699661",
+    "test_cpu.py": "ef85e5d362051f5e8abbecfa9604fdd4384fd6249ae73c6dbb53218bf5f86879",
+    "remote_job.py": "590cfae79b965053b056604d908113a17f0295779ff91dc1a5522b2a1dd7beac",
+    "remote_preflight.py": "9a0add1c6f81c85547be7c516c0b6485d652b00e7b20acca437e883cc97d5678",
+    "setup_environment.py": "a3fac91d1feacda4fdc102a5241da1062c6aa1d1a7892aa458ad3a3e5b3c66f2",
+    "config.json": "63dc4341341125cc1d343a8a4f33624a7e61f666fc0cbf533d7d59cf05148b4f",
+    "prompts.json": "3c278f0816a8726260730b3a42da2e51d03393378958a3dafe45d738c8af3b17",
+    "README.md": "27d2af053eb5ac43dd8294f3c6d77544cd6c6d6a1783ae947f9085ea2cb5057a",
+    "PROTOCOL.md": "f45cecbd5e066ad379603daf5e644c2b6d85a0d66cdfd1b57f59278970bc9995",
+    "CANONICAL_PROTOCOL.md": "78c5ee883a0b9a27a3db44e2597e6f04b8f70236b381625706760a64cf2719f2"
+  },
+  "model_id": "Qwen/Qwen2.5-7B-Instruct",
+  "model_snapshot": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "expected_rows": 144
+}

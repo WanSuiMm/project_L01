@@ -1,0 +1,6 @@
+# Separate 7B pilot environment; earlier experiments use root requirements.txt.
+# Install a CUDA-compatible torch build; the recorded run used 2.11.0+cu128.
+torch==2.11.0
+transformers==4.57.1
+huggingface-hub==0.36.0
+safetensors>=0.4.3

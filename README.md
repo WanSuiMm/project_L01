@@ -1,6 +1,43 @@
 # L01: causal output-relevant KV error
 
-## Latest endpoint: Round 14B final run closed without establishing transfer
+## Latest: 7B pilot complete; large ordering gap not observed
+
+L01 asks which KV perturbations explain autoregressive output error. The new
+Qwen2.5-7B-Instruct pilot completed all 144 trajectories on twelve fixed prompts.
+Balanced Block/Alternating mean sequence KL is 181.3447/185.2281 nats. Eleven
+prompts have comparable pooled local attention-error magnitudes, but none has
+a twofold KL gap in either direction. The earlier histogram model's 11--12x
+contrast does not reproduce here. This single-checkpoint pilot does not establish
+equivalence, task quality, a compression certificate or a systems benefit.
+
+1. [RESULTS.md](RESULTS.md): the 7B table and claim limits, followed by earlier results.
+2. [GPT_HANDOFF.md](GPT_HANDOFF.md), then the new section of [GPT_CONTEXT.md](GPT_CONTEXT.md).
+3. [7B interpretation](runs/real_llm_temporal_v1_20261012T123114Z/INTERPRETATION.md) and [small summary](runs/real_llm_temporal_v1_20261012T123114Z/evaluation/summary.json): all-prompt comparisons and uncertainty.
+4. [Frozen protocol](experiments/PROTOCOL_REAL_LLM_TEMPORAL_V1.md), [config](experiments/real_llm_temporal_v1/config.json), [runner](experiments/real_llm_temporal_v1/run_qwen_probe.py) and [source identities](runs/real_llm_temporal_v1_20261012T123114Z/FROZEN.json).
+
+The 8 MB trajectory JSONL is secondary evidence. Verify published records with
+Python's standard library, without loading weights or rewriting frozen files:
+
+```text
+python -B scripts/verify_real_llm_temporal_v1_release.py --input-dir runs/real_llm_temporal_v1_20261012T123114Z
+```
+
+For a fresh GPU reproduction, use the cached model snapshot named in the protocol
+and the separate [7B dependencies](experiments/requirements_real_llm_temporal_v1.txt);
+the root requirements belong to earlier experiments. From this repository root:
+
+```text
+python -B -m unittest discover -s experiments/real_llm_temporal_v1 -p test_cpu.py -v
+python -B experiments/real_llm_temporal_v1/run_qwen_probe.py --model-path MODEL_SNAPSHOT --out-dir runs/NEW_REAL_LLM_RUN
+```
+
+The runner uses local-only model loading and refuses an existing output directory.
+Original package descriptions and the dispatch snapshot are preserved historical
+records; their pending-result language is superseded by the completed evidence.
+The input ZIP remains a local provenance archive, identified by SHA-256 in the
+source manifest; it is not needed to read or reproduce the published source.
+
+## Historical: Round 14B final run closed without establishing transfer
 
 L01 asks which KV perturbations explain autoregressive output error. The final
 suffix-write recall test makes compressed values necessary for retrieval and

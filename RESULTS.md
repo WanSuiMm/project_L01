@@ -1,5 +1,42 @@
 # L01 results
 
+## Real-LLM temporal-order v1: complete; large ordering gap not observed
+
+**Execution COMPLETE; 144/144 rows; no stable large Block/Alternating contrast
+on this fixed pilot.** Qwen2.5-7B-Instruct finished at 12:49:37 UTC on 2026-10-12,
+in 516.50 seconds (8 minutes 36 seconds). No training or model download occurred.
+
+| Equal mean over 12 prompts; T=130 | Balanced Block | Alternating | Balanced Random |
+|---|---:|---:|---:|
+| Sequence KL(Q||P), Q-law Monte Carlo, nats | 181.3447 | 185.2281 | 189.4147 |
+| Direct local attention error squared | 31.9788 | 34.8241 | 35.5113 |
+
+Block/Alternating aggregate KL ratio is **0.9790**, with Block higher in 6/12
+prompts. Mean paired difference is -3.8834 nats; the fixed-template prompt
+bootstrap interval [-27.9022, 17.1016] spans zero. This is not model-population
+uncertainty or an equivalence test.
+
+Eleven of twelve prompts meet the prespecified pooled local-error max/min <=1.25
+tag. Among those eleven, Block/Alternating mean KL is 182.4765/178.3918 (ratio
+1.0229), with per-prompt ratios 0.7300--1.2889. **None has a twofold gap in either
+direction.** The one non-comparable prompt remains in all primary aggregates.
+Thus the 11--12x histogram contrast is not reproduced by this pilot.
+
+There are only two paths per phase and one pretrained checkpoint. Earlier/later
+retention labels do not imply opposite real-error directions, and comparable
+pooled local magnitudes do not match vectors or history laws. Two trajectories
+emit EOS and continue to T=130, as frozen; the endpoint measures raw fixed-horizon
+model-law KL, not completion quality. Similar policy risks do not certify dense
+model fidelity; no task accuracy or systems savings were measured.
+
+Read the [interpretation and all-prompt table](runs/real_llm_temporal_v1_20261012T123114Z/INTERPRETATION.md),
+[small summary](runs/real_llm_temporal_v1_20261012T123114Z/evaluation/summary.json),
+[record checks](runs/real_llm_temporal_v1_20261012T123114Z/analysis/record_check.json),
+and [frozen protocol](experiments/PROTOCOL_REAL_LLM_TEMPORAL_V1.md).
+The 8 MB trajectory JSONL is secondary; do not open it first. Complete-grid,
+source identities and aggregate arithmetic pass record-only checks; no new
+7B replay was performed. Earlier results and negative conclusions are unchanged.
+
 ## Round 14B: final fixed run complete; transfer not established
 
 **Execution COMPLETE; TASK_OR_INTERVENTION_UNQUALIFIED; final run CLOSED.**

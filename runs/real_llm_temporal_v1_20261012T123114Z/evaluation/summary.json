@@ -1,0 +1,184 @@
+{
+  "n_prompts": 12,
+  "n_positive_block_over_alt": 6,
+  "n_local_comparable_le1_25": 11,
+  "n_joint_ratio_ge2_and_local_comparable": 0,
+  "paired_mean_kl_difference_block_minus_alt": -3.8833604714476273,
+  "paired_prompt_bootstrap95": [
+    -27.902225351285143,
+    17.101580682910196
+  ],
+  "policy_aggregate": {
+    "block": {
+      "mean_kl": 181.34473213917252,
+      "mean_local": 31.97876722784082
+    },
+    "alt": {
+      "mean_kl": 185.22809261062014,
+      "mean_local": 34.82407506380806
+    },
+    "random": {
+      "mean_kl": 189.41471493317576,
+      "mean_local": 35.51130547754252
+    }
+  },
+  "pairs": [
+    {
+      "prompt_id": "instruction_en_01",
+      "category": "instruction",
+      "block_kl": 229.05919970950362,
+      "alt_kl": 201.00864913420696,
+      "random_kl": 219.50418129289505,
+      "risk_ratio": 1.1395489731218889,
+      "local_ratio": 1.0371479082133688,
+      "block_local": 32.11056658336209,
+      "alt_local": 33.30340696348009,
+      "random_local": 32.28473773364528,
+      "eos_count": 0
+    },
+    {
+      "prompt_id": "instruction_en_02",
+      "category": "instruction",
+      "block_kl": 197.88746689074546,
+      "alt_kl": 247.08716255986957,
+      "random_kl": 193.39118294957825,
+      "risk_ratio": 0.8008812147122255,
+      "local_ratio": 1.1558594602246288,
+      "block_local": 34.304548091985694,
+      "alt_local": 39.65123644085241,
+      "random_local": 35.318851508996985,
+      "eos_count": 0
+    },
+    {
+      "prompt_id": "instruction_zh_03",
+      "category": "instruction",
+      "block_kl": 151.1644992487063,
+      "alt_kl": 207.06241071531372,
+      "random_kl": 205.14596648381757,
+      "risk_ratio": 0.730043172618808,
+      "local_ratio": 1.154509691537161,
+      "block_local": 30.268373608315297,
+      "alt_local": 34.94513067786764,
+      "random_local": 34.097256325453095,
+      "eos_count": 0
+    },
+    {
+      "prompt_id": "instruction_zh_04",
+      "category": "instruction",
+      "block_kl": 139.1204105353919,
+      "alt_kl": 120.56447375986579,
+      "random_kl": 133.2308801052808,
+      "risk_ratio": 1.1539088273423304,
+      "local_ratio": 1.0865749917628904,
+      "block_local": 27.40266833885075,
+      "alt_local": 29.775054124567973,
+      "random_local": 30.551324929744094,
+      "eos_count": 0
+    },
+    {
+      "prompt_id": "reason_en_01",
+      "category": "reasoning",
+      "block_kl": 168.89571008335287,
+      "alt_kl": 260.4273872080337,
+      "random_kl": 247.39128151138792,
+      "risk_ratio": 0.6485328286476882,
+      "local_ratio": 1.464077618225133,
+      "block_local": 29.02800603266582,
+      "alt_local": 42.49925393413017,
+      "random_local": 41.229044033145,
+      "eos_count": 0
+    },
+    {
+      "prompt_id": "reason_en_02",
+      "category": "reasoning",
+      "block_kl": 223.99954895878471,
+      "alt_kl": 211.73938298445913,
+      "random_kl": 213.30369511254747,
+      "risk_ratio": 1.057902152171783,
+      "local_ratio": 1.2279437544622895,
+      "block_local": 39.55292170564111,
+      "alt_local": 48.568763179177935,
+      "random_local": 45.369646302154536,
+      "eos_count": 0
+    },
+    {
+      "prompt_id": "reason_zh_03",
+      "category": "reasoning",
+      "block_kl": 151.6594824521741,
+      "alt_kl": 153.7171992102986,
+      "random_kl": 166.4289712931703,
+      "risk_ratio": 0.9866136205402146,
+      "local_ratio": 1.043819758918276,
+      "block_local": 31.83126153161207,
+      "alt_local": 30.494978907660474,
+      "random_local": 34.535186985117825,
+      "eos_count": 0
+    },
+    {
+      "prompt_id": "reason_zh_04",
+      "category": "reasoning",
+      "block_kl": 136.8196128831022,
+      "alt_kl": 106.1541992661236,
+      "random_kl": 146.8237500721493,
+      "risk_ratio": 1.2888761238743072,
+      "local_ratio": 1.1594603639380214,
+      "block_local": 32.55608429726529,
+      "alt_local": 28.078652198761638,
+      "random_local": 33.87189655468498,
+      "eos_count": 0
+    },
+    {
+      "prompt_id": "story_en_01",
+      "category": "narrative",
+      "block_kl": 227.63998196020273,
+      "alt_kl": 198.7613426110673,
+      "random_kl": 215.96619032140546,
+      "risk_ratio": 1.1452930382224507,
+      "local_ratio": 1.098056759395639,
+      "block_local": 32.415141165813566,
+      "alt_local": 35.593664863885415,
+      "random_local": 38.54639970824532,
+      "eos_count": 0
+    },
+    {
+      "prompt_id": "story_en_02",
+      "category": "narrative",
+      "block_kl": 253.91411743107346,
+      "alt_kl": 208.35268509389613,
+      "random_kl": 223.50547657297795,
+      "risk_ratio": 1.2186745628770979,
+      "local_ratio": 1.1168425160653328,
+      "block_local": 30.939029071539398,
+      "alt_local": 34.55402307287654,
+      "random_local": 35.89288318577341,
+      "eos_count": 2
+    },
+    {
+      "prompt_id": "story_zh_03",
+      "category": "narrative",
+      "block_kl": 154.25053411165572,
+      "alt_kl": 164.2648253724983,
+      "random_kl": 166.780377562097,
+      "risk_ratio": 0.9390356928932686,
+      "local_ratio": 1.0689683662723808,
+      "block_local": 31.863651736535886,
+      "alt_local": 29.80785282510109,
+      "random_local": 33.381156928795264,
+      "eos_count": 0
+    },
+    {
+      "prompt_id": "story_zh_04",
+      "category": "narrative",
+      "block_kl": 141.72622140537715,
+      "alt_kl": 143.59739341180898,
+      "random_kl": 141.50462592080203,
+      "risk_ratio": 0.9869693177433543,
+      "local_ratio": 1.0279607488791327,
+      "block_local": 31.472954570502875,
+      "alt_local": 30.61688357733536,
+      "random_local": 31.057281534754473,
+      "eos_count": 0
+    }
+  ],
+  "interpretation": "Nested sample paths and phases are averaged inside prompt. Bootstrap resamples prompts, not tokens. One model checkpoint is not multiple independent models. No performance/memory saving claim."
+}
