@@ -1,0 +1,21 @@
+{
+  "protocol_id": "round14b_suffix_write_v1",
+  "frozen_utc": "2026-10-12T10:27:04.9423218Z",
+  "evidence_base_commit": "7f59ab24f481cde4bf4cbd4d2644e303e96c2025",
+  "source_sha256": {
+    "round6_transformer.py": "6f854305669cc54f1f0f64ac58c554d8693e387577ef32cd01a7ac41438f640c",
+    "round11_streaming_core.py": "12fc3188843b84647f1972c0372976bce0a2e587a864e8efaf4e31316ac5dda9",
+    "gs_thin.py": "fac92beea1e985153f5db793b7527270de877fa2b15bb58a3832d65c9303b009",
+    "round14b_task.py": "075f3afcd11bde29623ac005544ec619a24f47e4b5226d7dfc57d12053c879fe",
+    "round14b_train.py": "8b7603335cb9bbdf58c5db001477dd11352f71e1981a6fd44f86b45610088c3f",
+    "round14b_core.py": "72cfa8ca884823e538309ff212777f3fe382d3b205394a99ff88db22770e8b9d",
+    "round14b_evaluate.py": "a664fb14fe646b9a62a32d307e5b75766f0f54af8e0627e42e24402f0a321771",
+    "analyze_round14b.py": "167af4d2dd32a788d7248f9d4611a0ce0b698cbad70d3777b8d2a87792e62c6d",
+    "round14b_pipeline.py": "8f91e51b08e7f114cbbb2f18d8275bda95df0ad4c917ed3526e1da1061e301c6",
+    "test_round14b_task.py": "063f67b5d07128c9b578d52657b611cf407ead22a55c2c887c2c024a28e3ad96",
+    "test_round14b_core.py": "1889dc3ce06ee48b8344c380ea68b6760f5cde7c5f4b7c10bfbcdd31d710fd92",
+    "test_round14b_evaluate.py": "3d0c5141d73d0946fc0ce0b7746bbef4d8a5042ae94bc546d44c013d8c0c00e6",
+    "PROTOCOL_ROUND14B_SUFFIX_WRITE_V1.md": "15121f0bdc6e28fbd44cc8559832b8f561482d8971301f7559849803215547c4",
+    "configs/round14b_suffix_write_v1.json": "9538aa889a32ed8c4220f60905fc11a584c134f4a25f45f12739932c0be24a5c"
+  }
+}

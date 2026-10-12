@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "scope": "Record-only provenance, coverage, saved trace sums, Fisher Gram identities, mass/cardinality and equal-seed aggregation checks; no model rerun or scientific qualification.",
+  "source_files": 14,
+  "continuous_rows": 320,
+  "one_shot_rows": 720,
+  "trace_files": 270,
+  "scientific_verdict": "TASK_OR_INTERVENTION_UNQUALIFIED"
+}

@@ -1,0 +1,109 @@
+{
+  "protocol_id": "round14b_suffix_write_v1",
+  "model_seeds": [
+    11,
+    23,
+    37,
+    51,
+    71
+  ],
+  "model": {
+    "vocab_size": 12,
+    "d_model": 128,
+    "n_layers": 2,
+    "max_context": 184,
+    "ff_multiplier": 4
+  },
+  "training": {
+    "seeds": [
+      11,
+      23,
+      37,
+      51,
+      71
+    ],
+    "steps": 5000,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "warmup_steps": 200,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "cosine_floor": 0.05,
+    "validation_count": 512,
+    "validation_seed": 20261015,
+    "log_every": 500
+  },
+  "task": {
+    "name": "suffix_write_delayed_recall",
+    "prefix_length": 8,
+    "blocks": 16,
+    "block_length": 11,
+    "suffix_length": 176,
+    "keys": 4,
+    "values": 4
+  },
+  "quality": {
+    "answer_top1_min": 0.9,
+    "p_answer_accuracy_min": 0.9,
+    "syntax_valid_min": 0.95,
+    "query_valid_min": 0.95,
+    "paths_per_prompt": 32,
+    "ablation_episodes": 32
+  },
+  "prompt_count": 2,
+  "prompt_seed": 202610151,
+  "rollout_seed": 202610152,
+  "quality_rollout_seed": 202610153,
+  "ablation_seed": 202610154,
+  "phase_paths": 16,
+  "policies": [
+    "balanced_block",
+    "alternating"
+  ],
+  "amplitudes": [
+    1.0,
+    0.25
+  ],
+  "horizons": [
+    11,
+    44,
+    88,
+    176
+  ],
+  "jvp_chunk_size": 4,
+  "one_shot": {
+    "prefix_length": 90,
+    "budget": 45,
+    "horizon": 94,
+    "horizons": [
+      5,
+      11,
+      44,
+      94
+    ],
+    "methods": [
+      "gs_thin",
+      "uniform_subset"
+    ],
+    "compression_seeds": [
+      101,
+      103,
+      107,
+      109
+    ],
+    "paths_per_direction": 16
+  },
+  "gates": {
+    "required_model_seeds": 4,
+    "memory_accuracy_drop_min": 0.2,
+    "local_mse_max_ratio": 1.25,
+    "sequence_kl_min_nats": 0.01,
+    "fisher_relative_error_max": 0.25,
+    "same_seeds_must_pass_all": true
+  },
+  "torch_threads": 2,
+  "time_limit_seconds": 7200,
+  "training_device": "cuda:0",
+  "evaluation_device": "cpu",
+  "stop_rule": "One fixed run; all five seeds reported; no rescue retraining, new seeds, threshold changes or follow-up round."
+}

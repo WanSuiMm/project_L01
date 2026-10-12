@@ -1,0 +1,9 @@
+{
+  "execution": "COMPLETE",
+  "completed_utc": "2026-10-12T10:39:23.191854+00:00",
+  "elapsed_seconds": 666.166374790002,
+  "smoke": false,
+  "failure": null,
+  "closure": "Final fixed run closed; no automatic retries or rescue experiments.",
+  "scientific_verdict": "TASK_OR_INTERVENTION_UNQUALIFIED"
+}

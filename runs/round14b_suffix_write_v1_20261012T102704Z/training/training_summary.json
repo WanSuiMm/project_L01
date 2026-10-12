@@ -1,0 +1,328 @@
+{
+  "schema_version": "l01_round14b_suffix_write_v1",
+  "status": "completed",
+  "verdict": "TF_ANSWER_THRESHOLD_NOT_MET",
+  "smoke": false,
+  "task": {
+    "name": "suffix_write_delayed_recall",
+    "key_ids": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "value_ids": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "start_id": 8,
+    "write_id": 9,
+    "read_id": 10,
+    "fill_id": 11,
+    "prefix_length": 8,
+    "block_length": 11,
+    "blocks": 16,
+    "suffix_length": 176,
+    "input_length": 183,
+    "vocab_size": 12
+  },
+  "model": {
+    "vocab_size": 12,
+    "d_model": 128,
+    "n_layers": 2,
+    "max_context": 184,
+    "ff_multiplier": 4
+  },
+  "training": {
+    "seeds": [
+      11,
+      23,
+      37,
+      51,
+      71
+    ],
+    "steps": 5000,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "warmup_steps": 200,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "cosine_floor": 0.05,
+    "validation_count": 512,
+    "validation_seed": 20261015,
+    "log_every": 500,
+    "time_limit_seconds": 7200.0
+  },
+  "training_device_type": "cuda",
+  "torch_threads": 2,
+  "runtime": {
+    "torch_version": "2.11.0+cu128",
+    "numpy_version": "2.3.5",
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false
+  },
+  "quality_thresholds": {
+    "teacher_forced_answer_min": 0.9
+  },
+  "models": [
+    {
+      "model_seed": 11,
+      "status": "completed",
+      "checkpoint": "models/seed11/checkpoint.pt",
+      "checkpoint_sha256": "0bc1306278982684224c5c160cb70b9eccf805f7ed85c7eb629f49a391f95903",
+      "steps_completed": 5000,
+      "final_validation": {
+        "nll": 0.5709669589996338,
+        "answer_top1": 0.7618408203125,
+        "teacher_forced_answer_top1": 0.7618408203125,
+        "random_value_nll": 1.386397510766983,
+        "random_role_diagnostics": {
+          "key_a": {
+            "nll": 1.3869220316410065,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999597072601318,
+            "target_count": 8192
+          },
+          "key_b": {
+            "nll": 1.0992270112037659,
+            "expected_bayes_nll": 1.0986122886681098,
+            "mean_support_probability": 0.999660313129425,
+            "target_count": 8192
+          },
+          "value_a": {
+            "nll": 1.3864263892173767,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999573230743408,
+            "target_count": 8192
+          },
+          "value_b": {
+            "nll": 1.3863686323165894,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.999951995909214,
+            "target_count": 8192
+          },
+          "query": {
+            "nll": 0.6940431892871857,
+            "expected_bayes_nll": 0.6931471805599453,
+            "mean_support_probability": 0.9993664622306824,
+            "target_count": 8192
+          }
+        },
+        "target_count": 90112,
+        "answer_correct": 6241,
+        "answer_count": 8192
+      },
+      "teacher_forced_answer_pass": false,
+      "elapsed_seconds": 17.24619779898785
+    },
+    {
+      "model_seed": 23,
+      "status": "completed",
+      "checkpoint": "models/seed23/checkpoint.pt",
+      "checkpoint_sha256": "e984d6d2d3b65e712e0e69925bb1e536556bb958f8358f6beee4165b4baae51c",
+      "steps_completed": 5000,
+      "final_validation": {
+        "nll": 0.5411370721730319,
+        "answer_top1": 1.0,
+        "teacher_forced_answer_top1": 1.0,
+        "random_value_nll": 1.3866067454218864,
+        "random_role_diagnostics": {
+          "key_a": {
+            "nll": 1.3862540572881699,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999681860208511,
+            "target_count": 8192
+          },
+          "key_b": {
+            "nll": 1.0988805890083313,
+            "expected_bayes_nll": 1.0986122886681098,
+            "mean_support_probability": 0.9996979981660843,
+            "target_count": 8192
+          },
+          "value_a": {
+            "nll": 1.3864208310842514,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999373778700829,
+            "target_count": 8192
+          },
+          "value_b": {
+            "nll": 1.3867926597595215,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999358505010605,
+            "target_count": 8192
+          },
+          "query": {
+            "nll": 0.6937548071146011,
+            "expected_bayes_nll": 0.6931471805599453,
+            "mean_support_probability": 0.999415785074234,
+            "target_count": 8192
+          }
+        },
+        "target_count": 90112,
+        "answer_correct": 8192,
+        "answer_count": 8192
+      },
+      "teacher_forced_answer_pass": true,
+      "elapsed_seconds": 17.050183144994662
+    },
+    {
+      "model_seed": 37,
+      "status": "completed",
+      "checkpoint": "models/seed37/checkpoint.pt",
+      "checkpoint_sha256": "1b68151c98ddad9e168ce92b91f8668b195519f0b5bf296cbef3fdc1b32aadac",
+      "steps_completed": 5000,
+      "final_validation": {
+        "nll": 0.5591056509451433,
+        "answer_top1": 0.86279296875,
+        "teacher_forced_answer_top1": 0.86279296875,
+        "random_value_nll": 1.3866668343544006,
+        "random_role_diagnostics": {
+          "key_a": {
+            "nll": 1.38655324280262,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999670162796974,
+            "target_count": 8192
+          },
+          "key_b": {
+            "nll": 1.0990292578935623,
+            "expected_bayes_nll": 1.0986122886681098,
+            "mean_support_probability": 0.9996230155229568,
+            "target_count": 8192
+          },
+          "value_a": {
+            "nll": 1.386547476053238,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999603629112244,
+            "target_count": 8192
+          },
+          "value_b": {
+            "nll": 1.3867861926555634,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999605268239975,
+            "target_count": 8192
+          },
+          "query": {
+            "nll": 0.694010004401207,
+            "expected_bayes_nll": 0.6931471805599453,
+            "mean_support_probability": 0.9993300661444664,
+            "target_count": 8192
+          }
+        },
+        "target_count": 90112,
+        "answer_correct": 7068,
+        "answer_count": 8192
+      },
+      "teacher_forced_answer_pass": false,
+      "elapsed_seconds": 17.121937799005536
+    },
+    {
+      "model_seed": 51,
+      "status": "completed",
+      "checkpoint": "models/seed51/checkpoint.pt",
+      "checkpoint_sha256": "d604d6b778fbe28e1d98ea63f9678ee2b68fbf67e85d835a4fb97eaa0d7384e9",
+      "steps_completed": 5000,
+      "final_validation": {
+        "nll": 0.5621272000399503,
+        "answer_top1": 0.837646484375,
+        "teacher_forced_answer_top1": 0.837646484375,
+        "random_value_nll": 1.3864695578813553,
+        "random_role_diagnostics": {
+          "key_a": {
+            "nll": 1.3866172283887863,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999509751796722,
+            "target_count": 8192
+          },
+          "key_b": {
+            "nll": 1.0993304252624512,
+            "expected_bayes_nll": 1.0986122886681098,
+            "mean_support_probability": 0.9995949864387512,
+            "target_count": 8192
+          },
+          "value_a": {
+            "nll": 1.3865189254283905,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999251961708069,
+            "target_count": 8192
+          },
+          "value_b": {
+            "nll": 1.38642019033432,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999458491802216,
+            "target_count": 8192
+          },
+          "query": {
+            "nll": 0.6942998319864273,
+            "expected_bayes_nll": 0.6931471805599453,
+            "mean_support_probability": 0.9993624538183212,
+            "target_count": 8192
+          }
+        },
+        "target_count": 90112,
+        "answer_correct": 6862,
+        "answer_count": 8192
+      },
+      "teacher_forced_answer_pass": false,
+      "elapsed_seconds": 17.166387139004655
+    },
+    {
+      "model_seed": 71,
+      "status": "completed",
+      "checkpoint": "models/seed71/checkpoint.pt",
+      "checkpoint_sha256": "8e3530a4b34c13715033c40c4fbad8cce213ab37e38c64e99ead5bc23503cb13",
+      "steps_completed": 5000,
+      "final_validation": {
+        "nll": 0.541227096861059,
+        "answer_top1": 1.0,
+        "teacher_forced_answer_top1": 1.0,
+        "random_value_nll": 1.3864568322896957,
+        "random_role_diagnostics": {
+          "key_a": {
+            "nll": 1.3864362835884094,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999672695994377,
+            "target_count": 8192
+          },
+          "key_b": {
+            "nll": 1.0993679761886597,
+            "expected_bayes_nll": 1.0986122886681098,
+            "mean_support_probability": 0.9996867328882217,
+            "target_count": 8192
+          },
+          "value_a": {
+            "nll": 1.3865448832511902,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999391138553619,
+            "target_count": 8192
+          },
+          "value_b": {
+            "nll": 1.3863687813282013,
+            "expected_bayes_nll": 1.3862943611198906,
+            "mean_support_probability": 0.9999366700649261,
+            "target_count": 8192
+          },
+          "query": {
+            "nll": 0.694444328546524,
+            "expected_bayes_nll": 0.6931471805599453,
+            "mean_support_probability": 0.9994128122925758,
+            "target_count": 8192
+          }
+        },
+        "target_count": 90112,
+        "answer_correct": 8192,
+        "answer_count": 8192
+      },
+      "teacher_forced_answer_pass": true,
+      "elapsed_seconds": 17.007964265998453
+    }
+  ],
+  "checkpoints": [
+    "models/seed11/checkpoint.pt",
+    "models/seed23/checkpoint.pt",
+    "models/seed37/checkpoint.pt",
+    "models/seed51/checkpoint.pt",
+    "models/seed71/checkpoint.pt"
+  ]
+}

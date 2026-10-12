@@ -1,6 +1,13 @@
 # L01: output-relevant causal KV error
 
-Status: **ROUND14_COMPLETE / TASK_UNQUALIFIED / FISHER_TRANSFER_SCREENS_FAIL**;
+The [2026-10-12 novelty audit](NOVELTY_AUDIT_2026-10-12.md) compares the current
+mechanism claim with primary sources and ranks bounded follow-up questions.
+It does not change the frozen results or launch a replacement experiment.
+The [Round 14B protocol review](ROUND14B_PROTOCOL_REVIEW_2026-10-12.md) assesses
+the proposed suffix-write task and identifies conditions to freeze before a run.
+
+Status: **ROUND14B_COMPLETE / TASK_OR_INTERVENTION_UNQUALIFIED / FINAL_RUN_CLOSED**;
+previous **ROUND14_COMPLETE / TASK_UNQUALIFIED / FISHER_TRANSFER_SCREENS_FAIL**;
 previous **ROUND13_COMPLETE / MATCHED_HORIZON_FISHER_SCREEN_PASS_5_OF_5 / CROSS_EVENT_EXPLANATION_SUPPORTED**;
 previous **ROUND12_COMPLETE / BALANCED_ORDER_SCREEN_PASS_5_OF_5 / PREFIX_BIAS_TRAJECTORY_SUPPORTED**;
 previous **ROUND11_COMPLETE / TEMPORAL_ORDER_SCREEN_PASS_5_OF_5 / LOCAL_FISHER_SCREEN_PASS_5_OF_5**;
@@ -11,6 +18,45 @@ previous **ROUND7_EXECUTION_COMPLETE / GS_EMPIRICAL_ADVANTAGE / GLOBAL_CERTIFICA
 previous **ROUND6_EXECUTION_COMPLETE / ANALYTIC_CONSISTENT /
 HISTOGRAM_QUALIFIED / RECALL_TRAINING_UNRELIABLE / GLOBAL_BOUND_UNINFORMATIVE**,
 2026-10-12.
+
+Round 14B completed on 2026-10-12 at 10:39:23 UTC (18:39 China time),
+in 666.17 seconds (11 minutes 6 seconds). It was dispatched at 10:28:17 UTC.
+The [frozen protocol](experiments/PROTOCOL_ROUND14B_SUFFIX_WRITE_V1.md),
+[configuration](experiments/configs/round14b_suffix_write_v1.json), and
+[source hash manifest](experiments/FROZEN_ROUND14B_SUFFIX_WRITE_V1.json)
+define the final experiment. Eleven local focused tests, a local end-to-end
+smoke and the server CUDA pipeline smoke passed. These are software checks,
+not task qualification or scientific results. The completed terminal record and
+all compact scientific evidence have now been retrieved; private receipts are
+excluded from publication. There is no recurring monitor.
+
+Run identity: `round14b_suffix_write_v1_20261012T102704Z`.
+Five fixed seeds train a suffix-write delayed-recall decoder. Continuous
+Balanced Block/Alternating compression edits only same-role value pairs after
+their forward computation. A separate Round 7 one-shot control uses n=90,
+m=45, T=94 and actual GS/uniform thinning, followed by each stream's own suffix
+KV. The two arms have different budgets and are not a matched-budget causal
+comparison. The SAME four of five seeds must meet task, cache-only memory,
+intervention comparability, material KL risk and full-versus-diagonal Fisher
+gates to support transfer. All seeds are retained. Only seeds 23 and 71 satisfy
+the prerequisites; none satisfies all gates. Cache-only memory necessity and
+material KL risk pass in 5/5, but task qualification and matched local-error
+comparability pass in 2/5. Even both prerequisite-qualified seeds have more
+than 99% Full-Fisher relative error at the physical endpoint. Across all five,
+Block/Alternating KL is 49.8354/50.1825, Full Fisher 4.0223/3.8690, and diagonal
+3.8895/3.8944. This run does not reproduce a consistent temporal-order advantage.
+One-shot GS/uniform KL(Q||P) is 11.7477/15.7690, whereas KL(P||Q) is
+6.8399/6.4842; the descriptive advantage is not consistent across directions
+or seeds. No Round 7 theorem is refuted by these nonzero risks.
+
+The final run is closed. No rescue sweep or new round follows. Read
+[RESULTS.md](RESULTS.md), then the
+[Round 14B interpretation](runs/round14b_suffix_write_v1_20261012T102704Z/INTERPRETATION.md),
+[frozen report](runs/round14b_suffix_write_v1_20261012T102704Z/evaluation/REPORT.md)
+and [closure](runs/round14b_suffix_write_v1_20261012T102704Z/CLOSURE.md).
+The original [dispatch record](runs/round14b_suffix_write_v1_20261012T102704Z/DISPATCH.md)
+is preserved as historical evidence. Record-only verification passes on all
+14 frozen source hashes, 320 continuous rows, 720 one-shot rows and 270 NPZs.
 
 Round 14 completed on 2026-10-12 at 08:50:22 UTC (16:50 China time),
 run `round14_recall_transfer_v1_20261012T083530Z`, in 780.68 pipeline seconds

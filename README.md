@@ -1,6 +1,40 @@
 # L01: causal output-relevant KV error
 
-## Latest endpoint: Round 14 associative-recall transfer is not established
+## Latest endpoint: Round 14B final run closed without establishing transfer
+
+L01 asks which KV perturbations explain autoregressive output error. The final
+suffix-write recall test makes compressed values necessary for retrieval and
+adds an actual Round 7 one-shot GS/uniform control. Execution completed, but
+only 2/5 seeds meet prerequisites and 0/5 meet all frozen gates. Full Fisher
+severely underestimates finite-endpoint KL even in both qualified models.
+Round 13's narrow histogram result stands; broader trained-model transfer is
+not established. No failed seed was removed and no rescue round follows.
+
+1. [RESULTS.md](RESULTS.md): Round 14B endpoint, one-shot control and historical results.
+2. [GPT_HANDOFF.md](GPT_HANDOFF.md), then [GPT_CONTEXT.md](GPT_CONTEXT.md): incremental review and exact source map.
+3. [Interpretation](runs/round14b_suffix_write_v1_20261012T102704Z/INTERPRETATION.md), [report](runs/round14b_suffix_write_v1_20261012T102704Z/evaluation/REPORT.md), [summary](runs/round14b_suffix_write_v1_20261012T102704Z/evaluation/summary.json), and [closure](runs/round14b_suffix_write_v1_20261012T102704Z/CLOSURE.md).
+4. [Frozen protocol](experiments/PROTOCOL_ROUND14B_SUFFIX_WRITE_V1.md), [configuration](experiments/configs/round14b_suffix_write_v1.json), and [source hash manifest](experiments/FROZEN_ROUND14B_SUFFIX_WRITE_V1.json).
+
+Read summaries before the secondary JSONL/NPZ evidence. Audit saved records
+without checkpoints, training, generation, or JVP replay:
+
+```text
+python -B scripts/verify_round14b_release.py --input-dir runs/round14b_suffix_write_v1_20261012T102704Z
+```
+
+The protocol includes fresh-run reproduction commands; dependencies are in
+[requirements.txt](requirements.txt). Checkpoint bytes and private receipts
+are excluded. Full/diagonal Fisher is a retrospective Q-history diagnostic;
+theta=.25 uses extra atoms and is not a physical memory-saving endpoint.
+The one-shot and continuous arms have separate budgets and do not isolate
+compression timing at a matched total budget. Nonzero empirical KL does not
+refute the separately conditional Round 7 bound.
+
+The [novelty audit](NOVELTY_AUDIT_2026-10-12.md) and
+[pre-run protocol review](ROUND14B_PROTOCOL_REVIEW_2026-10-12.md) are historical
+decision notes, not new theorems or publication-readiness conclusions.
+
+## Historical: Round 14 associative-recall transfer is not established
 
 L01 asks which aspects of KV perturbations explain autoregressive output error.
 Round 13 accurately explained a finite histogram-model contrast using full

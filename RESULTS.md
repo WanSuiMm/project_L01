@@ -1,5 +1,62 @@
 # L01 results
 
+## Round 14B: final fixed run complete; transfer not established
+
+**Execution COMPLETE; TASK_OR_INTERVENTION_UNQUALIFIED; final run CLOSED.**
+The pipeline finished at 10:39:23 UTC on 2026-10-12 in 666.17 seconds.
+All five fixed seeds completed 5,000 training steps. All 320 continuous metric
+rows, 720 one-shot metric rows, 10 P-quality rows, five cache-ablation rows and
+270 NPZ traces were retrieved. Frozen source hashes, trace sums, event-Gram
+identities and cache mass/cardinality checks pass. This verification does not
+turn a failed scientific gate into a pass.
+
+Only **2/5 seeds meet all prerequisites** (23 and 71), below the frozen 4/5
+requirement. **0/5 meet all five gates.** All seeds pass cache-only memory
+necessity (accuracy drops 54.88–76.95 percentage points) and material risk.
+Task readiness and local-error comparability each pass only 2/5. No seed was
+dropped, retrained, or replaced; no threshold was changed.
+
+| T=176; all-five equal-seed mean | Balanced Block | Alternating |
+|---|---:|---:|
+| Sequence KL(Q||P), Q-law Monte Carlo | 49.8354 | 50.1825 |
+| Full cross-event Fisher on those histories | 4.02230 | 3.86895 |
+| Diagonal-only Fisher | 3.88952 | 3.89441 |
+| Mean per-seed Full relative error | 90.26% | 90.99% |
+| Full error <=25% | 0/5 | 0/5 |
+
+This is not merely a training-failure explanation: prerequisite-qualified seed
+23 has KL 54.0675/51.7728 versus Full 0.005328/0.004751; seed 71 has KL
+77.3468/78.4717 versus Full 0.496232/0.720007. Both strongly underestimate at
+the finite physical compression endpoint. Block exceeds Alternating in only
+2/5 seeds; the aggregate ratio is 0.9931, unlike Round 13's 12.19x histogram
+result. This run establishes neither a consistent ordering benefit nor
+quantitative transfer of the quadratic diagnostic to this task.
+
+The continuous endpoint halves the eligible value-pair records and saves
+16/184 total records (8.70%). The **separate Round 7 one-shot control** halves
+the n=90 prefix to m=45, then appends its own suffix KV for T=94:
+
+| One-shot method; equal-seed mean | KL(Q||P) | KL(P||Q) |
+|---|---:|---:|
+| Full identity | 0 | 0 |
+| GS thinning | 11.7477 | 6.83986 |
+| Uniform subset | 15.7690 | 6.48423 |
+
+GS has lower KL(Q||P) in 3/5 seeds and lower KL(P||Q) in 2/5; summary/prompt
+variation is large. This is a direction-dependent descriptive comparison,
+not a reliable fidelity guarantee or a test/refutation of Round 7's conditional
+bound. The continuous and one-shot arms have different budgets and interventions.
+
+Read the [interpretation](runs/round14b_suffix_write_v1_20261012T102704Z/INTERPRETATION.md),
+then [REPORT.md](runs/round14b_suffix_write_v1_20261012T102704Z/evaluation/REPORT.md)
+and [summary.json](runs/round14b_suffix_write_v1_20261012T102704Z/evaluation/summary.json).
+[Record verification](runs/round14b_suffix_write_v1_20261012T102704Z/release_verification.json)
+is separate from the scientific verdict. The
+[frozen protocol](experiments/PROTOCOL_ROUND14B_SUFFIX_WRITE_V1.md) and
+[terminal closure](runs/round14b_suffix_write_v1_20261012T102704Z/CLOSURE.md)
+specify the final stopping point. All earlier results remain unchanged.
+No rescue sweep, additional seed, or new experimental round follows.
+
 ## Round 14: associative-recall transfer fails the frozen endpoint
 
 **Execution complete; TASK_UNQUALIFIED; both Fisher transfer screens fail.**

@@ -1,6 +1,71 @@
 # Review context
 
-## Latest: Round 14 associative-recall transfer
+## Latest: Round 14B final suffix-write run
+
+Formal status: `round14b=COMPLETE`, `closure=FINAL_FIXED_RUN_CLOSED`,
+`coverage=320_CONTINUOUS_720_ONE_SHOT_10_P_QUALITY_5_ABLATION_270_NPZ`,
+`training=5_SEEDS_5000_STEPS_EACH`, `prerequisites=2_OF_5`, `joint_gates=0_OF_5`,
+`scientific_verdict=TASK_OR_INTERVENTION_UNQUALIFIED`. Earlier claims are unchanged.
+
+The eight-token prompt contains keys and fixed markers but no values. Each of
+16 blocks is WRITE/ka/kb/va/vb/FILL/FILL/READ/query/answer/FILL. Distinct keys,
+fresh uniform values and queried pair members are randomized. Both two-layer,
+width-128 decoder streams generate from unmasked full softmax. Invalid slots
+remain in quality denominators; the current valid write pair defines query
+support. Same-role value pairs are edited after vb's forward pass: plus retains
+first and minus second at weight two. This differs from older rounds' token-ID
+selector and same-step compression timing. Both antipodes of Block and
+Alternating have eight plus/eight minus events; both models form their own KV.
+
+At theta=1, 16/184 total records are saved. A terminal unscored append is used
+only for storage accounting. The endpoint KL sums exact conditional
+categorical KL over T=176 Q-generated histories (16 paths/phase, two prompts).
+Full/diagonal event JVPs include all later layer/query/KV feedback, but use
+conditional P-logit geometry on these same Q histories. They are neither a
+P-law sequence-Fisher expectation nor a sequence-KL Taylor coefficient with
+law derivatives. Theta=.25 separately generates its own Q law, unlike the old
+Round 13 replay; its 200-record positive-measure cache is only a diagnostic.
+
+The primary scientific unit is each of five fixed model seeds. The SAME >=4/5
+must meet task, cache-only memory necessity, local-MSE comparability, material
+KL >=.01 nat, and both-policy Full error <=25% plus better-than-diagonal gates.
+Only seeds 23 and 71 meet prerequisites; neither passes the explanation gate.
+Memory necessity and material risk pass all five. All-five Block/Alternating
+KL is 49.8354/50.1825, Full 4.02230/3.86895, diagonal 3.88952/3.89441.
+Both qualified models underestimate by >99%; training failures alone do not
+explain this approximation failure. No consistent ordering advantage appears.
+
+The separate one-shot arm starts with an exact n=90 prefix after the eighth
+WRITE through vb and before its delayed READ. GS-Thin or a uniform original
+record subset independently compresses each layer to m=45 once, using weights
+two; each model then appends its own unit-mass suffix KV for T=94. Both
+directions use the appropriate sampled history law plus the other shadow.
+GS/uniform KL(Q||P)=11.7477/15.7690 and KL(P||Q)=6.83986/6.48423; seed wins
+are 3/5 and 2/5. This descriptive control does not establish Round 7's constants,
+a useful bound, a space rate, or a general GS advantage. Its budget differs
+from continuous compression's. No empirical result here refutes that conditional
+theorem. No rescue seeds, threshold changes or next round follow this run.
+
+| Concept | Exact source symbol |
+|---|---|
+| Task distribution, causal labels and strict current-pair parser | `experiments/round14b_task.py:sample_batch`, `score_suffix` |
+| Fixed training and random-role NLL/support diagnostics | `experiments/round14b_train.py:run_training`, `validation` |
+| Post-forward cache edits, full-unroll smooth path and JVP | `experiments/round14b_core.py:step`, `rollout`, `event_geometry` |
+| Same-input cache deletion | `experiments/round14b_evaluate.py:necessity` |
+| Paired-law KL and once-per-layer GS/uniform summaries | `experiments/round14b_evaluate.py:generate`, `summary`, `conditioned_scores` |
+| Five seed-level joint gates and descriptive control | `experiments/analyze_round14b.py:analyze` |
+| Bounded training/evaluation and terminal closure | `experiments/round14b_pipeline.py:main` |
+| Read-only release arithmetic audit | `scripts/verify_round14b_release.py:verify` |
+
+Begin with [RESULTS.md](RESULTS.md), the
+[interpretation](runs/round14b_suffix_write_v1_20261012T102704Z/INTERPRETATION.md),
+then [summary](runs/round14b_suffix_write_v1_20261012T102704Z/evaluation/summary.json)
+and the [frozen protocol](experiments/PROTOCOL_ROUND14B_SUFFIX_WRITE_V1.md).
+NPZs/JSONL are secondary. Numerical checks do not prove a theorem or certify
+the finite Taylor remainder. Generic Fisher identities and geometry-aware
+compression are established prior work; global novelty remains unestablished.
+
+## Historical: Round 14 associative-recall transfer
 
 Formal status: `round14=COMPLETE`, `coverage=160_METRICS_10_P_QUALITY_40_Q_QUALITY_30_NPZ`,
 `training=5_SEEDS_5000_STEPS_EACH`, `training_qualified=4_OF_5`,
